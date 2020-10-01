@@ -5,7 +5,7 @@ import Nav from './Nav';
 const List = () => {
   return (
     <View>
-      <Text style={{ color: 'white' }}>Curated feed photos</Text>
+      <Text style={{ color: 'white' }}> Curated feed photos</Text>
       <Nav />
     </View>
   );

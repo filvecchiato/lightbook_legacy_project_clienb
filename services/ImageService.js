@@ -20,7 +20,7 @@ export default {
   getUserImages: () => {
     try {
       console.log('inside getimages');
-      return fetch(cloudinaryUrl)
+      return fetch(apiUrl)
         .then((response) => {
           return response.json();
         })

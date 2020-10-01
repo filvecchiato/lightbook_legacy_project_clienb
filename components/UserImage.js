@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  SafeAreaView,
-  ImageBackground,
-} from 'react-native';
+import { StyleSheet, ImageBackground } from 'react-native';
 
 const UserImage = ({ image }) => {
   return <ImageBackground source={{ uri: image.url }} style={styles.image} />;

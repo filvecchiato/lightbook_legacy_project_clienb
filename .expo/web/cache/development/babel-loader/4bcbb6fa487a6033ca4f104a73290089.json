@@ -1,0 +1,39 @@
+{
+  "ast": null,
+  "code": "import _regeneratorRuntime from \"@babel/runtime/regenerator\";\n\nvar _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/Upload.js\";\n\nimport React, { useState, useEffect } from 'react';\nimport View from \"react-native-web/dist/exports/View\";\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport Platform from \"react-native-web/dist/exports/Platform\";\nimport { useFocusEffect } from '@react-navigation/native';\nimport * as ImagePicker from 'expo-image-picker';\nimport UploadService from \"../services/UploadService\";\nimport { set } from 'react-native-reanimated';\n\nvar Upload = function Upload(_ref) {\n  var navigation = _ref.navigation;\n  useFocusEffect(React.useCallback(function () {\n    (function _callee() {\n      var _await$ImagePicker$re, status;\n\n      return _regeneratorRuntime.async(function _callee$(_context) {\n        while (1) {\n          switch (_context.prev = _context.next) {\n            case 0:\n              if (!(Platform.OS !== 'web')) {\n                _context.next = 6;\n                break;\n              }\n\n              _context.next = 3;\n              return _regeneratorRuntime.awrap(ImagePicker.requestCameraRollPermissionsAsync());\n\n            case 3:\n              _await$ImagePicker$re = _context.sent;\n              status = _await$ImagePicker$re.status;\n\n              if (status !== 'granted') {\n                alert('Sorry, we need camera roll permissions to make this work!');\n              }\n\n            case 6:\n            case \"end\":\n              return _context.stop();\n          }\n        }\n      }, null, null, null, Promise);\n    });\n\n    UploadService.openImagePickerAsync().then(navigation.navigate('Gallery'));\n  }, []));\n  return React.createElement(View, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 31,\n      columnNumber: 10\n    }\n  });\n};\n\nvar styles = StyleSheet.create({});\nexport default Upload;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/Upload.js"
+    ],
+    "names": [
+      "React",
+      "useState",
+      "useEffect",
+      "useFocusEffect",
+      "ImagePicker",
+      "UploadService",
+      "set",
+      "Upload",
+      "navigation",
+      "useCallback",
+      "Platform",
+      "OS",
+      "requestCameraRollPermissionsAsync",
+      "status",
+      "alert",
+      "openImagePickerAsync",
+      "then",
+      "navigate",
+      "styles",
+      "StyleSheet",
+      "create"
+    ],
+    "mappings": ";;;;;AAAA,OAAOA,KAAP,IAAgBC,QAAhB,EAA0BC,SAA1B,QAA2C,OAA3C;;;;AAMA,SAASC,cAAT,QAA+B,0BAA/B;AAEA,OAAO,KAAKC,WAAZ,MAA6B,mBAA7B;AAEA,OAAOC,aAAP;AACA,SAASC,GAAT,QAAoB,yBAApB;;AAEA,IAAMC,MAAM,GAAG,SAATA,MAAS,OAAoB;AAAA,MAAjBC,UAAiB,QAAjBA,UAAiB;AACjCL,EAAAA,cAAc,CACZH,KAAK,CAACS,WAAN,CAAkB,YAAM;AACtB;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA,oBACMC,QAAQ,CAACC,EAAT,KAAgB,KADtB;AAAA;AAAA;AAAA;;AAAA;AAAA,+CAIcP,WAAW,CAACQ,iCAAZ,EAJd;;AAAA;AAAA;AAGMC,cAAAA,MAHN,yBAGMA,MAHN;;AAKI,kBAAIA,MAAM,KAAK,SAAf,EAA0B;AACxBC,gBAAAA,KAAK,CAAC,2DAAD,CAAL;AACD;;AAPL;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAUAT,IAAAA,aAAa,CAACU,oBAAd,GAAqCC,IAArC,CAA0CR,UAAU,CAACS,QAAX,CAAoB,SAApB,CAA1C;AACD,GAZD,EAYG,EAZH,CADY,CAAd;AAgBA,SAAO,oBAAC,IAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAAP;AACD,CAlBD;;AAoBA,IAAMC,MAAM,GAAGC,UAAU,CAACC,MAAX,CAAkB,EAAlB,CAAf;AAEA,eAAeb,MAAf",
+    "sourcesContent": [
+      "import React, { useState, useEffect } from 'react';\nimport {\n  View,\n  StyleSheet,\n  Platform,\n} from 'react-native';\nimport { useFocusEffect } from '@react-navigation/native';\n\nimport * as ImagePicker from 'expo-image-picker';\n\nimport UploadService from '../services/UploadService';\nimport { set } from 'react-native-reanimated';\n\nconst Upload = ({ navigation }) => {\n  useFocusEffect(\n    React.useCallback(() => {\n      async () => {\n        if (Platform.OS !== 'web') {\n          const {\n            status,\n          } = await ImagePicker.requestCameraRollPermissionsAsync();\n          if (status !== 'granted') {\n            alert('Sorry, we need camera roll permissions to make this work!');\n          }\n        }\n      };\n      UploadService.openImagePickerAsync().then(navigation.navigate('Gallery'));\n    }, []),\n  );\n\n  return <View></View>;\n};\n\nconst styles = StyleSheet.create({});\n\nexport default Upload;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

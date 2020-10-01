@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import Wrapper from './screens/Wrapper';
 import Welcome from './screens/Welcome';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 

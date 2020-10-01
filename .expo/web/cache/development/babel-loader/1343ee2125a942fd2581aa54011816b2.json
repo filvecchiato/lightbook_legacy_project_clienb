@@ -1,0 +1,54 @@
+{
+  "ast": null,
+  "code": "import _regeneratorRuntime from \"@babel/runtime/regenerator\";\nimport _slicedToArray from \"@babel/runtime/helpers/slicedToArray\";\n\nvar _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/UserGallery.js\";\n\nimport React, { useEffect, useState } from 'react';\nimport View from \"react-native-web/dist/exports/View\";\nimport StatusBar from \"react-native-web/dist/exports/StatusBar\";\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport FlatList from \"react-native-web/dist/exports/FlatList\";\nimport Dimensions from \"react-native-web/dist/exports/Dimensions\";\nimport { useFocusEffect } from '@react-navigation/native';\nimport UserImage from \"../components/UserImage\";\nimport ImageService from \"../services/ImageService\";\nimport * as ScreenOrientation from 'expo-screen-orientation';\n\nvar UserGallery = function UserGallery(_ref) {\n  var navigation = _ref.navigation;\n\n  var _useState = useState([]),\n      _useState2 = _slicedToArray(_useState, 2),\n      images = _useState2[0],\n      setImages = _useState2[1];\n\n  var _React$useState = React.useState(),\n      _React$useState2 = _slicedToArray(_React$useState, 2),\n      forceUpdate = _React$useState2[1];\n\n  var getAllImages = ImageService.getUserImages;\n\n  function changeScreenOrientation() {\n    return _regeneratorRuntime.async(function changeScreenOrientation$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.next = 2;\n            return _regeneratorRuntime.awrap(ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT));\n\n          case 2:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, null, null, null, Promise);\n  }\n\n  useFocusEffect(React.useCallback(function () {\n    forceUpdate(function (s) {\n      return !s;\n    });\n    console.log(images.length);\n    changeScreenOrientation();\n    [].then(function (data) {\n      setImages(data.resources);\n    });\n  }, []));\n  return React.createElement(View, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 37,\n      columnNumber: 5\n    }\n  }, React.createElement(StatusBar, {\n    hidden: true,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 38,\n      columnNumber: 7\n    }\n  }), React.createElement(FlatList, {\n    data: images,\n    keyExtractor: function keyExtractor(item) {\n      return \"\" + item.asset_id;\n    },\n    renderItem: function renderItem(_ref2) {\n      var item = _ref2.item;\n      return React.createElement(UserImage, {\n        image: item,\n        __self: _this,\n        __source: {\n          fileName: _jsxFileName,\n          lineNumber: 42,\n          columnNumber: 35\n        }\n      });\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 39,\n      columnNumber: 7\n    }\n  }));\n};\n\nvar styles = StyleSheet.create({\n  container: {\n    width: Dimensions.get('window').width,\n    height: Dimensions.get('window').height + 20\n  }\n});\nexport default UserGallery;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/UserGallery.js"
+    ],
+    "names": [
+      "React",
+      "useEffect",
+      "useState",
+      "useFocusEffect",
+      "UserImage",
+      "ImageService",
+      "ScreenOrientation",
+      "UserGallery",
+      "navigation",
+      "images",
+      "setImages",
+      "forceUpdate",
+      "getAllImages",
+      "getUserImages",
+      "changeScreenOrientation",
+      "lockAsync",
+      "OrientationLock",
+      "LANDSCAPE_RIGHT",
+      "useCallback",
+      "s",
+      "console",
+      "log",
+      "length",
+      "then",
+      "data",
+      "resources",
+      "item",
+      "asset_id",
+      "styles",
+      "StyleSheet",
+      "create",
+      "container",
+      "width",
+      "Dimensions",
+      "get",
+      "height"
+    ],
+    "mappings": ";;;;;;AAAA,OAAOA,KAAP,IAAgBC,SAAhB,EAA2BC,QAA3B,QAA2C,OAA3C;;;;;;AAQA,SAASC,cAAT,QAA+B,0BAA/B;AACA,OAAOC,SAAP;AACA,OAAOC,YAAP;AACA,OAAO,KAAKC,iBAAZ,MAAmC,yBAAnC;;AAEA,IAAMC,WAAW,GAAG,SAAdA,WAAc,OAAoB;AAAA,MAAjBC,UAAiB,QAAjBA,UAAiB;;AAAA,kBACVN,QAAQ,CAAC,EAAD,CADE;AAAA;AAAA,MAC/BO,MAD+B;AAAA,MACvBC,SADuB;;AAAA,wBAEdV,KAAK,CAACE,QAAN,EAFc;AAAA;AAAA,MAE7BS,WAF6B;;AAItC,MAAMC,YAAY,GAAGP,YAAY,CAACQ,aAAlC;;AAEA,WAAeC,uBAAf;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,6CACQR,iBAAiB,CAACS,SAAlB,CACJT,iBAAiB,CAACU,eAAlB,CAAkCC,eAD9B,CADR;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAMAd,EAAAA,cAAc,CACZH,KAAK,CAACkB,WAAN,CAAkB,YAAM;AACtBP,IAAAA,WAAW,CAAC,UAACQ,CAAD;AAAA,aAAO,CAACA,CAAR;AAAA,KAAD,CAAX;AACAC,IAAAA,OAAO,CAACC,GAAR,CAAYZ,MAAM,CAACa,MAAnB;AACAR,IAAAA,uBAAuB;AACvB,OAAGS,IAAH,CAAQ,UAACC,IAAD,EAAU;AAChBd,MAAAA,SAAS,CAACc,IAAI,CAACC,SAAN,CAAT;AACD,KAFD;AAGD,GAPD,EAOG,EAPH,CADY,CAAd;AAUA,SACE,oBAAC,IAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,SAAD;AAAW,IAAA,MAAM,MAAjB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAEE,oBAAC,QAAD;AACE,IAAA,IAAI,EAAEhB,MADR;AAEE,IAAA,YAAY,EAAE,sBAACiB,IAAD;AAAA,kBAAaA,IAAI,CAACC,QAAlB;AAAA,KAFhB;AAGE,IAAA,UAAU,EAAE;AAAA,UAAGD,IAAH,SAAGA,IAAH;AAAA,aAAc,oBAAC,SAAD;AAAW,QAAA,KAAK,EAAEA,IAAlB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,QAAd;AAAA,KAHd;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,CADF;AAUD,CAhCD;;AAkCA,IAAME,MAAM,GAAGC,UAAU,CAACC,MAAX,CAAkB;AAC/BC,EAAAA,SAAS,EAAE;AACTC,IAAAA,KAAK,EAAEC,UAAU,CAACC,GAAX,CAAe,QAAf,EAAyBF,KADvB;AAETG,IAAAA,MAAM,EAAEF,UAAU,CAACC,GAAX,CAAe,QAAf,EAAyBC,MAAzB,GAAkC;AAFjC;AADoB,CAAlB,CAAf;AAOA,eAAe5B,WAAf",
+    "sourcesContent": [
+      "import React, { useEffect, useState } from 'react';\nimport {\n  View,\n  StatusBar,\n  StyleSheet,\n  FlatList,\n  Dimensions,\n} from 'react-native';\nimport { useFocusEffect } from '@react-navigation/native';\nimport UserImage from '../components/UserImage';\nimport ImageService from '../services/ImageService';\nimport * as ScreenOrientation from 'expo-screen-orientation';\n\nconst UserGallery = ({ navigation }) => {\n  const [images, setImages] = useState([]);\n  const [, forceUpdate] = React.useState();\n\n  const getAllImages = ImageService.getUserImages;\n\n  async function changeScreenOrientation() {\n    await ScreenOrientation.lockAsync(\n      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT,\n    );\n  }\n\n  useFocusEffect(\n    React.useCallback(() => {\n      forceUpdate((s) => !s);\n      console.log(images.length);\n      changeScreenOrientation();\n      [].then((data) => {\n        setImages(data.resources);\n      });\n    }, []),\n  );\n  return (\n    <View>\n      <StatusBar hidden />\n      <FlatList\n        data={images}\n        keyExtractor={(item) => `${item.asset_id}`}\n        renderItem={({ item }) => <UserImage image={item} />}\n      />\n    </View>\n  );\n};\n\nconst styles = StyleSheet.create({\n  container: {\n    width: Dimensions.get('window').width,\n    height: Dimensions.get('window').height + 20,\n  },\n});\n\nexport default UserGallery;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

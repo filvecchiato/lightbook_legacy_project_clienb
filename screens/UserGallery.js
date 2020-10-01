@@ -29,7 +29,8 @@ const UserGallery = ({ navigation }) => {
       console.log(images.length);
       changeScreenOrientation();
       getAllImages().then((data) => {
-        setImages(data.resources);
+        console.log(data);
+        setImages(data);
       });
     }, []),
   );
