@@ -29,7 +29,7 @@ const Explore = ({ navigation }) => {
     }, []),
   );
   return (
-    <View>
+    <View style={styles.container}>
       <StatusBar hidden />
       <FlatList
         data={images}
@@ -44,6 +44,8 @@ const styles = StyleSheet.create({
   container: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height + 20,
+    flex: 1,
+    flexDirection: 'row',
   },
 });
 

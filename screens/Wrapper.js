@@ -15,7 +15,7 @@ const DrawerNavigator = () => {
           backgroundColor: 'black',
         },
         headerTitleStyle: {
-          fontColor: 'white',
+          fontColor: 'red',
         },
       }}
     >

@@ -26,11 +26,8 @@ const UserGallery = ({ navigation }) => {
   useFocusEffect(
     React.useCallback(() => {
       forceUpdate((s) => !s);
-      console.log(images.length);
       changeScreenOrientation();
-      getAllImages().then((data) => {
-        setImages(data.resources);
-      });
+      getAllImages().then((data) => setImages(data));
     }, []),
   );
   return (
@@ -38,7 +35,7 @@ const UserGallery = ({ navigation }) => {
       <StatusBar hidden />
       <FlatList
         data={images}
-        keyExtractor={(item) => `${item.asset_id}`}
+        keyExtractor={(item) => `${item.id}`}
         renderItem={({ item }) => <UserImage image={item} />}
       />
     </View>

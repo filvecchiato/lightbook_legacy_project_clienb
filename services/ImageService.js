@@ -7,7 +7,7 @@ const cloudinaryUrl = serviceConfig.cloudinaryDown;
 export default {
   getExploreImages: () => {
     try {
-      console.log('inside getimages');
+      console.log('inside getexpoloreimages');
       return fetch(apiUrl)
         .then((response) => {
           return response.json();
@@ -19,9 +19,10 @@ export default {
   },
   getUserImages: () => {
     try {
-      console.log('inside getimages');
-      return fetch(cloudinaryUrl)
+      console.log('inside getuserimages');
+      return fetch(apiUrl)
         .then((response) => {
+          console.log(response);
           return response.json();
         })
         .catch((err) => console.log(err));

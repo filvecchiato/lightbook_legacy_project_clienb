@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+// mockup for page
 const Curate = ({ navigation }) => {
   return (
     <View>

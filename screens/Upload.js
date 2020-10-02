@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Button,
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  SafeAreaView,
-  ImageBackground,
-  Dimensions,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Platform } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 
 import * as ImagePicker from 'expo-image-picker';
 
 import UploadService from '../services/UploadService';
-import { set } from 'react-native-reanimated';
 
 const Upload = ({ navigation }) => {
   useFocusEffect(
