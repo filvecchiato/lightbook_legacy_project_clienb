@@ -1,0 +1,29 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/UserImage.js\";\n\nimport React from 'react';\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport ImageBackground from \"react-native-web/dist/exports/ImageBackground\";\n\nvar UserImage = function UserImage(_ref) {\n  var image = _ref.image;\n  return React.createElement(ImageBackground, {\n    source: {\n      uri: image.urls.regular\n    },\n    style: styles.image,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 6,\n      columnNumber: 5\n    }\n  });\n};\n\nvar styles = StyleSheet.create({\n  image: {\n    aspectRatio: 1 * 1.7,\n    resizeMode: 'cover'\n  }\n});\nexport default UserImage;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/UserImage.js"
+    ],
+    "names": [
+      "React",
+      "UserImage",
+      "image",
+      "uri",
+      "urls",
+      "regular",
+      "styles",
+      "StyleSheet",
+      "create",
+      "aspectRatio",
+      "resizeMode"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;;;;AAGA,IAAMC,SAAS,GAAG,SAAZA,SAAY,OAAe;AAAA,MAAZC,KAAY,QAAZA,KAAY;AAC/B,SACE,oBAAC,eAAD;AACE,IAAA,MAAM,EAAE;AAAEC,MAAAA,GAAG,EAAED,KAAK,CAACE,IAAN,CAAWC;AAAlB,KADV;AAEE,IAAA,KAAK,EAAEC,MAAM,CAACJ,KAFhB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF;AAMD,CAPD;;AASA,IAAMI,MAAM,GAAGC,UAAU,CAACC,MAAX,CAAkB;AAC/BN,EAAAA,KAAK,EAAE;AACLO,IAAAA,WAAW,EAAE,IAAI,GADZ;AAELC,IAAAA,UAAU,EAAE;AAFP;AADwB,CAAlB,CAAf;AAOA,eAAeT,SAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport { StyleSheet, ImageBackground } from 'react-native';\n\nconst UserImage = ({ image }) => {\n  return (\n    <ImageBackground\n      source={{ uri: image.urls.regular }}\n      style={styles.image}\n    />\n  );\n};\n\nconst styles = StyleSheet.create({\n  image: {\n    aspectRatio: 1 * 1.7,\n    resizeMode: 'cover',\n  },\n});\n\nexport default UserImage;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

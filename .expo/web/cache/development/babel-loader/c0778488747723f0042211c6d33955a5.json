@@ -1,0 +1,45 @@
+{
+  "ast": null,
+  "code": "import _regeneratorRuntime from \"@babel/runtime/regenerator\";\nimport * as ImagePicker from 'expo-image-picker';\nimport serviceConfig from \"./serviceConfig\";\nvar CLOUDINARY_URL = serviceConfig.cloudinaryUp;\nvar uploadPreset = serviceConfig.cloudinaryPreset;\nexport default {\n  openImagePickerAsync: function openImagePickerAsync() {\n    var pickerResult, base64Img, data;\n    return _regeneratorRuntime.async(function openImagePickerAsync$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.next = 2;\n            return _regeneratorRuntime.awrap(ImagePicker.launchImageLibraryAsync({\n              allowsEditing: true,\n              aspect: [16, 9],\n              base64: true\n            }));\n\n          case 2:\n            pickerResult = _context.sent;\n\n            if (!(pickerResult.cancelled === true)) {\n              _context.next = 5;\n              break;\n            }\n\n            return _context.abrupt(\"return\");\n\n          case 5:\n            base64Img = \"data:image/jpg;base64,\" + pickerResult.base64;\n            data = {\n              file: base64Img,\n              upload_preset: uploadPreset\n            };\n            fetch(CLOUDINARY_URL, {\n              body: JSON.stringify(data),\n              headers: {\n                'content-type': 'application/json'\n              },\n              method: 'POST'\n            }).catch(function (err) {\n              return console.log(err);\n            });\n\n          case 8:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, null, null, null, Promise);\n  }\n};",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/services/UploadService.js"
+    ],
+    "names": [
+      "ImagePicker",
+      "serviceConfig",
+      "CLOUDINARY_URL",
+      "cloudinaryUp",
+      "uploadPreset",
+      "cloudinaryPreset",
+      "openImagePickerAsync",
+      "launchImageLibraryAsync",
+      "allowsEditing",
+      "aspect",
+      "base64",
+      "pickerResult",
+      "cancelled",
+      "base64Img",
+      "data",
+      "file",
+      "upload_preset",
+      "fetch",
+      "body",
+      "JSON",
+      "stringify",
+      "headers",
+      "method",
+      "catch",
+      "err",
+      "console",
+      "log"
+    ],
+    "mappings": ";AAAA,OAAO,KAAKA,WAAZ,MAA6B,mBAA7B;AACA,OAAOC,aAAP;AAEA,IAAIC,cAAc,GAAGD,aAAa,CAACE,YAAnC;AACA,IAAMC,YAAY,GAAGH,aAAa,CAACI,gBAAnC;AAEA,eAAe;AACbC,EAAAA,oBAAoB,EAAE;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,6CACKN,WAAW,CAACO,uBAAZ,CAAoC;AAC3DC,cAAAA,aAAa,EAAE,IAD4C;AAE3DC,cAAAA,MAAM,EAAE,CAAC,EAAD,EAAK,CAAL,CAFmD;AAG3DC,cAAAA,MAAM,EAAE;AAHmD,aAApC,CADL;;AAAA;AAChBC,YAAAA,YADgB;;AAAA,kBAOhBA,YAAY,CAACC,SAAb,KAA2B,IAPX;AAAA;AAAA;AAAA;;AAAA;;AAAA;AAWhBC,YAAAA,SAXgB,8BAWqBF,YAAY,CAACD,MAXlC;AAahBI,YAAAA,IAbgB,GAaT;AACTC,cAAAA,IAAI,EAAEF,SADG;AAETG,cAAAA,aAAa,EAAEZ;AAFN,aAbS;AAkBpBa,YAAAA,KAAK,CAACf,cAAD,EAAiB;AACpBgB,cAAAA,IAAI,EAAEC,IAAI,CAACC,SAAL,CAAeN,IAAf,CADc;AAEpBO,cAAAA,OAAO,EAAE;AACP,gCAAgB;AADT,eAFW;AAKpBC,cAAAA,MAAM,EAAE;AALY,aAAjB,CAAL,CAMGC,KANH,CAMS,UAACC,GAAD;AAAA,qBAASC,OAAO,CAACC,GAAR,CAAYF,GAAZ,CAAT;AAAA,aANT;;AAlBoB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AADT,CAAf",
+    "sourcesContent": [
+      "import * as ImagePicker from 'expo-image-picker';\nimport serviceConfig from './serviceConfig';\n\nlet CLOUDINARY_URL = serviceConfig.cloudinaryUp;\nconst uploadPreset = serviceConfig.cloudinaryPreset;\n\nexport default {\n  openImagePickerAsync: async () => {\n    let pickerResult = await ImagePicker.launchImageLibraryAsync({\n      allowsEditing: true,\n      aspect: [16, 9],\n      base64: true,\n    });\n\n    if (pickerResult.cancelled === true) {\n      return;\n    }\n\n    let base64Img = `data:image/jpg;base64,${pickerResult.base64}`;\n\n    let data = {\n      file: base64Img,\n      upload_preset: uploadPreset,\n    };\n\n    fetch(CLOUDINARY_URL, {\n      body: JSON.stringify(data),\n      headers: {\n        'content-type': 'application/json',\n      },\n      method: 'POST',\n    }).catch((err) => console.log(err));\n  },\n};\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}
