@@ -66,6 +66,8 @@ const s = StyleSheet.create({
   safeArea: {
     flex: 1,
     alignItems: 'center',
+    width: '90%',
+    height: '90%',
   },
   wrapper: {
     flex: 1,

@@ -1,5 +1,6 @@
 export default {
-  main: 'http://192.168.0.17:3000',
+  // main: 'http://192.168.0.17:3000',
+  main: 'http://localhost:3000',
   cloudinaryUp: 'https://api.cloudinary.com/v1_1/dul6b2ewq/upload',
   cloudinaryPreset: 'j5owlaeh',
   cloudinaryDown:

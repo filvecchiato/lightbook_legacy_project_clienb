@@ -2,7 +2,12 @@ import React from 'react';
 import { StyleSheet, ImageBackground } from 'react-native';
 
 const UserImage = ({ image }) => {
-  return <ImageBackground source={{ uri: image.url }} style={styles.image} />;
+  return (
+    <ImageBackground
+      source={{ uri: image.urls.regular }}
+      style={styles.image}
+    />
+  );
 };
 
 const styles = StyleSheet.create({

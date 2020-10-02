@@ -15,13 +15,13 @@ const DrawerNavigator = () => {
           backgroundColor: 'black',
         },
         headerTitleStyle: {
-          fontColor: 'white',
+          fontColor: 'red',
         },
       }}
     >
       <Drawer.Screen name="Gallery" component={UserGallery} />
       <Drawer.Screen name="Explore" component={Explore} />
-      {/* <Drawer.Screen name="Curate" component={Curate} /> */}
+      <Drawer.Screen name="Curate" component={Curate} />
       <Drawer.Screen name="Upload" component={Upload} />
     </Drawer.Navigator>
   );
