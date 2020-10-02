@@ -7,7 +7,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint"
+    "lint": "eslint \"**/*.js\""
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -72,5 +72,8 @@
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
       "\\.(css|less)$": "identity-obj-proxy"
     }
-  }
+  },
+  "eslintIgnore": [
+    "node_modules"
+  ]
 }

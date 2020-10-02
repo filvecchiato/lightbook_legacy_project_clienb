@@ -6,7 +6,7 @@ const initialState = {
     profile: null,
     images: [],
   },
-  media: {},
+  exploreImages: [],
   loading: false,
   error: null,
 };
@@ -23,12 +23,28 @@ const setError = (state, action) => {
 };
 
 const getUserImagesSuccess = (state, action) => {
+  const data = action.payload.map((image) => ({
+    id: image.id,
+    url: image.urls.regular,
+  }));
   return updateObject(state, {
     loading: false,
     user: {
       profile: null,
-      images: action.payload,
+      images: data,
     },
+  });
+};
+
+const getExploreImagesSuccess = (state, action) => {
+  const data = action.payload.map((image) => ({
+    id: image.id,
+    url: image.urls.regular,
+  }));
+
+  return updateObject(state, {
+    loading: false,
+    exploreImages: data,
   });
 };
 
@@ -40,6 +56,12 @@ const reducer = (state = initialState, action) => {
       return setError(state, action);
     case actionTypes.GET_USER_IMAGES_SUCCESS:
       return getUserImagesSuccess(state, action);
+    case actionTypes.GET_EXPLORE_IMAGES_FAIL:
+      return setError(state, action.payload);
+    case actionTypes.GET_EXPLORE_IMAGES_START:
+      return setIsLoading(state, action);
+    case actionTypes.GET_EXPLORE_IMAGES_SUCCESS:
+      return getExploreImagesSuccess(state, action);
     default:
       return state;
   }

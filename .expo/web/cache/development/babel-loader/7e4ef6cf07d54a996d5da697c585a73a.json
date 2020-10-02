@@ -1,0 +1,58 @@
+{
+  "ast": null,
+  "code": "import _regeneratorRuntime from \"@babel/runtime/regenerator\";\n\nvar _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/Explore.js\";\n\nimport React, { useEffect, useState } from 'react';\nimport View from \"react-native-web/dist/exports/View\";\nimport StatusBar from \"react-native-web/dist/exports/StatusBar\";\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport FlatList from \"react-native-web/dist/exports/FlatList\";\nimport Dimensions from \"react-native-web/dist/exports/Dimensions\";\nimport { useFocusEffect } from '@react-navigation/native';\nimport ExploreImage from \"../components/ExploreImage\";\nimport ImageService from \"../services/ImageService\";\nimport * as ScreenOrientation from 'expo-screen-orientation';\nimport { connect } from 'react-redux';\nimport * as actions from \"../store/actions\";\n\nvar Explore = function Explore(props) {\n  var images = props.images;\n\n  function changeScreenOrientation() {\n    return _regeneratorRuntime.async(function changeScreenOrientation$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.next = 2;\n            return _regeneratorRuntime.awrap(ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT));\n\n          case 2:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, null, null, null, Promise);\n  }\n\n  useFocusEffect(React.useCallback(function () {\n    changeScreenOrientation();\n    getAllImages().then(function (data) {\n      return setImages(data);\n    });\n  }, []));\n  return React.createElement(View, {\n    style: styles.container,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 34,\n      columnNumber: 5\n    }\n  }, React.createElement(StatusBar, {\n    hidden: true,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 35,\n      columnNumber: 7\n    }\n  }), React.createElement(FlatList, {\n    data: images,\n    keyExtractor: function keyExtractor(item) {\n      return \"\" + item.id;\n    },\n    renderItem: function renderItem(_ref) {\n      var item = _ref.item;\n      return React.createElement(ExploreImage, {\n        image: item,\n        __self: _this,\n        __source: {\n          fileName: _jsxFileName,\n          lineNumber: 39,\n          columnNumber: 35\n        }\n      });\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 36,\n      columnNumber: 7\n    }\n  }));\n};\n\nvar styles = StyleSheet.create({\n  container: {\n    width: Dimensions.get('window').width,\n    height: Dimensions.get('window').height + 20,\n    flex: 1,\n    flexDirection: 'row'\n  }\n});\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    images: state.general.ExploreImage || []\n  };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n  return {\n    getImages: function getImages() {\n      return dispatch(actions.getExploreImages());\n    }\n  };\n};\n\nexport default connect(mapStateToProps, mapDispatchToProps)(Explore);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/Explore.js"
+    ],
+    "names": [
+      "React",
+      "useEffect",
+      "useState",
+      "useFocusEffect",
+      "ExploreImage",
+      "ImageService",
+      "ScreenOrientation",
+      "connect",
+      "actions",
+      "Explore",
+      "props",
+      "images",
+      "changeScreenOrientation",
+      "lockAsync",
+      "OrientationLock",
+      "LANDSCAPE_RIGHT",
+      "useCallback",
+      "getAllImages",
+      "then",
+      "data",
+      "setImages",
+      "styles",
+      "container",
+      "item",
+      "id",
+      "StyleSheet",
+      "create",
+      "width",
+      "Dimensions",
+      "get",
+      "height",
+      "flex",
+      "flexDirection",
+      "mapStateToProps",
+      "state",
+      "general",
+      "mapDispatchToProps",
+      "dispatch",
+      "getImages",
+      "getExploreImages"
+    ],
+    "mappings": ";;;;;AAAA,OAAOA,KAAP,IAAgBC,SAAhB,EAA2BC,QAA3B,QAA2C,OAA3C;;;;;;AAQA,SAASC,cAAT,QAA+B,0BAA/B;AACA,OAAOC,YAAP;AACA,OAAOC,YAAP;AACA,OAAO,KAAKC,iBAAZ,MAAmC,yBAAnC;AACA,SAASC,OAAT,QAAwB,aAAxB;AACA,OAAO,KAAKC,OAAZ;;AAEA,IAAMC,OAAO,GAAG,SAAVA,OAAU,CAACC,KAAD,EAAW;AAAA,MAEvBC,MAFuB,GAGrBD,KAHqB,CAEvBC,MAFuB;;AAKzB,WAAeC,uBAAf;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,6CACQN,iBAAiB,CAACO,SAAlB,CACJP,iBAAiB,CAACQ,eAAlB,CAAkCC,eAD9B,CADR;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAMAZ,EAAAA,cAAc,CACZH,KAAK,CAACgB,WAAN,CAAkB,YAAM;AACtBJ,IAAAA,uBAAuB;AACvBK,IAAAA,YAAY,GAAGC,IAAf,CAAoB,UAACC,IAAD;AAAA,aAAUC,SAAS,CAACD,IAAD,CAAnB;AAAA,KAApB;AACD,GAHD,EAGG,EAHH,CADY,CAAd;AAMA,SACE,oBAAC,IAAD;AAAM,IAAA,KAAK,EAAEE,MAAM,CAACC,SAApB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,SAAD;AAAW,IAAA,MAAM,MAAjB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAEE,oBAAC,QAAD;AACE,IAAA,IAAI,EAAEX,MADR;AAEE,IAAA,YAAY,EAAE,sBAACY,IAAD;AAAA,kBAAaA,IAAI,CAACC,EAAlB;AAAA,KAFhB;AAGE,IAAA,UAAU,EAAE;AAAA,UAAGD,IAAH,QAAGA,IAAH;AAAA,aAAc,oBAAC,YAAD;AAAc,QAAA,KAAK,EAAEA,IAArB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,QAAd;AAAA,KAHd;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,CADF;AAUD,CA3BD;;AA6BA,IAAMF,MAAM,GAAGI,UAAU,CAACC,MAAX,CAAkB;AAC/BJ,EAAAA,SAAS,EAAE;AACTK,IAAAA,KAAK,EAAEC,UAAU,CAACC,GAAX,CAAe,QAAf,EAAyBF,KADvB;AAETG,IAAAA,MAAM,EAAEF,UAAU,CAACC,GAAX,CAAe,QAAf,EAAyBC,MAAzB,GAAkC,EAFjC;AAGTC,IAAAA,IAAI,EAAE,CAHG;AAITC,IAAAA,aAAa,EAAE;AAJN;AADoB,CAAlB,CAAf;;AASA,IAAMC,eAAe,GAAG,SAAlBA,eAAkB,CAACC,KAAD,EAAW;AACjC,SAAO;AACLvB,IAAAA,MAAM,EAAEuB,KAAK,CAACC,OAAN,CAAc/B,YAAd,IAA8B;AADjC,GAAP;AAGD,CAJD;;AAMA,IAAMgC,kBAAkB,GAAG,SAArBA,kBAAqB,CAACC,QAAD,EAAc;AACvC,SAAO;AACLC,IAAAA,SAAS,EAAE;AAAA,aAAMD,QAAQ,CAAC7B,OAAO,CAAC+B,gBAAR,EAAD,CAAd;AAAA;AADN,GAAP;AAGD,CAJD;;AAMA,eAAehC,OAAO,CAAC0B,eAAD,EAAkBG,kBAAlB,CAAP,CAA6C3B,OAA7C,CAAf",
+    "sourcesContent": [
+      "import React, { useEffect, useState } from 'react';\nimport {\n  View,\n  StatusBar,\n  StyleSheet,\n  FlatList,\n  Dimensions,\n} from 'react-native';\nimport { useFocusEffect } from '@react-navigation/native';\nimport ExploreImage from '../components/ExploreImage';\nimport ImageService from '../services/ImageService';\nimport * as ScreenOrientation from 'expo-screen-orientation';\nimport { connect } from 'react-redux';\nimport * as actions from '../store/actions';\n\nconst Explore = (props) => {\n  const {\n    images,\n  } = props;\n\n  async function changeScreenOrientation() {\n    await ScreenOrientation.lockAsync(\n      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT,\n    );\n  }\n\n  useFocusEffect(\n    React.useCallback(() => {\n      changeScreenOrientation();\n      getAllImages().then((data) => setImages(data));\n    }, []),\n  );\n  return (\n    <View style={styles.container}>\n      <StatusBar hidden />\n      <FlatList\n        data={images}\n        keyExtractor={(item) => `${item.id}`}\n        renderItem={({ item }) => <ExploreImage image={item} />}\n      />\n    </View>\n  );\n};\n\nconst styles = StyleSheet.create({\n  container: {\n    width: Dimensions.get('window').width,\n    height: Dimensions.get('window').height + 20,\n    flex: 1,\n    flexDirection: 'row',\n  },\n});\n\nconst mapStateToProps = (state) => {\n  return {\n    images: state.general.ExploreImage || [],\n  };\n};\n\nconst mapDispatchToProps = (dispatch) => {\n  return {\n    getImages: () => dispatch(actions.getExploreImages()),\n  };\n};\n\nexport default connect(mapStateToProps, mapDispatchToProps)(Explore);\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

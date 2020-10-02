@@ -3,21 +3,21 @@ import imageService from './../../services/ImageService';
 
 export const getExploreImagesStart = () => {
   return {
-    action: actionTypes.GET_EXPLORE_IMAGES_START,
+    type: actionTypes.GET_EXPLORE_IMAGES_START,
     payload: null,
   };
 };
 
 export const getExploreImagesSuccess = (data) => {
   return {
-    action: actionTypes.GET_EXPLORE_IMAGES_SUCCESS,
+    type: actionTypes.GET_EXPLORE_IMAGES_SUCCESS,
     payload: data,
   };
 };
 
 export const getExploreImagesFail = (error) => {
   return {
-    action: actionTypes.GET_EXPLORE_IMAGES_FAIL,
+    type: actionTypes.GET_EXPLORE_IMAGES_FAIL,
     payload: error,
   };
 };
@@ -28,8 +28,7 @@ export const getExploreImages = () => {
     imageService
       .getExploreImages()
       .then((response) => {
-        console.log('explore image redux', response);
-        dispatch(getExploreImagesSuccess(response.data));
+        dispatch(getExploreImagesSuccess(response));
       })
       .catch((error) => {
         console.log('get explore image redux error', error);
@@ -40,21 +39,20 @@ export const getExploreImages = () => {
 
 export const getUserImagesStart = () => {
   return {
-    action: actionTypes.GET_USER_IMAGES_START,
-    payload: null,
+    type: actionTypes.GET_USER_IMAGES_START,
   };
 };
 
 export const getUserImagesSuccess = (data) => {
   return {
-    action: actionTypes.GET_USER_IMAGES_SUCCESS,
+    type: actionTypes.GET_USER_IMAGES_SUCCESS,
     payload: data,
   };
 };
 
 export const getUserImagesFail = (error) => {
   return {
-    action: actionTypes.GET_USER_IMAGES_FAIL,
+    type: actionTypes.GET_USER_IMAGES_FAIL,
     payload: error,
   };
 };
@@ -65,8 +63,7 @@ export const getUserImages = (userId) => {
     imageService
       .getUserImages(userId)
       .then((response) => {
-        console.log('get user image redux', response);
-        dispatch(getUserImagesSuccess(response.data));
+        dispatch(getUserImagesSuccess(response));
       })
       .catch((error) => {
         console.log('get user image redux error', error);

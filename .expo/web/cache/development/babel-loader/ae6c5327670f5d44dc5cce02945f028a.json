@@ -1,0 +1,57 @@
+{
+  "ast": null,
+  "code": "import _regeneratorRuntime from \"@babel/runtime/regenerator\";\nimport _slicedToArray from \"@babel/runtime/helpers/slicedToArray\";\n\nvar _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/UserGallery.js\";\n\nimport React, { useEffect, useState } from 'react';\nimport View from \"react-native-web/dist/exports/View\";\nimport StatusBar from \"react-native-web/dist/exports/StatusBar\";\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport FlatList from \"react-native-web/dist/exports/FlatList\";\nimport Dimensions from \"react-native-web/dist/exports/Dimensions\";\nimport { useFocusEffect } from '@react-navigation/native';\nimport UserImage from \"../components/UserImage\";\nimport * as ScreenOrientation from 'expo-screen-orientation';\nimport { connect } from 'react-redux';\nimport * as actions from \"../store/actions\";\n\nvar UserGallery = function UserGallery(props) {\n  var loading = props.loading,\n      error = props.error,\n      images = props.images,\n      getImages = props.getImages;\n\n  var _React$useState = React.useState(),\n      _React$useState2 = _slicedToArray(_React$useState, 2),\n      forceUpdate = _React$useState2[1];\n\n  function changeScreenOrientation() {\n    return _regeneratorRuntime.async(function changeScreenOrientation$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.next = 2;\n            return _regeneratorRuntime.awrap(ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT));\n\n          case 2:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, null, null, null, Promise);\n  }\n\n  useFocusEffect(React.useCallback(function () {\n    forceUpdate(function (s) {\n      return !s;\n    });\n    changeScreenOrientation();\n    getImages();\n  }, []));\n  return React.createElement(View, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 36,\n      columnNumber: 5\n    }\n  }, React.createElement(StatusBar, {\n    hidden: true,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 37,\n      columnNumber: 7\n    }\n  }), React.createElement(FlatList, {\n    data: props.images,\n    keyExtractor: function keyExtractor(item) {\n      return \"\" + item.id;\n    },\n    renderItem: function renderItem(_ref) {\n      var item = _ref.item;\n      return React.createElement(UserImage, {\n        image: item,\n        __self: _this,\n        __source: {\n          fileName: _jsxFileName,\n          lineNumber: 42,\n          columnNumber: 35\n        }\n      });\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 39,\n      columnNumber: 7\n    }\n  }));\n};\n\nvar styles = StyleSheet.create({\n  container: {\n    width: Dimensions.get('window').width,\n    height: Dimensions.get('window').height + 20\n  }\n});\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    userImages: state.general.userImages,\n    loading: state.general.loading,\n    error: state.general.error\n  };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n  return {\n    getImages: function getImages(userId) {\n      return dispatch(actions.getUserImages(userId));\n    }\n  };\n};\n\nexport default connect(mapStateToProps, mapDispatchToProps)(UserGallery);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/UserGallery.js"
+    ],
+    "names": [
+      "React",
+      "useEffect",
+      "useState",
+      "useFocusEffect",
+      "UserImage",
+      "ScreenOrientation",
+      "connect",
+      "actions",
+      "UserGallery",
+      "props",
+      "loading",
+      "error",
+      "images",
+      "getImages",
+      "forceUpdate",
+      "changeScreenOrientation",
+      "lockAsync",
+      "OrientationLock",
+      "LANDSCAPE_RIGHT",
+      "useCallback",
+      "s",
+      "item",
+      "id",
+      "styles",
+      "StyleSheet",
+      "create",
+      "container",
+      "width",
+      "Dimensions",
+      "get",
+      "height",
+      "mapStateToProps",
+      "state",
+      "userImages",
+      "general",
+      "mapDispatchToProps",
+      "dispatch",
+      "userId",
+      "getUserImages"
+    ],
+    "mappings": ";;;;;;AACA,OAAOA,KAAP,IAAgBC,SAAhB,EAA2BC,QAA3B,QAA2C,OAA3C;;;;;;AAQA,SAASC,cAAT,QAA+B,0BAA/B;AACA,OAAOC,SAAP;AACA,OAAO,KAAKC,iBAAZ,MAAmC,yBAAnC;AACA,SAASC,OAAT,QAAwB,aAAxB;AACA,OAAO,KAAKC,OAAZ;;AAEA,IAAMC,WAAW,GAAG,SAAdA,WAAc,CAACC,KAAD,EAAW;AAAA,MACrBC,OADqB,GACiBD,KADjB,CACrBC,OADqB;AAAA,MACZC,KADY,GACiBF,KADjB,CACZE,KADY;AAAA,MACLC,MADK,GACiBH,KADjB,CACLG,MADK;AAAA,MACGC,SADH,GACiBJ,KADjB,CACGI,SADH;;AAAA,wBAGLb,KAAK,CAACE,QAAN,EAHK;AAAA;AAAA,MAGpBY,WAHoB;;AAK7B,WAAeC,uBAAf;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,6CACQV,iBAAiB,CAACW,SAAlB,CACJX,iBAAiB,CAACY,eAAlB,CAAkCC,eAD9B,CADR;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAMAf,EAAAA,cAAc,CACZH,KAAK,CAACmB,WAAN,CAAkB,YAAM;AACtBL,IAAAA,WAAW,CAAC,UAACM,CAAD;AAAA,aAAO,CAACA,CAAR;AAAA,KAAD,CAAX;AACAL,IAAAA,uBAAuB;AACvBF,IAAAA,SAAS;AACV,GAJD,EAIG,EAJH,CADY,CAAd;AAQA,SACE,oBAAC,IAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,SAAD;AAAW,IAAA,MAAM,MAAjB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAGE,oBAAC,QAAD;AACE,IAAA,IAAI,EAAEJ,KAAK,CAACG,MADd;AAEE,IAAA,YAAY,EAAE,sBAACS,IAAD;AAAA,kBAAaA,IAAI,CAACC,EAAlB;AAAA,KAFhB;AAGE,IAAA,UAAU,EAAE;AAAA,UAAGD,IAAH,QAAGA,IAAH;AAAA,aAAc,oBAAC,SAAD;AAAW,QAAA,KAAK,EAAEA,IAAlB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,QAAd;AAAA,KAHd;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAHF,CADF;AAWD,CA9BD;;AAgCA,IAAME,MAAM,GAAGC,UAAU,CAACC,MAAX,CAAkB;AAC/BC,EAAAA,SAAS,EAAE;AACTC,IAAAA,KAAK,EAAEC,UAAU,CAACC,GAAX,CAAe,QAAf,EAAyBF,KADvB;AAETG,IAAAA,MAAM,EAAEF,UAAU,CAACC,GAAX,CAAe,QAAf,EAAyBC,MAAzB,GAAkC;AAFjC;AADoB,CAAlB,CAAf;;AAOA,IAAMC,eAAe,GAAG,SAAlBA,eAAkB,CAACC,KAAD,EAAW;AACjC,SAAO;AACLC,IAAAA,UAAU,EAAED,KAAK,CAACE,OAAN,CAAcD,UADrB;AAELvB,IAAAA,OAAO,EAAEsB,KAAK,CAACE,OAAN,CAAcxB,OAFlB;AAGLC,IAAAA,KAAK,EAAEqB,KAAK,CAACE,OAAN,CAAcvB;AAHhB,GAAP;AAKD,CAND;;AAQA,IAAMwB,kBAAkB,GAAG,SAArBA,kBAAqB,CAACC,QAAD,EAAc;AACvC,SAAO;AACLvB,IAAAA,SAAS,EAAE,mBAACwB,MAAD;AAAA,aAAYD,QAAQ,CAAC7B,OAAO,CAAC+B,aAAR,CAAsBD,MAAtB,CAAD,CAApB;AAAA;AADN,GAAP;AAGD,CAJD;;AAMA,eAAe/B,OAAO,CAACyB,eAAD,EAAkBI,kBAAlB,CAAP,CAA6C3B,WAA7C,CAAf",
+    "sourcesContent": [
+      "/* eslint-disable react/prop-types */\nimport React, { useEffect, useState } from 'react';\nimport {\n  View,\n  StatusBar,\n  StyleSheet,\n  FlatList,\n  Dimensions,\n} from 'react-native';\nimport { useFocusEffect } from '@react-navigation/native';\nimport UserImage from '../components/UserImage';\nimport * as ScreenOrientation from 'expo-screen-orientation';\nimport { connect } from 'react-redux';\nimport * as actions from '../store/actions';\n\nconst UserGallery = (props) => {\n  const { loading, error, images, getImages } = props;\n\n  const [, forceUpdate] = React.useState();\n\n  async function changeScreenOrientation() {\n    await ScreenOrientation.lockAsync(\n      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT,\n    );\n  }\n\n  useFocusEffect(\n    React.useCallback(() => {\n      forceUpdate((s) => !s);\n      changeScreenOrientation();\n      getImages();\n    }, []),\n  );\n\n  return (\n    <View>\n      <StatusBar hidden />\n      {}\n      <FlatList\n        data={props.images}\n        keyExtractor={(item) => `${item.id}`}\n        renderItem={({ item }) => <UserImage image={item} />}\n      />\n    </View>\n  );\n};\n\nconst styles = StyleSheet.create({\n  container: {\n    width: Dimensions.get('window').width,\n    height: Dimensions.get('window').height + 20,\n  },\n});\n\nconst mapStateToProps = (state) => {\n  return {\n    userImages: state.general.userImages,\n    loading: state.general.loading,\n    error: state.general.error,\n  };\n};\n\nconst mapDispatchToProps = (dispatch) => {\n  return {\n    getImages: (userId) => dispatch(actions.getUserImages(userId)),\n  };\n};\n\nexport default connect(mapStateToProps, mapDispatchToProps)(UserGallery);\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

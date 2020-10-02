@@ -1,0 +1,63 @@
+{
+  "ast": null,
+  "code": "import _regeneratorRuntime from \"@babel/runtime/regenerator\";\nimport _slicedToArray from \"@babel/runtime/helpers/slicedToArray\";\n\nvar _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/UserGallery.js\";\n\nimport React, { useState } from 'react';\nimport View from \"react-native-web/dist/exports/View\";\nimport Text from \"react-native-web/dist/exports/Text\";\nimport StatusBar from \"react-native-web/dist/exports/StatusBar\";\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport FlatList from \"react-native-web/dist/exports/FlatList\";\nimport Dimensions from \"react-native-web/dist/exports/Dimensions\";\nimport { useFocusEffect } from '@react-navigation/native';\nimport UserImage from \"../components/UserImage\";\nimport * as ScreenOrientation from 'expo-screen-orientation';\nimport { connect } from 'react-redux';\nimport * as actions from \"../store/actions\";\n\nvar UserGallery = function UserGallery(props) {\n  var loading = props.loading,\n      error = props.error,\n      userImages = props.userImages,\n      getImages = props.getImages;\n\n  var _useState = useState(),\n      _useState2 = _slicedToArray(_useState, 2),\n      forceUpdate = _useState2[1];\n\n  function changeScreenOrientation() {\n    return _regeneratorRuntime.async(function changeScreenOrientation$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.next = 2;\n            return _regeneratorRuntime.awrap(ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT));\n\n          case 2:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, null, null, null, Promise);\n  }\n\n  useFocusEffect(React.useCallback(function () {\n    var isActive = true;\n    forceUpdate(function (s) {\n      return !s;\n    });\n    changeScreenOrientation();\n    getImages();\n    return function () {\n      isActive = false;\n    };\n  }, []));\n  return React.createElement(View, {\n    style: styles.container,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 41,\n      columnNumber: 5\n    }\n  }, React.createElement(StatusBar, {\n    hidden: true,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 42,\n      columnNumber: 7\n    }\n  }), loading && !error ? React.createElement(Text, {\n    style: styles.message,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 44,\n      columnNumber: 9\n    }\n  }, \" Loading ... \") : null, !loading && error ? React.createElement(Text, {\n    style: styles.message,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 47,\n      columnNumber: 9\n    }\n  }, \" Error! \", error) : null, !loading && !error && !!userImages.length ? React.createElement(FlatList, {\n    data: userImages,\n    keyExtractor: function keyExtractor(item) {\n      return \"\" + item.id;\n    },\n    renderItem: function renderItem(_ref) {\n      var item = _ref.item;\n      return React.createElement(UserImage, {\n        image: item,\n        __self: _this,\n        __source: {\n          fileName: _jsxFileName,\n          lineNumber: 53,\n          columnNumber: 37\n        }\n      });\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 50,\n      columnNumber: 9\n    }\n  }) : null, !loading && !error && !userImages.length ? React.createElement(Text, {\n    style: styles.message,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 57,\n      columnNumber: 9\n    }\n  }, \" No Photos found \") : null);\n};\n\nvar styles = StyleSheet.create({\n  container: {\n    width: Dimensions.get('window').width - 20,\n    height: Dimensions.get('window').height - 20,\n    display: 'flex',\n    justifyContent: 'center'\n  },\n  message: {\n    color: 'red',\n    width: '100%',\n    textAlign: 'center'\n  }\n});\n\nvar mapStateToProps = function mapStateToProps(state) {\n  return {\n    userImages: state.general.user.userImages || [],\n    loading: state.general.loading,\n    error: state.general.error\n  };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n  return {\n    getImages: function getImages(userId) {\n      return dispatch(actions.getUserImages(userId));\n    }\n  };\n};\n\nexport default connect(mapStateToProps, mapDispatchToProps)(UserGallery);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/UserGallery.js"
+    ],
+    "names": [
+      "React",
+      "useState",
+      "useFocusEffect",
+      "UserImage",
+      "ScreenOrientation",
+      "connect",
+      "actions",
+      "UserGallery",
+      "props",
+      "loading",
+      "error",
+      "userImages",
+      "getImages",
+      "forceUpdate",
+      "changeScreenOrientation",
+      "lockAsync",
+      "OrientationLock",
+      "LANDSCAPE_RIGHT",
+      "useCallback",
+      "isActive",
+      "s",
+      "styles",
+      "container",
+      "message",
+      "length",
+      "item",
+      "id",
+      "StyleSheet",
+      "create",
+      "width",
+      "Dimensions",
+      "get",
+      "height",
+      "display",
+      "justifyContent",
+      "color",
+      "textAlign",
+      "mapStateToProps",
+      "state",
+      "general",
+      "user",
+      "mapDispatchToProps",
+      "dispatch",
+      "userId",
+      "getUserImages"
+    ],
+    "mappings": "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",
+    "sourcesContent": [
+      "/* eslint-disable react/prop-types */\nimport React, { useState } from 'react';\nimport {\n  View,\n  Text,\n  StatusBar,\n  StyleSheet,\n  FlatList,\n  Dimensions,\n} from 'react-native';\nimport { useFocusEffect } from '@react-navigation/native';\nimport UserImage from '../components/UserImage';\nimport * as ScreenOrientation from 'expo-screen-orientation';\nimport { connect } from 'react-redux';\nimport * as actions from '../store/actions';\n\nconst UserGallery = (props) => {\n  const { loading, error, userImages, getImages } = props;\n\n  const [, forceUpdate] = useState();\n\n  async function changeScreenOrientation() {\n    await ScreenOrientation.lockAsync(\n      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT,\n    );\n  }\n\n  useFocusEffect(\n    React.useCallback(() => {\n      let isActive = true;\n      forceUpdate((s) => !s);\n      changeScreenOrientation();\n      getImages();\n      return () => {\n        isActive = false;\n      };\n    }, []),\n  );\n\n  return (\n    <View style={styles.container}>\n      <StatusBar hidden />\n      {loading && !error ? (\n        <Text style={styles.message}> Loading ... </Text>\n      ) : null}\n      {!loading && error ? (\n        <Text style={styles.message}> Error! {error}</Text>\n      ) : null}\n      {!loading && !error && !!userImages.length ? (\n        <FlatList\n          data={userImages}\n          keyExtractor={(item) => `${item.id}`}\n          renderItem={({ item }) => <UserImage image={item} />}\n        />\n      ) : null}\n      {!loading && !error && !userImages.length ? (\n        <Text style={styles.message}> No Photos found </Text>\n      ) : null}\n    </View>\n  );\n};\n\nconst styles = StyleSheet.create({\n  container: {\n    width: Dimensions.get('window').width - 20,\n    height: Dimensions.get('window').height - 20,\n    display: 'flex',\n    justifyContent: 'center',\n  },\n  message: {\n    color: 'red',\n    width: '100%',\n    textAlign: 'center',\n  },\n});\n\nconst mapStateToProps = (state) => {\n  return {\n    userImages: state.general.user.userImages || [],\n    loading: state.general.loading,\n    error: state.general.error,\n  };\n};\n\nconst mapDispatchToProps = (dispatch) => {\n  return {\n    getImages: (userId) => dispatch(actions.getUserImages(userId)),\n  };\n};\n\nexport default connect(mapStateToProps, mapDispatchToProps)(UserGallery);\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

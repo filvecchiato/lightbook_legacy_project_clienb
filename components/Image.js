@@ -1,13 +1,8 @@
 import React from 'react';
 import { StyleSheet, ImageBackground } from 'react-native';
 
-const ExploreImage = ({ image }) => {
-  return (
-    <ImageBackground
-      source={{ uri: image.urls.regular }}
-      style={styles.image}
-    />
-  );
+const UserImage = ({ image }) => {
+  return <ImageBackground source={{ uri: image.url }} style={styles.image} />;
 };
 
 const styles = StyleSheet.create({
@@ -17,4 +12,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ExploreImage;
+export default UserImage;
