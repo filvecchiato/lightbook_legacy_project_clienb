@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
+import mainReducer from './store/reducers/mainReducer';
 
 const composeEnhancers =
   // eslint-disable-next-line no-undef
@@ -13,7 +14,9 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
     : compose;
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  general: mainReducer,
+});
 
 const store = createStore(
   rootReducer,

@@ -1,0 +1,32 @@
+{
+  "ast": null,
+  "code": "import * as actionTypes from \"../actions/actionTypes\";\nimport { updateObject } from \"../utils\";\nvar initialState = {\n  user: {},\n  media: {},\n  loading: false\n};\n\nvar setIsLoading = function setIsLoading(state) {\n  return updateObject(state, {\n    loading: true\n  });\n};\n\nvar reducer = function reducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case actionTypes.GET_USER_IMAGES_START:\n      return setIsLoading();\n\n    case actionTypes.GET_USER_IMAGES_FAIL:\n      return;\n\n    case actionTypes.GET_USER_IMAGES_SUCCESS:\n      return;\n\n    default:\n      return state;\n  }\n};\n\nexport default reducer;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/store/reducers/mainReducer.js"
+    ],
+    "names": [
+      "actionTypes",
+      "updateObject",
+      "initialState",
+      "user",
+      "media",
+      "loading",
+      "setIsLoading",
+      "state",
+      "reducer",
+      "action",
+      "type",
+      "GET_USER_IMAGES_START",
+      "GET_USER_IMAGES_FAIL",
+      "GET_USER_IMAGES_SUCCESS"
+    ],
+    "mappings": "AAAA,OAAO,KAAKA,WAAZ;AACA,SAASC,YAAT;AAEA,IAAMC,YAAY,GAAG;AACnBC,EAAAA,IAAI,EAAE,EADa;AAEnBC,EAAAA,KAAK,EAAE,EAFY;AAGnBC,EAAAA,OAAO,EAAE;AAHU,CAArB;;AAMA,IAAMC,YAAY,GAAG,SAAfA,YAAe,CAACC,KAAD,EAAW;AAC9B,SAAON,YAAY,CAACM,KAAD,EAAQ;AAAEF,IAAAA,OAAO,EAAE;AAAX,GAAR,CAAnB;AACD,CAFD;;AAIA,IAAMG,OAAO,GAAG,SAAVA,OAAU,GAAkC;AAAA,MAAjCD,KAAiC,uEAAzBL,YAAyB;AAAA,MAAXO,MAAW;;AAChD,UAAQA,MAAM,CAACC,IAAf;AACE,SAAKV,WAAW,CAACW,qBAAjB;AACE,aAAOL,YAAY,EAAnB;;AACF,SAAKN,WAAW,CAACY,oBAAjB;AACE;;AACF,SAAKZ,WAAW,CAACa,uBAAjB;AACE;;AACF;AACE,aAAON,KAAP;AARJ;AAUD,CAXD;;AAaA,eAAeC,OAAf",
+    "sourcesContent": [
+      "import * as actionTypes from '../actions/actionTypes';\nimport { updateObject } from '../utils';\n\nconst initialState = {\n  user: {},\n  media: {},\n  loading: false,\n};\n\nconst setIsLoading = (state) => {\n  return updateObject(state, { loading: true });\n};\n\nconst reducer = (state = initialState, action) => {\n  switch (action.type) {\n    case actionTypes.GET_USER_IMAGES_START:\n      return setIsLoading();\n    case actionTypes.GET_USER_IMAGES_FAIL:\n      return;\n    case actionTypes.GET_USER_IMAGES_SUCCESS:\n      return;\n    default:\n      return state;\n  }\n};\n\nexport default reducer;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

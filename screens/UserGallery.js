@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import {
   View,
@@ -8,14 +9,12 @@ import {
 } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import UserImage from '../components/UserImage';
-import ImageService from '../services/ImageService';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import { connect } from 'react-redux';
+import * as actions from '../store/actions';
 
-const UserGallery = ({ navigation }) => {
-  const [images, setImages] = useState([]);
+const UserGallery = (props) => {
   const [, forceUpdate] = React.useState();
-
-  const getAllImages = ImageService.getUserImages;
 
   async function changeScreenOrientation() {
     await ScreenOrientation.lockAsync(
@@ -27,14 +26,14 @@ const UserGallery = ({ navigation }) => {
     React.useCallback(() => {
       forceUpdate((s) => !s);
       changeScreenOrientation();
-      getAllImages().then((data) => setImages(data));
+      props.getImages();
     }, []),
   );
   return (
     <View>
       <StatusBar hidden />
       <FlatList
-        data={images}
+        data={props.images}
         keyExtractor={(item) => `${item.id}`}
         renderItem={({ item }) => <UserImage image={item} />}
       />
@@ -49,4 +48,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserGallery;
+const mapStateToProps = (state) => {
+  return {
+    userImages: state.main.userImages,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getImages: (userId) => dispatch(actions.getUserImages(userId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserGallery);
