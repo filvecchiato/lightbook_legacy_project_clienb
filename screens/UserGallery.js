@@ -5,6 +5,7 @@ import {
   StatusBar,
   StyleSheet,
   FlatList,
+  useWindowDimensions,
   Dimensions,
 } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
@@ -28,7 +29,7 @@ const UserGallery = (props) => {
     React.useCallback(() => {
       let isActive = true;
       forceUpdate((s) => !s);
-      // changeScreenOrientation();
+      changeScreenOrientation();
       getImages();
       return () => {
         isActive = false;
@@ -37,7 +38,9 @@ const UserGallery = (props) => {
   );
 
   return (
-    <View style={styles.container}>
+    <View
+      style={(styles.container, { height: window.height, width: window.width })}
+    >
       <StatusBar hidden />
       {loading && !error ? (
         <Text style={styles.message}> Loading ... </Text>
@@ -61,9 +64,8 @@ const UserGallery = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height + 20,
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
   },
   message: {

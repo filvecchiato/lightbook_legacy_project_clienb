@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import mainReducer from './store/reducers/mainReducer';
+import Upload from './screens/Upload';
 
 const composeEnhancers =
   // eslint-disable-next-line no-undef
@@ -32,6 +33,7 @@ const App = () => {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="Wrapper" component={Wrapper} />
+          <Stack.Screen name="Upload" component={Upload} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

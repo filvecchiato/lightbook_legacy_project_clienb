@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ImageBackground } from 'react-native';
+import { StyleSheet, ImageBackground, Dimensions } from 'react-native';
 
 const UserImage = ({ image }) => {
   return <ImageBackground source={{ uri: image.url }} style={styles.image} />;
@@ -7,7 +7,9 @@ const UserImage = ({ image }) => {
 
 const styles = StyleSheet.create({
   image: {
-    aspectRatio: 1 * 1.7,
+    height: Dimensions.get('screen').height - 10,
+    width: Dimensions.get('screen').width,
+    marginVertical: 5,
     resizeMode: 'cover',
   },
 });

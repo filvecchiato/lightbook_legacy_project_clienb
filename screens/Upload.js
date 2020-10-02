@@ -19,7 +19,7 @@ const Upload = ({ navigation }) => {
           }
         }
       };
-      UploadService.openImagePickerAsync().then(navigation.navigate('Gallery'));
+      UploadService.openImagePickerAsync().then(navigation.navigate('Explore'));
     }, []),
   );
 

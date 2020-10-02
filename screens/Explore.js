@@ -16,8 +16,15 @@ import * as actions from '../store/actions';
 const Explore = (props) => {
   const { loading, error, images, getImages } = props;
 
+  async function changeScreenOrientation() {
+    await ScreenOrientation.lockAsync(
+      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT,
+    );
+  }
+
   useFocusEffect(
     React.useCallback(() => {
+      changeScreenOrientation();
       getImages();
     }, []),
   );
