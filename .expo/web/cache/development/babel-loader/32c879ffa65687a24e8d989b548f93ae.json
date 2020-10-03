@@ -1,0 +1,15 @@
+{
+  "ast": null,
+  "code": "",
+  "map": {
+    "version": 3,
+    "sources": [],
+    "names": [],
+    "mappings": "",
+    "sourcesContent": [
+      "// import * as ImagePicker from 'expo-image-picker';\n// import serviceConfig from './serviceConfig';\n\n// let CLOUDINARY_URL = serviceConfig.cloudinaryUp;\n// const uploadPreset = serviceConfig.cloudinaryPreset;\n\n// export default {\n//   openImagePickerAsync: async () => {\n//     let pickerResult = await ImagePicker.launchImageLibraryAsync({\n//       allowsEditing: true,\n//       aspect: [16, 9],\n//       base64: true,\n//     });\n\n//     if (pickerResult.cancelled === true) {\n//       return;\n//     }\n\n//     let base64Img = `data:image/jpg;base64,${pickerResult.base64}`;\n\n//     let data = {\n//       file: base64Img,\n//       upload_preset: uploadPreset,\n//     };\n\n//     fetch(CLOUDINARY_URL, {\n//       body: JSON.stringify(data),\n//       headers: {\n//         'content-type': 'application/json',\n//       },\n//       method: 'POST',\n//     }).catch((err) => console.log(err));\n//   },\n// };\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "script"
+}

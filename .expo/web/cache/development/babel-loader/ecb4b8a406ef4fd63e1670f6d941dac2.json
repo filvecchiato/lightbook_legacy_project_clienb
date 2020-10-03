@@ -1,0 +1,15 @@
+{
+  "ast": null,
+  "code": "",
+  "map": {
+    "version": 3,
+    "sources": [],
+    "names": [],
+    "mappings": "",
+    "sourcesContent": [
+      "// import serviceConfig from './serviceConfig';\n\n// const mainUrl = serviceConfig.mainUrl;\n// const apiUrl = serviceConfig.unsplash;\n// const cloudinaryUrl = serviceConfig.cloudinaryDown;\n\n// export default {\n//   getExploreImages: () => {\n//     try {\n//       return fetch(apiUrl)\n//         .then((response) => {\n//           return response.json();\n//         })\n//         .catch((err) => console.log(err));\n//     } catch (err) {\n//       console.log('error handler inside try', err);\n//     }\n//   },\n//   getUserImages: () => {\n//     try {\n//       return fetch(apiUrl)\n//         .then((response) => {\n//           return response.json();\n//         })\n//         .catch((err) => console.log(err));\n//     } catch (err) {\n//       console.log('error handler inside try', err);\n//     }\n//   },\n// };\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "script"
+}
