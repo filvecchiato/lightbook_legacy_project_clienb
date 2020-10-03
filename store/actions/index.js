@@ -1,3 +1,3 @@
 export { getExploreImages, getUserImages } from './mediaActions';
 
-export {} from './userActions';
+export { loginUser, createUser } from './userActions';
