@@ -26,6 +26,8 @@ exports[`renders correctly 1`] = `
         "fontWeight": "bold",
       }
     }
-  />
+  >
+    test
+  </Text>
 </View>
 `;

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
-  Button,
-  TouchableOpacity,
   StyleSheet,
   ImageBackground,
   StatusBar,
   TextInput,
 } from 'react-native';
+import Input from '../components/Input';
 
 const image = {
   uri:
@@ -25,20 +24,19 @@ const Login = ({ navigation }) => {
       <ImageBackground source={image} style={styles.backgroundImage}>
         <View style={styles.container}>
           <Text style={styles.text}>Login here</Text>
-          <Text style={styles.text}>email:</Text>
-          <TextInput
-            style={styles.input}
+          <Input
+            label="Email"
             value={email}
-            onChangeText={setEmail}
-            placeholder="email"
+            type="email"
+            setAction={setEmail}
+            placeholder="Enter email..."
           />
-          <Text style={styles.text}>password:</Text>
-          <TextInput
-            style={styles.input}
+          <Input
+            label="Password"
             value={password}
-            onChangeText={setPassword}
-            secureTextEntry={true}
-            placeholder="password"
+            type="password"
+            setAction={setPassword}
+            placeholder="Enter password..."
           />
         </View>
         <TouchableOpacity
@@ -68,16 +66,6 @@ const styles = StyleSheet.create({
     maxHeight: '10%',
     margin: 10,
     padding: 10,
-  },
-  input: {
-    backgroundColor: 'white',
-    width: '50%',
-    height: '70%',
-    borderRadius: 3,
-  },
-  text: {
-    fontSize: 30,
-    color: 'lightgray',
   },
 });
 

@@ -9,6 +9,9 @@ import {
   StatusBar,
   TextInput,
 } from 'react-native';
+import Input from '../components/Input';
+import * as actions from '../store/actions';
+import { connect } from 'react-redux';
 
 const image = {
   uri:
@@ -19,8 +22,7 @@ const Register = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [pumpkins, setPumpkins] = useState('');
-  const [website, setWebsite] = useState('');
+  const [passwordConfirm, setPasswordConfrim] = useState('');
   const [bio, setBio] = useState('');
 
   return (
@@ -29,48 +31,47 @@ const Register = ({ navigation }) => {
       <ImageBackground source={image} style={styles.backgroundImage}>
         <View style={styles.container}>
           <Text style={styles.text}>create new account</Text>
-          <Text style={styles.text}>name:</Text>
-          <TextInput
-            style={styles.input}
+          <Input
+            label="Name"
             value={name}
-            onChangeText={setName}
-            placeholder="name"
+            type="test"
+            setAction={setName}
+            placeholder="Enter your name..."
           />
-          <Text style={styles.text}>username:</Text>
-          <TextInput
-            style={styles.input}
+          <Input
+            label="Username"
             value={username}
-            onChangeText={setUsername}
-            placeholder="username"
+            type="text"
+            setAction={setUsername}
+            placeholder="Enter username..."
           />
-          <Text style={styles.text}>email:</Text>
-          <TextInput
-            style={styles.input}
+          <Input
+            label="Email"
             value={email}
-            onChangeText={setEmail}
-            placeholder="email"
+            type="email"
+            setAction={setEmail}
+            placeholder="Enter email..."
           />
-          <Text style={styles.text}>password:</Text>
-          <TextInput
-            style={styles.input}
-            value={pumpkins}
-            onChangeText={setPumpkins}
-            secureTextEntry={true}
-            placeholder="password"
+          <Input
+            label="Password"
+            value={password}
+            type="password"
+            setAction={setPassword}
+            placeholder="Enter Password"
           />
-          <Text style={styles.text}>website:</Text>
-          <TextInput
-            style={styles.input}
-            value={website}
-            onChangeText={setWebsite}
-            placeholder="website"
+          <Input
+            label="Confirm Password"
+            value={passwordConfirm}
+            type="password"
+            setAction={setPasswordConfrim}
+            placeholder="Enter Password again"
           />
-          <Text style={styles.text}>bio:</Text>
-          <TextInput
-            style={styles.input}
+          <Input
+            label="Bio"
             value={bio}
-            onChangeText={setBio}
-            placeholder="bio"
+            type="text"
+            setAction={setBio}
+            placeholder="Enter Bio"
           />
         </View>
       </ImageBackground>
@@ -91,15 +92,18 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
   },
-  input: {
-    backgroundColor: 'white',
-    width: '50%',
-    height: '70%',
-    borderRadius: 3,
-  },
-  text: {
-    fontSize: 30,
-    color: 'lightgray',
-  },
 });
-export default Register;
+
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.general.user.token,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onRegister: (data) => dispatch(actions.createUser(data)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
