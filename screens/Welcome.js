@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   StyleSheet,
+  Dimensions,
 } from 'react-native';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
@@ -47,7 +48,7 @@ const Welcome = ({ navigation }) => {
           <View style={s.controls}>
             <TouchableOpacity
               style={s.button}
-              onPress={() => navigation.navigate('Wrapper')}
+              onPress={() => navigation.navigate('Login')}
             >
               <Text style={s.title}>log in</Text>
             </TouchableOpacity>
@@ -66,11 +67,10 @@ const s = StyleSheet.create({
   safeArea: {
     flex: 1,
     alignItems: 'center',
-    width: '90%',
-    height: '90%',
+    width: Dimensions.get('screen').width * 0.9,
+    height: Dimensions.get('screen').height * 0.9,
   },
   wrapper: {
-    flex: 1,
     padding: 25,
   },
   header: {
@@ -99,6 +99,9 @@ const s = StyleSheet.create({
   },
   controls: {
     flexDirection: 'row',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
   },
   button: {
     backgroundColor: '#333333',
@@ -107,6 +110,7 @@ const s = StyleSheet.create({
     alignItems: 'center',
     opacity: 0.7,
     flex: 1,
+    margin: 'auto',
   },
   gap: {
     width: 25,

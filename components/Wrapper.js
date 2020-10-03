@@ -4,6 +4,7 @@ import Explore from '../screens/Explore';
 import Upload from '../screens/Upload';
 import UserGallery from '../screens/UserGallery';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Login from '../screens/Login';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,6 +20,7 @@ const DrawerNavigator = () => {
         },
       }}
     >
+      <Drawer.Screen name="Login" component={Login} />
       <Drawer.Screen name="User Photos" component={UserGallery} />
       <Drawer.Screen name="Explore" component={Explore} />
       {/* <Drawer.Screen name="Curate" component={Curate} /> */}

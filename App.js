@@ -1,5 +1,5 @@
 import React from 'react';
-import Wrapper from './screens/Wrapper';
+import Wrapper from './components/Wrapper';
 import Welcome from './screens/Welcome';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';

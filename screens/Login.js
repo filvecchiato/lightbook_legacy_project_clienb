@@ -8,6 +8,8 @@ import {
   TextInput,
 } from 'react-native';
 import Input from '../components/Input';
+import { connect } from 'react-redux';
+import * as actions from '../store/actions';
 
 const image = {
   uri:
