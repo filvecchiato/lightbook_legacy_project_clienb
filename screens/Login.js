@@ -71,4 +71,17 @@ const styles = StyleSheet.create({
     color: 'lightgray',
   },
 });
-export default Login;
+
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.general.user.token,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogin: (data) => dispatch(actions.loginUser(data)),
+    onCreateUser: (data) => dispatch(actions.createUser(data)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
