@@ -1,8 +1,8 @@
 import React from 'react';
-import Explore from './Explore';
+import Explore from '../screens/Explore';
 // import Curate from './Curate';
-import Upload from './Upload';
-import UserGallery from './UserGallery';
+import Upload from '../screens/Upload';
+import UserGallery from '../screens/UserGallery';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Drawer = createDrawerNavigator();
