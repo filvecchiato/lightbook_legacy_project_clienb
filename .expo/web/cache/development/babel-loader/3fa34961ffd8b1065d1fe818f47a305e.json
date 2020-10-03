@@ -1,0 +1,34 @@
+{
+  "ast": null,
+  "code": "import config from \"./serviceConfig\";\nimport handleResponse from \"../helpers/handle-response\";\nexport default {\n  login: login,\n  logout: logout\n};\n\nfunction login(username, password) {\n  var requestOptions = {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify({\n      username: username,\n      password: password\n    })\n  };\n  return fetch(config.apiUrl + \"/users/authenticate\", requestOptions).then(handleResponse).then(function (user) {\n    return user;\n  });\n}\n\nfunction logout() {}",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/services/authenticationService.js"
+    ],
+    "names": [
+      "config",
+      "handleResponse",
+      "login",
+      "logout",
+      "username",
+      "password",
+      "requestOptions",
+      "method",
+      "headers",
+      "body",
+      "JSON",
+      "stringify",
+      "fetch",
+      "apiUrl",
+      "then",
+      "user"
+    ],
+    "mappings": "AACA,OAAOA,MAAP;AACA,OAAOC,cAAP;AAEA,eAAe;AACXC,EAAAA,KAAK,EAALA,KADW;AAEXC,EAAAA,MAAM,EAANA;AAFW,CAAf;;AAWA,SAASD,KAAT,CAAeE,QAAf,EAAyBC,QAAzB,EAAmC;AACjC,MAAMC,cAAc,GAAG;AACrBC,IAAAA,MAAM,EAAE,MADa;AAErBC,IAAAA,OAAO,EAAE;AAAE,sBAAgB;AAAlB,KAFY;AAGrBC,IAAAA,IAAI,EAAEC,IAAI,CAACC,SAAL,CAAe;AAAEP,MAAAA,QAAQ,EAARA,QAAF;AAAYC,MAAAA,QAAQ,EAARA;AAAZ,KAAf;AAHe,GAAvB;AAMA,SAAOO,KAAK,CAAIZ,MAAM,CAACa,MAAX,0BAAwCP,cAAxC,CAAL,CACJQ,IADI,CACCb,cADD,EAEJa,IAFI,CAEC,UAACC,IAAD,EAAU;AAEZ,WAAOA,IAAP;AACH,GALI,CAAP;AAMD;;AAED,SAASZ,MAAT,GAAkB,CAIjB",
+    "sourcesContent": [
+      "\nimport config from './serviceConfig';\nimport handleResponse from '../helpers/handle-response';\n\nexport default {\n    login,\n    logout,\n    // currentUserValue: getToken(),\n};\n\n// function getToken() {\n//     const token = SyncStorage.getItem('currentUser');\n//     return token != null ? JSON.parse(token) : null;;\n// }\n\nfunction login(username, password) {\n  const requestOptions = {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({ username, password }),\n  };\n\n  return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)\n    .then(handleResponse)\n    .then((user) => {\n        // await AsyncStorage.setItem('currentUser', JSON.stringify(user));\n        return user;\n    });\n}\n\nfunction logout() {\n  // remove user from local storage to log user out\n//   localStorage.removeItem('currentUser');\n//   currentUserSubject.next(null);\n}\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

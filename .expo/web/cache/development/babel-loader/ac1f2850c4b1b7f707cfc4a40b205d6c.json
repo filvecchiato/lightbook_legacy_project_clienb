@@ -1,0 +1,47 @@
+{
+  "ast": null,
+  "code": "import { BehaviorSubject } from 'rxjs';\nimport config from \"./serviceConfig\";\nimport handleResponse from \"../helpers/handle-response\";\nimport AsyncStorage from '@react-native-community/async-storage';\nvar currentUserSubject = new BehaviorSubject(JSON.parse(AsyncStorage.getItem('currentUser')));\nexport default {\n  login: login,\n  logout: logout,\n  currentUser: currentUserSubject.asObservable(),\n\n  get currentUserValue() {\n    return currentUserSubject.value;\n  }\n\n};\n\nfunction login(username, password) {\n  var requestOptions = {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify({\n      username: username,\n      password: password\n    })\n  };\n  return fetch(config.apiUrl + \"/users/authenticate\", requestOptions).then(handleResponse).then(function (user) {\n    AsyncStorage.setItem('currentUser', JSON.stringify(user));\n    currentUserSubject.next(user);\n    return user;\n  });\n}\n\nfunction logout() {\n  localStorage.removeItem('currentUser');\n  currentUserSubject.next(null);\n}",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/services/authenticationService.js"
+    ],
+    "names": [
+      "BehaviorSubject",
+      "config",
+      "handleResponse",
+      "AsyncStorage",
+      "currentUserSubject",
+      "JSON",
+      "parse",
+      "getItem",
+      "login",
+      "logout",
+      "currentUser",
+      "asObservable",
+      "currentUserValue",
+      "value",
+      "username",
+      "password",
+      "requestOptions",
+      "method",
+      "headers",
+      "body",
+      "stringify",
+      "fetch",
+      "apiUrl",
+      "then",
+      "user",
+      "setItem",
+      "next",
+      "localStorage",
+      "removeItem"
+    ],
+    "mappings": "AAAA,SAASA,eAAT,QAAgC,MAAhC;AACA,OAAOC,MAAP;AACA,OAAOC,cAAP;AACA,OAAOC,YAAP,MAAyB,uCAAzB;AACA,IAAMC,kBAAkB,GAAG,IAAIJ,eAAJ,CACvBK,IAAI,CAACC,KAAL,CAAWH,YAAY,CAACI,OAAb,CAAqB,aAArB,CAAX,CADuB,CAA3B;AAIA,eAAe;AACbC,EAAAA,KAAK,EAALA,KADa;AAEbC,EAAAA,MAAM,EAANA,MAFa;AAGbC,EAAAA,WAAW,EAAEN,kBAAkB,CAACO,YAAnB,EAHA;;AAIb,MAAIC,gBAAJ,GAAuB;AACrB,WAAOR,kBAAkB,CAACS,KAA1B;AACD;;AANY,CAAf;;AASA,SAASL,KAAT,CAAeM,QAAf,EAAyBC,QAAzB,EAAmC;AACjC,MAAMC,cAAc,GAAG;AACrBC,IAAAA,MAAM,EAAE,MADa;AAErBC,IAAAA,OAAO,EAAE;AAAE,sBAAgB;AAAlB,KAFY;AAGrBC,IAAAA,IAAI,EAAEd,IAAI,CAACe,SAAL,CAAe;AAAEN,MAAAA,QAAQ,EAARA,QAAF;AAAYC,MAAAA,QAAQ,EAARA;AAAZ,KAAf;AAHe,GAAvB;AAMA,SAAOM,KAAK,CAAIpB,MAAM,CAACqB,MAAX,0BAAwCN,cAAxC,CAAL,CACJO,IADI,CACCrB,cADD,EAEJqB,IAFI,CAEC,UAACC,IAAD,EAAU;AAGZrB,IAAAA,YAAY,CAACsB,OAAb,CAAqB,aAArB,EAAoCpB,IAAI,CAACe,SAAL,CAAeI,IAAf,CAApC;AACApB,IAAAA,kBAAkB,CAACsB,IAAnB,CAAwBF,IAAxB;AAEF,WAAOA,IAAP;AACD,GATI,CAAP;AAUD;;AAED,SAASf,MAAT,GAAkB;AAEhBkB,EAAAA,YAAY,CAACC,UAAb,CAAwB,aAAxB;AACAxB,EAAAA,kBAAkB,CAACsB,IAAnB,CAAwB,IAAxB;AACD",
+    "sourcesContent": [
+      "import { BehaviorSubject } from 'rxjs';\nimport config from './serviceConfig';\nimport handleResponse from '../helpers/handle-response';\nimport AsyncStorage from '@react-native-community/async-storage';\nconst currentUserSubject = new BehaviorSubject(\n    JSON.parse(AsyncStorage.getItem('currentUser')),\n);\n\nexport default {\n  login,\n  logout,\n  currentUser: currentUserSubject.asObservable(),\n  get currentUserValue() {\n    return currentUserSubject.value;\n  },\n};\n\nfunction login(username, password) {\n  const requestOptions = {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({ username, password }),\n  };\n\n  return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)\n    .then(handleResponse)\n    .then((user) => {\n      // store user details and jwt token in local storage to keep user logged in between page refreshes\n\n        AsyncStorage.setItem('currentUser', JSON.stringify(user));\n        currentUserSubject.next(user);\n\n      return user;\n    });\n}\n\nfunction logout() {\n  // remove user from local storage to log user out\n  localStorage.removeItem('currentUser');\n  currentUserSubject.next(null);\n}\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

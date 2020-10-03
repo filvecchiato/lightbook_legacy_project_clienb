@@ -1,0 +1,32 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/Wrapper.js\";\n\nimport React from 'react';\nimport Explore from \"../screens/Explore\";\nimport Upload from \"../screens/Upload\";\nimport UserGallery from \"../screens/UserGallery\";\nimport { createDrawerNavigator } from '@react-navigation/drawer';\nimport Login from \"../screens/Login\";\nimport { connect } from 'react-redux';\nvar Drawer = createDrawerNavigator();\n\nvar DrawerNavigator = function DrawerNavigator() {\n  return React.createElement(Drawer.Navigator, {\n    options: {\n      headerStyle: {\n        backgroundColor: 'black'\n      },\n      headerTitleStyle: {\n        fontColor: 'red'\n      }\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 14,\n      columnNumber: 5\n    }\n  }, isAuthenticated ? React.createElement(React.Fragment, null, React.createElement(Drawer.Screen, {\n    name: \"User Photos\",\n    component: UserGallery,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 27,\n      columnNumber: 9\n    }\n  }), React.createElement(Drawer.Screen, {\n    name: \"Explore\",\n    component: Explore,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 28,\n      columnNumber: 9\n    }\n  }), React.createElement(Drawer.Screen, {\n    name: \"Upload\",\n    component: Upload,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 30,\n      columnNumber: 9\n    }\n  }), \"// add logout logic //         \", React.createElement(Drawer.Screen, {\n    name: \"Logout\",\n    component: Login,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 32,\n      columnNumber: 12\n    }\n  })) : React.createElement(Drawer.Screen, {\n    name: \"Login\",\n    component: Login,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 35,\n      columnNumber: 9\n    }\n  }), \";\");\n};\n\nexport default DrawerNavigator;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/Wrapper.js"
+    ],
+    "names": [
+      "React",
+      "Explore",
+      "Upload",
+      "UserGallery",
+      "createDrawerNavigator",
+      "Login",
+      "connect",
+      "Drawer",
+      "DrawerNavigator",
+      "headerStyle",
+      "backgroundColor",
+      "headerTitleStyle",
+      "fontColor",
+      "isAuthenticated"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;AACA,OAAOC,OAAP;AAEA,OAAOC,MAAP;AACA,OAAOC,WAAP;AACA,SAASC,qBAAT,QAAsC,0BAAtC;AACA,OAAOC,KAAP;AACA,SAASC,OAAT,QAAwB,aAAxB;AAEA,IAAMC,MAAM,GAAGH,qBAAqB,EAApC;;AAEA,IAAMI,eAAe,GAAG,SAAlBA,eAAkB,GAAM;AAC5B,SACE,oBAAC,MAAD,CAAQ,SAAR;AACE,IAAA,OAAO,EAAE;AACPC,MAAAA,WAAW,EAAE;AACXC,QAAAA,eAAe,EAAE;AADN,OADN;AAIPC,MAAAA,gBAAgB,EAAE;AAChBC,QAAAA,SAAS,EAAE;AADK;AAJX,KADX;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAWGC,eAAe,GAChB,0CACE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,aAApB;AAAkC,IAAA,SAAS,EAAEV,WAA7C;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAEE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,SAApB;AAA8B,IAAA,SAAS,EAAEF,OAAzC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,EAIE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,QAApB;AAA6B,IAAA,SAAS,EAAEC,MAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAJF,qCAMK,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,QAApB;AAA6B,IAAA,SAAS,EAAEG,KAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IANL,CADgB,GAUd,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,OAApB;AAA4B,IAAA,SAAS,EAAEA,KAAvC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IArBJ,MADF;AA0BD,CA3BD;;AA6BA,eAAeG,eAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport Explore from '../screens/Explore';\n// import Curate from './Curate';\nimport Upload from '../screens/Upload';\nimport UserGallery from '../screens/UserGallery';\nimport { createDrawerNavigator } from '@react-navigation/drawer';\nimport Login from '../screens/Login';\nimport { connect } from 'react-redux';\n\nconst Drawer = createDrawerNavigator();\n\nconst DrawerNavigator = () => {\n  return (\n    <Drawer.Navigator\n      options={{\n        headerStyle: {\n          backgroundColor: 'black',\n        },\n        headerTitleStyle: {\n          fontColor: 'red',\n        },\n      }}\n    >\n\n      {isAuthenticated ?\n      <>\n        <Drawer.Screen name=\"User Photos\" component={UserGallery} />\n        <Drawer.Screen name=\"Explore\" component={Explore} />\n        {/* <Drawer.Screen name=\"Curate\" component={Curate} /> */}\n        <Drawer.Screen name=\"Upload\" component={Upload} />\n    // add logout logic\n//         <Drawer.Screen name=\"Logout\" component={Login} />\n    \n      </>\n      : <Drawer.Screen name=\"Login\" component={Login} />\n      };\n    </Drawer.Navigator>\n  );\n};\n\nexport default DrawerNavigator;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

@@ -5,13 +5,13 @@ import Upload from '../screens/Upload';
 import UserGallery from '../screens/UserGallery';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Login from '../screens/Login';
-import authenticationService from '../services/authenticationService';
+import Logout from '../screens/Logout';
+
+import { connect } from 'react-redux';
 
 const Drawer = createDrawerNavigator();
 
-const isAuthenticated = authenticationService.currentUserValue;
-
-const DrawerNavigator = () => {
+const DrawerNavigator = (props) => {
   return (
     <Drawer.Navigator
       options={{
@@ -23,21 +23,26 @@ const DrawerNavigator = () => {
         },
       }}
     >
-
-      {isAuthenticated ?
-      <>
-        <Drawer.Screen name="User Photos" component={UserGallery} />
-        <Drawer.Screen name="Explore" component={Explore} />
-        {/* <Drawer.Screen name="Curate" component={Curate} /> */}
-        <Drawer.Screen name="Upload" component={Upload} />
-    // add logout logic
-//         <Drawer.Screen name="Logout" component={Login} />
-    
-      </>
-      : <Drawer.Screen name="Login" component={Login} />
-      };
+      {props.isAuthenticated ? (
+        <>
+          <Drawer.Screen name="User Photos" component={UserGallery} />
+          <Drawer.Screen name="Explore" component={Explore} />
+          {/* <Drawer.Screen name="Curate" component={Curate} /> */}
+          <Drawer.Screen name="Upload" component={Upload} />
+          <Drawer.Screen name="Logout" component={Logout} />
+        </>
+      ) : (
+        <Drawer.Screen name="Login" component={Login} />
+      )}
+      ;
     </Drawer.Navigator>
   );
 };
 
-export default DrawerNavigator;
+const mapState = (state) => {
+  return {
+    isAuthenticated: !!state.general.user.token,
+  };
+};
+
+export default connect(mapState)(DrawerNavigator);

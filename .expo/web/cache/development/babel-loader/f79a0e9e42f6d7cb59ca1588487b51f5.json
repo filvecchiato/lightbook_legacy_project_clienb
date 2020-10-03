@@ -1,0 +1,47 @@
+{
+  "ast": null,
+  "code": "import * as actionTypes from \"./actionTypes\";\nimport authenticationService from \"../../services/authenticationService\";\nexport var loginUserFail = function loginUserFail(error) {\n  return {\n    type: actionTypes.LOGIN_FAIL,\n    payload: error\n  };\n};\nexport var loginUserStart = function loginUserStart() {\n  return {\n    type: actionTypes.LOGIN_START\n  };\n};\nexport var loginUserSuccess = function loginUserSuccess(data) {\n  return {\n    type: actionTypes.LOGIN_SUCCESS,\n    payload: data\n  };\n};\nexport var loginUser = function loginUser(data) {\n  return function (dispatch) {\n    dispatch(loginUserStart());\n    authenticationService.login(data.email, data.password).then(function (response) {\n      dispatch(loginUserSuccess(response));\n    }).catch(function (error) {\n      return dispatch(loginUserFail(error));\n    });\n  };\n};\nexport var userLogout = function userLogout() {\n  return {\n    type: actionTypes.USER_LOGOUT\n  };\n};\nexport var createUserStart = function createUserStart() {\n  return {\n    type: actionTypes.CREATE_USER_START\n  };\n};\nexport var createUserSuccess = function createUserSuccess(data) {\n  return {\n    type: actionTypes.CREATE_USER_SUCCESS,\n    payload: data\n  };\n};\nexport var createUserFail = function createUserFail(error) {\n  return {\n    type: actionTypes.CREATE_USER_FAIL,\n    payload: error\n  };\n};\nexport var createUser = function createUser() {\n  return function (dispatch) {\n    dispatch(createUserStart());\n\n    (function () {\n      return {}.then(function (response) {\n        dispatch(createUserSuccess(response.data));\n      }).catch(function (error) {\n        return dispatch(createUserFail(error));\n      });\n    });\n  };\n};",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/store/actions/userActions.js"
+    ],
+    "names": [
+      "actionTypes",
+      "authenticationService",
+      "loginUserFail",
+      "error",
+      "type",
+      "LOGIN_FAIL",
+      "payload",
+      "loginUserStart",
+      "LOGIN_START",
+      "loginUserSuccess",
+      "data",
+      "LOGIN_SUCCESS",
+      "loginUser",
+      "dispatch",
+      "login",
+      "email",
+      "password",
+      "then",
+      "response",
+      "catch",
+      "userLogout",
+      "USER_LOGOUT",
+      "createUserStart",
+      "CREATE_USER_START",
+      "createUserSuccess",
+      "CREATE_USER_SUCCESS",
+      "createUserFail",
+      "CREATE_USER_FAIL",
+      "createUser"
+    ],
+    "mappings": "AAAA,OAAO,KAAKA,WAAZ;AACA,OAAOC,qBAAP;AAEA,OAAO,IAAMC,aAAa,GAAG,SAAhBA,aAAgB,CAACC,KAAD,EAAW;AACtC,SAAO;AACLC,IAAAA,IAAI,EAAEJ,WAAW,CAACK,UADb;AAELC,IAAAA,OAAO,EAAEH;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAMI,cAAc,GAAG,SAAjBA,cAAiB,GAAM;AAClC,SAAO;AACLH,IAAAA,IAAI,EAAEJ,WAAW,CAACQ;AADb,GAAP;AAGD,CAJM;AAMP,OAAO,IAAMC,gBAAgB,GAAG,SAAnBA,gBAAmB,CAACC,IAAD,EAAU;AACxC,SAAO;AACLN,IAAAA,IAAI,EAAEJ,WAAW,CAACW,aADb;AAELL,IAAAA,OAAO,EAAEI;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAME,SAAS,GAAG,SAAZA,SAAY,CAACF,IAAD,EAAU;AACjC,SAAO,UAACG,QAAD,EAAc;AACnBA,IAAAA,QAAQ,CAACN,cAAc,EAAf,CAAR;AAEAN,IAAAA,qBAAqB,CAACa,KAAtB,CAA4BJ,IAAI,CAACK,KAAjC,EAAwCL,IAAI,CAACM,QAA7C,EACCC,IADD,CACM,UAACC,QAAD,EAAc;AAClBL,MAAAA,QAAQ,CAACJ,gBAAgB,CAACS,QAAD,CAAjB,CAAR;AACD,KAHD,EAICC,KAJD,CAIO,UAAChB,KAAD;AAAA,aAAWU,QAAQ,CAACX,aAAa,CAACC,KAAD,CAAd,CAAnB;AAAA,KAJP;AAKD,GARD;AASD,CAVM;AAYP,OAAO,IAAMiB,UAAU,GAAG,SAAbA,UAAa,GAAM;AAC9B,SAAO;AACLhB,IAAAA,IAAI,EAAEJ,WAAW,CAACqB;AADb,GAAP;AAGD,CAJM;AAMP,OAAO,IAAMC,eAAe,GAAG,SAAlBA,eAAkB,GAAM;AACnC,SAAO;AACLlB,IAAAA,IAAI,EAAEJ,WAAW,CAACuB;AADb,GAAP;AAGD,CAJM;AAMP,OAAO,IAAMC,iBAAiB,GAAG,SAApBA,iBAAoB,CAACd,IAAD,EAAU;AACzC,SAAO;AACLN,IAAAA,IAAI,EAAEJ,WAAW,CAACyB,mBADb;AAELnB,IAAAA,OAAO,EAAEI;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAMgB,cAAc,GAAG,SAAjBA,cAAiB,CAACvB,KAAD,EAAW;AACvC,SAAO;AACLC,IAAAA,IAAI,EAAEJ,WAAW,CAAC2B,gBADb;AAELrB,IAAAA,OAAO,EAAEH;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAMyB,UAAU,GAAG,SAAbA,UAAa,GAAM;AAC9B,SAAO,UAACf,QAAD,EAAc;AACnBA,IAAAA,QAAQ,CAACS,eAAe,EAAhB,CAAR;;AAEA;AAAA,aACG,GACEL,IADF,CACO,UAACC,QAAD,EAAc;AAClBL,QAAAA,QAAQ,CAACW,iBAAiB,CAACN,QAAQ,CAACR,IAAV,CAAlB,CAAR;AACD,OAHF,EAIES,KAJF,CAIQ,UAAChB,KAAD;AAAA,eAAWU,QAAQ,CAACa,cAAc,CAACvB,KAAD,CAAf,CAAnB;AAAA,OAJR,CADH;AAAA;AAMD,GATD;AAUD,CAXM",
+    "sourcesContent": [
+      "import * as actionTypes from './actionTypes';\nimport authenticationService from '../../services/authenticationService';\n\nexport const loginUserFail = (error) => {\n  return {\n    type: actionTypes.LOGIN_FAIL,\n    payload: error,\n  };\n};\n\nexport const loginUserStart = () => {\n  return {\n    type: actionTypes.LOGIN_START,\n  };\n};\n\nexport const loginUserSuccess = (data) => {\n  return {\n    type: actionTypes.LOGIN_SUCCESS,\n    payload: data,\n  };\n};\n\nexport const loginUser = (data) => {\n  return (dispatch) => {\n    dispatch(loginUserStart());\n    //insert api service post request here passing required user data\n    authenticationService.login(data.email, data.password)\n    .then((response) => {\n      dispatch(loginUserSuccess(response));\n    })\n    .catch((error) => dispatch(loginUserFail(error)));\n  };\n};\n\nexport const userLogout = () => {\n  return {\n    type: actionTypes.USER_LOGOUT\n  };\n};\n\nexport const createUserStart = () => {\n  return {\n    type: actionTypes.CREATE_USER_START,\n  };\n};\n\nexport const createUserSuccess = (data) => {\n  return {\n    type: actionTypes.CREATE_USER_SUCCESS,\n    payload: data,\n  };\n};\n\nexport const createUserFail = (error) => {\n  return {\n    type: actionTypes.CREATE_USER_FAIL,\n    payload: error,\n  };\n};\n\nexport const createUser = () => {\n  return (dispatch) => {\n    dispatch(createUserStart());\n    //insert api service post request here passing required user data\n    () =>\n      ({}\n        .then((response) => {\n          dispatch(createUserSuccess(response.data));\n        })\n        .catch((error) => dispatch(createUserFail(error))));\n  };\n};\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

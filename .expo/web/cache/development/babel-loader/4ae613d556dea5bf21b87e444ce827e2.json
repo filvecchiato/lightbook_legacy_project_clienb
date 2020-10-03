@@ -1,0 +1,35 @@
+{
+  "ast": null,
+  "code": "import authenticationService from \"../services/authenticationService\";\nexport default function handleResponse(response) {\n  return response.text().then(function (text) {\n    var data = text && JSON.parse(text);\n\n    if (!response.ok) {\n      if ([401, 403].indexOf(response.status) !== -1) {\n        authenticationService.logout();\n      }\n\n      var error = data && data.message || response.statusText;\n      return Promise.reject(error);\n    }\n\n    return data;\n  });\n}",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/helpers/handle-response.js"
+    ],
+    "names": [
+      "authenticationService",
+      "handleResponse",
+      "response",
+      "text",
+      "then",
+      "data",
+      "JSON",
+      "parse",
+      "ok",
+      "indexOf",
+      "status",
+      "logout",
+      "error",
+      "message",
+      "statusText",
+      "Promise",
+      "reject"
+    ],
+    "mappings": "AAAA,OAAOA,qBAAP;AAEA,eAAe,SAASC,cAAT,CAAwBC,QAAxB,EAAkC;AAC/C,SAAOA,QAAQ,CAACC,IAAT,GAAgBC,IAAhB,CAAqB,UAACD,IAAD,EAAU;AACpC,QAAME,IAAI,GAAGF,IAAI,IAAIG,IAAI,CAACC,KAAL,CAAWJ,IAAX,CAArB;;AACA,QAAI,CAACD,QAAQ,CAACM,EAAd,EAAkB;AAChB,UAAI,CAAC,GAAD,EAAM,GAAN,EAAWC,OAAX,CAAmBP,QAAQ,CAACQ,MAA5B,MAAwC,CAAC,CAA7C,EAAgD;AAG9CV,QAAAA,qBAAqB,CAACW,MAAtB;AACD;;AAED,UAAMC,KAAK,GAAIP,IAAI,IAAIA,IAAI,CAACQ,OAAd,IAA0BX,QAAQ,CAACY,UAAjD;AACA,aAAOC,OAAO,CAACC,MAAR,CAAeJ,KAAf,CAAP;AACD;;AAED,WAAOP,IAAP;AACD,GAdM,CAAP;AAeD",
+    "sourcesContent": [
+      "import authenticationService from '../services/authenticationService';\n\nexport default function handleResponse(response) {\n  return response.text().then((text) => {\n    const data = text && JSON.parse(text);\n    if (!response.ok) {\n      if ([401, 403].indexOf(response.status) !== -1) {\n        // auto logout if 401 Unauthorized or 403 Forbidden response returned from api\n\n        authenticationService.logout();\n      }\n\n      const error = (data && data.message) || response.statusText;\n      return Promise.reject(error);\n    }\n\n    return data;\n  });\n}\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

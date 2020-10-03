@@ -1,19 +1,16 @@
-import { BehaviorSubject } from 'rxjs';
 import config from './serviceConfig';
 import handleResponse from '../helpers/handle-response';
-
-const currentUserSubject = new BehaviorSubject(
-  JSON.parse(localStorage.getItem('currentUser')),
-);
 
 export default {
   login,
   logout,
-  currentUser: currentUserSubject.asObservable(),
-  get currentUserValue() {
-    return currentUserSubject.value;
-  },
+  // currentUserValue: getToken(),
 };
+
+// function getToken() {
+//     const token = SyncStorage.getItem('currentUser');
+//     return token != null ? JSON.parse(token) : null;;
+// }
 
 function login(username, password) {
   const requestOptions = {
@@ -25,17 +22,11 @@ function login(username, password) {
   return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
     .then(handleResponse)
     .then((user) => {
-      // store user details and jwt token in local storage to keep user logged in between page refreshes
-
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      currentUserSubject.next(user);
-
+      // await AsyncStorage.setItem('currentUser', JSON.stringify(user));
       return user;
     });
 }
 
 function logout() {
-  // remove user from local storage to log user out
-  localStorage.removeItem('currentUser');
-  currentUserSubject.next(null);
+  //add redirect to login
 }

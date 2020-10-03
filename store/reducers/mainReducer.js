@@ -52,8 +52,17 @@ const getExploreImagesSuccess = (state, action) => {
 const setLoggedIn = (state, action) => {
   return updateObject(state, {
     user: {
-      token: action.payload,
+      token: action.payload.token,
       images: state.user.images,
+    },
+  });
+};
+
+const setLogOut = (state, action) => {
+  return updateObject(state, {
+    user: {
+      token: null,
+      images: [],
     },
   });
 };
@@ -84,6 +93,8 @@ const reducer = (state = initialState, action) => {
       return setError(state, action);
     case actionTypes.CREATE_USER_SUCCESS:
       return setLoggedIn(state, action);
+    case actionTypes.USER_LOGOUT:
+      return setLogOut(state, action);
     default:
       return state;
   }

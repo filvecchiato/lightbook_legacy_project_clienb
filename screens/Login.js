@@ -13,43 +13,43 @@ import * as actions from '../store/actions';
 
 const image = {
   uri:
-    'https://images.unsplash.com/photo-1559406041-c7d2b2e98690?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+    'https://images.unsplash.com/photo-1567581807005-1a3609c32d95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
 };
 // not connected, mock up for login
-const Login = ({ navigation }) => {
+const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const loginUser = async () => {
+    const response = await props.onLogin({ email: email, password: password });
+    if (response) props.navigation.navigate('User Photos');
+  };
 
   return (
     <View>
       <StatusBar hidden />
       <ImageBackground source={image} style={styles.backgroundImage}>
         <View style={styles.container}>
-          <Text style={styles.text}>Login here</Text>
-          <Input
-            label="Email"
-            value={email}
-            type="email"
-            setAction={setEmail}
-            placeholder="Enter email..."
-          />
-          <Input
-            label="Password"
-            value={password}
-            type="password"
-            setAction={setPassword}
-            placeholder="Enter password..."
-          />
+          <View style={styles.form}>
+            <Input
+              label="Email"
+              value={email}
+              type="email"
+              setAction={setEmail}
+              placeholder="Enter email..."
+            />
+            <Input
+              label="Password"
+              value={password}
+              type="password"
+              setAction={setPassword}
+              placeholder="Enter password..."
+            />
+          </View>
+          <View style={styles.button}>
+            <AppButton onPress={() => loginUser()} title="Sign In" />
+          </View>
         </View>
-        <AppButton
-          onPress={() =>
-            onLogin({
-              email: email,
-              password: password,
-            })
-          }
-          title="Sign In"
-        />
       </ImageBackground>
     </View>
   );
@@ -64,10 +64,21 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    flexDirection: 'column',
     alignItems: 'center',
-    maxHeight: '10%',
+    height: 'calc(100%  - 20pt)',
     margin: 10,
     padding: 10,
+  },
+  form: {
+    width: '100%',
+    height: '80%',
+    paddingTop: 300,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  button: {
+    width: '100%',
   },
 });
 

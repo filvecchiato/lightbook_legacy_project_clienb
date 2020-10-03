@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import authenticationService from '../../services/authenticationService';
 
 export const loginUserFail = (error) => {
   return {
@@ -24,11 +25,19 @@ export const loginUser = (data) => {
   return (dispatch) => {
     dispatch(loginUserStart());
     //insert api service post request here passing required user data
-    authenticationService.login(data.email, data.password)
-    .then((response) => {
-      dispatch(loginUserSuccess(response.data));
-    })
-    .catch((error) => dispatch(loginUserFail(error)));
+    dispatch(loginUserSuccess({ token: 'hello' }));
+    return 'success';
+    // authenticationService.login(data.email, data.password)
+    // .then((response) => {
+    //   dispatch(loginUserSuccess(response));
+    // })
+    // .catch((error) => dispatch(loginUserFail(error)));
+  };
+};
+
+export const userLogout = () => {
+  return {
+    type: actionTypes.USER_LOGOUT,
   };
 };
 
