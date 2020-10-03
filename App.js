@@ -1,5 +1,6 @@
 import React from 'react';
 import Wrapper from './components/Wrapper';
+import authenticationService from '../services/authenticationService';
 import Welcome from './screens/Welcome';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,6 +9,10 @@ import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import mainReducer from './store/reducers/mainReducer';
 import Upload from './screens/Upload';
+import LoginPage from './screens/Login';
+
+
+const isAuthenticated = authenticationService.currentUserValue;
 
 const composeEnhancers =
   // eslint-disable-next-line no-undef
@@ -26,14 +31,25 @@ const store = createStore(
 
 const Stack = createStackNavigator();
 
+// const logout = () => {
+//   authenticationService.logout();
+//   history.push('/login');
+// };
+
+
 const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Welcome" component={Welcome} />
-          <Stack.Screen name="Wrapper" component={Wrapper} />
-          <Stack.Screen name="Upload" component={Upload} />
+          {isAuthenticated ?
+          <>
+            <Stack.Screen name="Welcome" component={Welcome} />
+            <Stack.Screen name="Wrapper" component={Wrapper} />
+            <Stack.Screen name="Upload" component={Upload} />
+          </>
+          : <Stack.Screen name="Login" component={LoginPage} />
+          }
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

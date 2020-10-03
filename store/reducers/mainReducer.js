@@ -67,7 +67,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.GET_USER_IMAGES_SUCCESS:
       return getUserImagesSuccess(state, action);
     case actionTypes.GET_EXPLORE_IMAGES_FAIL:
-      return setError(state, action.payload);
+      return setError(state, action);
     case actionTypes.GET_EXPLORE_IMAGES_START:
       return setIsLoading(state, action);
     case actionTypes.GET_EXPLORE_IMAGES_SUCCESS:

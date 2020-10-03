@@ -24,12 +24,11 @@ export const loginUser = (data) => {
   return (dispatch) => {
     dispatch(loginUserStart());
     //insert api service post request here passing required user data
-    () =>
-      ({}
-        .then((response) => {
-          dispatch(loginUserSuccess(response.data));
-        })
-        .catch((error) => dispatch(loginUserFail(error))));
+    authenticationService.login(data.email, data.password)
+    .then((response) => {
+      dispatch(loginUserSuccess(response.data));
+    })
+    .catch((error) => dispatch(loginUserFail(error)));
   };
 };
 
