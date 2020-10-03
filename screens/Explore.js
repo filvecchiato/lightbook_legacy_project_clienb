@@ -50,9 +50,8 @@ const Explore = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height + 20,
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
   },
   message: {

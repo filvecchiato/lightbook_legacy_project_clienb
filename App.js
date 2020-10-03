@@ -1,7 +1,5 @@
 import React from 'react';
-import Wrapper from './screens/Wrapper';
-import { Router, Route, Link } from 'react-router-dom';
-import { history } from '@/_helpers';
+import Wrapper from './components/Wrapper';
 import authenticationService from '../services/authenticationService';
 import Welcome from './screens/Welcome';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -33,10 +31,10 @@ const store = createStore(
 
 const Stack = createStackNavigator();
 
-const logout = () => {
-  authenticationService.logout();
-  history.push('/login');
-};
+// const logout = () => {
+//   authenticationService.logout();
+//   history.push('/login');
+// };
 
 
 const App = () => {

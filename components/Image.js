@@ -7,8 +7,8 @@ const UserImage = ({ image }) => {
 
 const styles = StyleSheet.create({
   image: {
-    height: Dimensions.get('screen').height - 10,
-    width: Dimensions.get('screen').width,
+    height: Dimensions.get('screen').width - 10,
+    width: Dimensions.get('screen').height,
     marginVertical: 5,
     resizeMode: 'cover',
   },
