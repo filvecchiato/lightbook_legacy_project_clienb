@@ -5,8 +5,10 @@ exports[`renders correctly 1`] = `
   accessibilityIgnoresInvertColors={true}
   style={
     Object {
-      "aspectRatio": 1.7,
+      "height": 1324,
+      "marginVertical": 5,
       "resizeMode": "cover",
+      "width": 750,
     }
   }
 >
@@ -26,8 +28,8 @@ exports[`renders correctly 1`] = `
           "top": 0,
         },
         Object {
-          "height": undefined,
-          "width": undefined,
+          "height": 1324,
+          "width": 750,
         },
         undefined,
       ]
