@@ -41,6 +41,15 @@ const Login = ({ navigation }) => {
             placeholder="password"
           />
         </View>
+        <TouchableOpacity
+              style={s.button}
+              onPress={() => onLogin({
+                email: email,
+                password: password
+              })}
+            >
+              <Text style={s.title}>log in</Text>
+            </TouchableOpacity>
       </ImageBackground>
     </View>
   );
