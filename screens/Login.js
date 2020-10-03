@@ -5,8 +5,8 @@ import {
   StyleSheet,
   ImageBackground,
   StatusBar,
-  TextInput,
 } from 'react-native';
+import AppButton from '../components/AppButton';
 import Input from '../components/Input';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions';
@@ -41,15 +41,15 @@ const Login = ({ navigation }) => {
             placeholder="Enter password..."
           />
         </View>
-        <TouchableOpacity
-              style={s.button}
-              onPress={() => onLogin({
-                email: email,
-                password: password
-              })}
-            >
-              <Text style={s.title}>log in</Text>
-            </TouchableOpacity>
+        <AppButton
+          onPress={() =>
+            onLogin({
+              email: email,
+              password: password,
+            })
+          }
+          title="Sign In"
+        />
       </ImageBackground>
     </View>
   );
