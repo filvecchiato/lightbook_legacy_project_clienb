@@ -1,0 +1,45 @@
+{
+  "ast": null,
+  "code": "import * as actionTypes from \"./actionTypes\";\nimport imageService from \"./../../services/ImageService\";\nexport var getExploreImagesStart = function getExploreImagesStart() {\n  return {\n    action: actionTypes.GET_EXPLORE_IMAGES_START,\n    payload: null\n  };\n};\nexport var getExploreImagesSuccess = function getExploreImagesSuccess(data) {\n  return {\n    action: actionTypes.GET_EXPLORE_IMAGES_SUCCESS,\n    payload: data\n  };\n};\nexport var getExploreImagesFail = function getExploreImagesFail(error) {\n  return {\n    action: actionTypes.GET_EXPLORE_IMAGES_FAIL,\n    payload: error\n  };\n};\nexport var getExploreImages = function getExploreImages() {\n  return function (dispatch) {\n    dispatch(getExploreImagesStart());\n    imageService.getExploreImages().then(function (response) {\n      console.log('explore image redux', response);\n      dispatch(getExploreImagesSuccess(response.data));\n    }).catch(function (error) {\n      console.log('get explore image redux error', error);\n      dispatch(getExploreImagesFail(error));\n    });\n  };\n};\nexport var getUserImagesStart = function getUserImagesStart() {\n  return {\n    action: actionTypes.GET_USER_IMAGES_START,\n    payload: null\n  };\n};\nexport var getUserImagesSuccess = function getUserImagesSuccess(data) {\n  return {\n    action: actionTypes.GET_USER_IMAGES_SUCCESS,\n    payload: data\n  };\n};\nexport var getUserImagesFail = function getUserImagesFail(error) {\n  return {\n    action: actionTypes.GET_USER_IMAGES_FAIL,\n    payload: error\n  };\n};\nexport var getUserImages = function getUserImages(userId) {\n  return function (dispatch) {\n    dispatch(getUserImagesStart());\n    imageService.getUserImages(userId).then(function (response) {\n      console.log('get user image redux', response);\n      dispatch(getUserImagesSuccess(response.data));\n    }).catch(function (error) {\n      console.log('get user image redux error', error);\n      dispatch(getUserImagesFail(error));\n    });\n  };\n};",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/store/actions/mediaActions.js"
+    ],
+    "names": [
+      "actionTypes",
+      "imageService",
+      "getExploreImagesStart",
+      "action",
+      "GET_EXPLORE_IMAGES_START",
+      "payload",
+      "getExploreImagesSuccess",
+      "data",
+      "GET_EXPLORE_IMAGES_SUCCESS",
+      "getExploreImagesFail",
+      "error",
+      "GET_EXPLORE_IMAGES_FAIL",
+      "getExploreImages",
+      "dispatch",
+      "then",
+      "response",
+      "console",
+      "log",
+      "catch",
+      "getUserImagesStart",
+      "GET_USER_IMAGES_START",
+      "getUserImagesSuccess",
+      "GET_USER_IMAGES_SUCCESS",
+      "getUserImagesFail",
+      "GET_USER_IMAGES_FAIL",
+      "getUserImages",
+      "userId"
+    ],
+    "mappings": "AAAA,OAAO,KAAKA,WAAZ;AACA,OAAOC,YAAP;AAEA,OAAO,IAAMC,qBAAqB,GAAG,SAAxBA,qBAAwB,GAAM;AACzC,SAAO;AACLC,IAAAA,MAAM,EAAEH,WAAW,CAACI,wBADf;AAELC,IAAAA,OAAO,EAAE;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAMC,uBAAuB,GAAG,SAA1BA,uBAA0B,CAACC,IAAD,EAAU;AAC/C,SAAO;AACLJ,IAAAA,MAAM,EAAEH,WAAW,CAACQ,0BADf;AAELH,IAAAA,OAAO,EAAEE;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAME,oBAAoB,GAAG,SAAvBA,oBAAuB,CAACC,KAAD,EAAW;AAC7C,SAAO;AACLP,IAAAA,MAAM,EAAEH,WAAW,CAACW,uBADf;AAELN,IAAAA,OAAO,EAAEK;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAME,gBAAgB,GAAG,SAAnBA,gBAAmB,GAAM;AACpC,SAAO,UAACC,QAAD,EAAc;AACnBA,IAAAA,QAAQ,CAACX,qBAAqB,EAAtB,CAAR;AACAD,IAAAA,YAAY,CACTW,gBADH,GAEGE,IAFH,CAEQ,UAACC,QAAD,EAAc;AAClBC,MAAAA,OAAO,CAACC,GAAR,CAAY,qBAAZ,EAAmCF,QAAnC;AACAF,MAAAA,QAAQ,CAACP,uBAAuB,CAACS,QAAQ,CAACR,IAAV,CAAxB,CAAR;AACD,KALH,EAMGW,KANH,CAMS,UAACR,KAAD,EAAW;AAChBM,MAAAA,OAAO,CAACC,GAAR,CAAY,+BAAZ,EAA6CP,KAA7C;AACAG,MAAAA,QAAQ,CAACJ,oBAAoB,CAACC,KAAD,CAArB,CAAR;AACD,KATH;AAUD,GAZD;AAaD,CAdM;AAgBP,OAAO,IAAMS,kBAAkB,GAAG,SAArBA,kBAAqB,GAAM;AACtC,SAAO;AACLhB,IAAAA,MAAM,EAAEH,WAAW,CAACoB,qBADf;AAELf,IAAAA,OAAO,EAAE;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAMgB,oBAAoB,GAAG,SAAvBA,oBAAuB,CAACd,IAAD,EAAU;AAC5C,SAAO;AACLJ,IAAAA,MAAM,EAAEH,WAAW,CAACsB,uBADf;AAELjB,IAAAA,OAAO,EAAEE;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAMgB,iBAAiB,GAAG,SAApBA,iBAAoB,CAACb,KAAD,EAAW;AAC1C,SAAO;AACLP,IAAAA,MAAM,EAAEH,WAAW,CAACwB,oBADf;AAELnB,IAAAA,OAAO,EAAEK;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAMe,aAAa,GAAG,SAAhBA,aAAgB,CAACC,MAAD,EAAY;AACvC,SAAO,UAACb,QAAD,EAAc;AACnBA,IAAAA,QAAQ,CAACM,kBAAkB,EAAnB,CAAR;AACAlB,IAAAA,YAAY,CACTwB,aADH,CACiBC,MADjB,EAEGZ,IAFH,CAEQ,UAACC,QAAD,EAAc;AAClBC,MAAAA,OAAO,CAACC,GAAR,CAAY,sBAAZ,EAAoCF,QAApC;AACAF,MAAAA,QAAQ,CAACQ,oBAAoB,CAACN,QAAQ,CAACR,IAAV,CAArB,CAAR;AACD,KALH,EAMGW,KANH,CAMS,UAACR,KAAD,EAAW;AAChBM,MAAAA,OAAO,CAACC,GAAR,CAAY,4BAAZ,EAA0CP,KAA1C;AACAG,MAAAA,QAAQ,CAACU,iBAAiB,CAACb,KAAD,CAAlB,CAAR;AACD,KATH;AAUD,GAZD;AAaD,CAdM",
+    "sourcesContent": [
+      "import * as actionTypes from './actionTypes';\nimport imageService from './../../services/ImageService';\n\nexport const getExploreImagesStart = () => {\n  return {\n    action: actionTypes.GET_EXPLORE_IMAGES_START,\n    payload: null,\n  };\n};\n\nexport const getExploreImagesSuccess = (data) => {\n  return {\n    action: actionTypes.GET_EXPLORE_IMAGES_SUCCESS,\n    payload: data,\n  };\n};\n\nexport const getExploreImagesFail = (error) => {\n  return {\n    action: actionTypes.GET_EXPLORE_IMAGES_FAIL,\n    payload: error,\n  };\n};\n\nexport const getExploreImages = () => {\n  return (dispatch) => {\n    dispatch(getExploreImagesStart());\n    imageService\n      .getExploreImages()\n      .then((response) => {\n        console.log('explore image redux', response);\n        dispatch(getExploreImagesSuccess(response.data));\n      })\n      .catch((error) => {\n        console.log('get explore image redux error', error);\n        dispatch(getExploreImagesFail(error));\n      });\n  };\n};\n\nexport const getUserImagesStart = () => {\n  return {\n    action: actionTypes.GET_USER_IMAGES_START,\n    payload: null,\n  };\n};\n\nexport const getUserImagesSuccess = (data) => {\n  return {\n    action: actionTypes.GET_USER_IMAGES_SUCCESS,\n    payload: data,\n  };\n};\n\nexport const getUserImagesFail = (error) => {\n  return {\n    action: actionTypes.GET_USER_IMAGES_FAIL,\n    payload: error,\n  };\n};\n\nexport const getUserImages = (userId) => {\n  return (dispatch) => {\n    dispatch(getUserImagesStart());\n    imageService\n      .getUserImages(userId)\n      .then((response) => {\n        console.log('get user image redux', response);\n        dispatch(getUserImagesSuccess(response.data));\n      })\n      .catch((error) => {\n        console.log('get user image redux error', error);\n        dispatch(getUserImagesFail(error));\n      });\n  };\n};\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

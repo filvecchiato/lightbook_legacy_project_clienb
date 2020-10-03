@@ -1,0 +1,15 @@
+{
+  "ast": null,
+  "code": "import * as actionTypes from \"./actionTypes\";",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/store/actions/userActions.js"
+    ],
+    "names": ["actionTypes"],
+    "mappings": "AAAA,OAAO,KAAKA,WAAZ",
+    "sourcesContent": ["import * as actionTypes from './actionTypes';\n"]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

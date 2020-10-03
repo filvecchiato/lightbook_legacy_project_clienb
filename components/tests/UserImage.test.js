@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import UserImage from '../UserImage';
+import Image from '../Image';
 
 test('renders correctly', () => {
-  const tree = renderer.create(<UserImage image={{ url: 'test' }} />).toJSON();
+  const tree = renderer.create(<Image image={{ url: 'test' }} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

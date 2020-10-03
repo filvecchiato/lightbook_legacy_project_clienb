@@ -1,0 +1,43 @@
+{
+  "ast": null,
+  "code": "import * as actionTypes from \"../actions/actionTypes\";\nimport { getExploreImagesFail } from \"../actions/mediaActions\";\nimport { updateObject } from \"../utils\";\nvar initialState = {\n  user: {\n    profile: null,\n    images: []\n  },\n  exploreImages: [],\n  loading: false,\n  error: null\n};\n\nvar setIsLoading = function setIsLoading(state) {\n  return updateObject(state, {\n    loading: true\n  });\n};\n\nvar setError = function setError(state, action) {\n  return updateObject(state, {\n    loading: false,\n    error: action.payload\n  });\n};\n\nvar getUserImagesSuccess = function getUserImagesSuccess(state, action) {\n  return updateObject(state, {\n    loading: false,\n    user: {\n      profile: null,\n      images: action.payload\n    }\n  });\n};\n\nvar getExploreImagesSuccess = function getExploreImagesSuccess(state, action) {\n  return updateObject(state, {\n    loading: false,\n    exploreImages: action.payload\n  });\n};\n\nvar reducer = function reducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case actionTypes.GET_USER_IMAGES_START:\n      return setIsLoading(state, action);\n\n    case actionTypes.GET_USER_IMAGES_FAIL:\n      return setError(state, action);\n\n    case actionTypes.GET_USER_IMAGES_SUCCESS:\n      return getUserImagesSuccess(state, action);\n\n    case actionTypes.GET_EXPLORE_IMAGES_FAIL:\n      return setError(state, action.payload);\n\n    case actionTypes.GET_EXPLORE_IMAGES_START:\n      return setIsLoading(state, action);\n\n    case actionTypes.GET_EXPLORE_IMAGES_SUCCESS:\n      return getExploreImagesSuccess(state, action);\n\n    default:\n      return state;\n  }\n};\n\nexport default reducer;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/store/reducers/mainReducer.js"
+    ],
+    "names": [
+      "actionTypes",
+      "getExploreImagesFail",
+      "updateObject",
+      "initialState",
+      "user",
+      "profile",
+      "images",
+      "exploreImages",
+      "loading",
+      "error",
+      "setIsLoading",
+      "state",
+      "setError",
+      "action",
+      "payload",
+      "getUserImagesSuccess",
+      "getExploreImagesSuccess",
+      "reducer",
+      "type",
+      "GET_USER_IMAGES_START",
+      "GET_USER_IMAGES_FAIL",
+      "GET_USER_IMAGES_SUCCESS",
+      "GET_EXPLORE_IMAGES_FAIL",
+      "GET_EXPLORE_IMAGES_START",
+      "GET_EXPLORE_IMAGES_SUCCESS"
+    ],
+    "mappings": "AAAA,OAAO,KAAKA,WAAZ;AACA,SAASC,oBAAT;AACA,SAASC,YAAT;AAEA,IAAMC,YAAY,GAAG;AACnBC,EAAAA,IAAI,EAAE;AACJC,IAAAA,OAAO,EAAE,IADL;AAEJC,IAAAA,MAAM,EAAE;AAFJ,GADa;AAKnBC,EAAAA,aAAa,EAAE,EALI;AAMnBC,EAAAA,OAAO,EAAE,KANU;AAOnBC,EAAAA,KAAK,EAAE;AAPY,CAArB;;AAUA,IAAMC,YAAY,GAAG,SAAfA,YAAe,CAACC,KAAD,EAAW;AAC9B,SAAOT,YAAY,CAACS,KAAD,EAAQ;AAAEH,IAAAA,OAAO,EAAE;AAAX,GAAR,CAAnB;AACD,CAFD;;AAIA,IAAMI,QAAQ,GAAG,SAAXA,QAAW,CAACD,KAAD,EAAQE,MAAR,EAAmB;AAClC,SAAOX,YAAY,CAACS,KAAD,EAAQ;AACzBH,IAAAA,OAAO,EAAE,KADgB;AAEzBC,IAAAA,KAAK,EAAEI,MAAM,CAACC;AAFW,GAAR,CAAnB;AAID,CALD;;AAOA,IAAMC,oBAAoB,GAAG,SAAvBA,oBAAuB,CAACJ,KAAD,EAAQE,MAAR,EAAmB;AAC9C,SAAOX,YAAY,CAACS,KAAD,EAAQ;AACzBH,IAAAA,OAAO,EAAE,KADgB;AAEzBJ,IAAAA,IAAI,EAAE;AACJC,MAAAA,OAAO,EAAE,IADL;AAEJC,MAAAA,MAAM,EAAEO,MAAM,CAACC;AAFX;AAFmB,GAAR,CAAnB;AAOD,CARD;;AAUA,IAAME,uBAAuB,GAAG,SAA1BA,uBAA0B,CAACL,KAAD,EAAQE,MAAR,EAAmB;AACjD,SAAOX,YAAY,CAACS,KAAD,EAAQ;AACzBH,IAAAA,OAAO,EAAE,KADgB;AAEzBD,IAAAA,aAAa,EAAEM,MAAM,CAACC;AAFG,GAAR,CAAnB;AAID,CALD;;AAOA,IAAMG,OAAO,GAAG,SAAVA,OAAU,GAAkC;AAAA,MAAjCN,KAAiC,uEAAzBR,YAAyB;AAAA,MAAXU,MAAW;;AAChD,UAAQA,MAAM,CAACK,IAAf;AACE,SAAKlB,WAAW,CAACmB,qBAAjB;AACE,aAAOT,YAAY,CAACC,KAAD,EAAQE,MAAR,CAAnB;;AACF,SAAKb,WAAW,CAACoB,oBAAjB;AACE,aAAOR,QAAQ,CAACD,KAAD,EAAQE,MAAR,CAAf;;AACF,SAAKb,WAAW,CAACqB,uBAAjB;AACE,aAAON,oBAAoB,CAACJ,KAAD,EAAQE,MAAR,CAA3B;;AACF,SAAKb,WAAW,CAACsB,uBAAjB;AACE,aAAOV,QAAQ,CAACD,KAAD,EAAQE,MAAM,CAACC,OAAf,CAAf;;AACF,SAAKd,WAAW,CAACuB,wBAAjB;AACE,aAAOb,YAAY,CAACC,KAAD,EAAQE,MAAR,CAAnB;;AACF,SAAKb,WAAW,CAACwB,0BAAjB;AACE,aAAOR,uBAAuB,CAACL,KAAD,EAAQE,MAAR,CAA9B;;AACF;AACE,aAAOF,KAAP;AAdJ;AAgBD,CAjBD;;AAmBA,eAAeM,OAAf",
+    "sourcesContent": [
+      "import * as actionTypes from '../actions/actionTypes';\nimport { getExploreImagesFail } from '../actions/mediaActions';\nimport { updateObject } from '../utils';\n\nconst initialState = {\n  user: {\n    profile: null,\n    images: [],\n  },\n  exploreImages: [],\n  loading: false,\n  error: null,\n};\n\nconst setIsLoading = (state) => {\n  return updateObject(state, { loading: true });\n};\n\nconst setError = (state, action) => {\n  return updateObject(state, {\n    loading: false,\n    error: action.payload,\n  });\n};\n\nconst getUserImagesSuccess = (state, action) => {\n  return updateObject(state, {\n    loading: false,\n    user: {\n      profile: null,\n      images: action.payload,\n    },\n  });\n};\n\nconst getExploreImagesSuccess = (state, action) => {\n  return updateObject(state, {\n    loading: false,\n    exploreImages: action.payload,\n  });\n};\n\nconst reducer = (state = initialState, action) => {\n  switch (action.type) {\n    case actionTypes.GET_USER_IMAGES_START:\n      return setIsLoading(state, action);\n    case actionTypes.GET_USER_IMAGES_FAIL:\n      return setError(state, action);\n    case actionTypes.GET_USER_IMAGES_SUCCESS:\n      return getUserImagesSuccess(state, action);\n    case actionTypes.GET_EXPLORE_IMAGES_FAIL:\n      return setError(state, action.payload);\n    case actionTypes.GET_EXPLORE_IMAGES_START:\n      return setIsLoading(state, action);\n    case actionTypes.GET_EXPLORE_IMAGES_SUCCESS:\n      return getExploreImagesSuccess(state, action);\n    default:\n      return state;\n  }\n};\n\nexport default reducer;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

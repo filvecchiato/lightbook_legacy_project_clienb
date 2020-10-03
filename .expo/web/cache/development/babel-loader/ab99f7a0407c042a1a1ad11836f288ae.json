@@ -1,0 +1,24 @@
+{
+  "ast": null,
+  "code": "export var GET_EXPLORE_IMAGES_START = 'GET_EXPLORE_IMAGES_START';\nexport var GET_EXPLORE_IMAGES_SUCCESS = 'GET_EXPLORE_IMAGES_SUCCESS';\nexport var GET_EXPLORE_IMAGES_FAIL = 'GET_EXPLORE_IMAGES_FAIL';\nexport var GET_USER_IMAGES_START = 'GET_USER_IMAGES_START';\nexport var GET_USER_IMAGES_SUCCESS = 'GET_USER_IMAGES_SUCCESS';\nexport var GET_USER_IMAGES_FAIL = 'GET_USER_IMAGES_FAIL';",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/store/actions/actionTypes.js"
+    ],
+    "names": [
+      "GET_EXPLORE_IMAGES_START",
+      "GET_EXPLORE_IMAGES_SUCCESS",
+      "GET_EXPLORE_IMAGES_FAIL",
+      "GET_USER_IMAGES_START",
+      "GET_USER_IMAGES_SUCCESS",
+      "GET_USER_IMAGES_FAIL"
+    ],
+    "mappings": "AAAA,OAAO,IAAMA,wBAAwB,GAAG,0BAAjC;AACP,OAAO,IAAMC,0BAA0B,GAAG,4BAAnC;AACP,OAAO,IAAMC,uBAAuB,GAAG,yBAAhC;AAEP,OAAO,IAAMC,qBAAqB,GAAG,uBAA9B;AACP,OAAO,IAAMC,uBAAuB,GAAG,yBAAhC;AACP,OAAO,IAAMC,oBAAoB,GAAG,sBAA7B",
+    "sourcesContent": [
+      "export const GET_EXPLORE_IMAGES_START = 'GET_EXPLORE_IMAGES_START';\nexport const GET_EXPLORE_IMAGES_SUCCESS = 'GET_EXPLORE_IMAGES_SUCCESS';\nexport const GET_EXPLORE_IMAGES_FAIL = 'GET_EXPLORE_IMAGES_FAIL';\n\nexport const GET_USER_IMAGES_START = 'GET_USER_IMAGES_START';\nexport const GET_USER_IMAGES_SUCCESS = 'GET_USER_IMAGES_SUCCESS';\nexport const GET_USER_IMAGES_FAIL = 'GET_USER_IMAGES_FAIL';\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

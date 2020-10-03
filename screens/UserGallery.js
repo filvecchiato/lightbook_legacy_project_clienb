@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   View,
+  Text,
   StatusBar,
   StyleSheet,
   FlatList,
+  useWindowDimensions,
   Dimensions,
 } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import UserImage from '../components/UserImage';
-import ImageService from '../services/ImageService';
+import Image from '../components/Image';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import { connect } from 'react-redux';
+import * as actions from '../store/actions';
 
-const UserGallery = ({ navigation }) => {
-  const [images, setImages] = useState([]);
-  const [, forceUpdate] = React.useState();
+const UserGallery = (props) => {
+  const { loading, error, userImages, getImages } = props;
 
-  const getAllImages = ImageService.getUserImages;
+  const [, forceUpdate] = useState();
 
   async function changeScreenOrientation() {
     await ScreenOrientation.lockAsync(
@@ -25,28 +27,66 @@ const UserGallery = ({ navigation }) => {
 
   useFocusEffect(
     React.useCallback(() => {
+      let isActive = true;
       forceUpdate((s) => !s);
       changeScreenOrientation();
-      getAllImages().then((data) => setImages(data));
+      getImages();
+      return () => {
+        isActive = false;
+      };
     }, []),
   );
+
   return (
-    <View>
+    <View
+      style={(styles.container, { height: window.height, width: window.width })}
+    >
       <StatusBar hidden />
-      <FlatList
-        data={images}
-        keyExtractor={(item) => `${item.id}`}
-        renderItem={({ item }) => <UserImage image={item} />}
-      />
+      {loading && !error ? (
+        <Text style={styles.message}> Loading ... </Text>
+      ) : null}
+      {!loading && error ? (
+        <Text style={styles.message}> Error! {error}</Text>
+      ) : null}
+      {!loading && !error && !!userImages.length ? (
+        <FlatList
+          data={userImages}
+          keyExtractor={(item) => `${item.id}`}
+          renderItem={({ item }) => <Image image={item} />}
+        />
+      ) : null}
+      {!loading && !error && !userImages.length ? (
+        <Text style={styles.message}> No Photos found </Text>
+      ) : null}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height + 20,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  message: {
+    color: 'red',
+    width: '90%',
+    margin: 'auto',
   },
 });
 
-export default UserGallery;
+const mapStateToProps = (state) => {
+  return {
+    userImages: state.general.user.images,
+    loading: state.general.loading,
+    error: state.general.error,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getImages: (userId) => dispatch(actions.getUserImages(userId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserGallery);

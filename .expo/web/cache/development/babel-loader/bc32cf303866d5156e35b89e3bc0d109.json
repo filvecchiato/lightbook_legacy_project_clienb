@@ -1,0 +1,41 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/App.js\";\n\nimport React from 'react';\nimport Wrapper from \"./screens/Wrapper\";\nimport Welcome from \"./screens/Welcome\";\nimport { createStackNavigator } from '@react-navigation/stack';\nimport { NavigationContainer } from '@react-navigation/native';\nimport { Provider } from 'react-redux';\nimport { createStore, compose, combineReducers, applyMiddleware } from 'redux';\nimport ReduxThunk from 'redux-thunk';\nimport mainReducer from \"./store/reducers/mainReducer\";\nvar composeEnhancers = process.env.NODE_ENV !== 'production' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;\nvar rootReducer = combineReducers({});\nvar store = createStore(rootReducer, composeEnhancers(applyMiddleware(ReduxThunk)));\nvar Stack = createStackNavigator();\n\nvar App = function App() {\n  return React.createElement(Provider, {\n    store: store,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 28,\n      columnNumber: 5\n    }\n  }, React.createElement(NavigationContainer, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 29,\n      columnNumber: 7\n    }\n  }, React.createElement(Stack.Navigator, {\n    screenOptions: {\n      headerShown: false\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 30,\n      columnNumber: 9\n    }\n  }, React.createElement(Stack.Screen, {\n    name: \"Welcome\",\n    component: Welcome,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 31,\n      columnNumber: 11\n    }\n  }), React.createElement(Stack.Screen, {\n    name: \"Wrapper\",\n    component: Wrapper,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 32,\n      columnNumber: 11\n    }\n  }))));\n};\n\nexport default App;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/App.js"
+    ],
+    "names": [
+      "React",
+      "Wrapper",
+      "Welcome",
+      "createStackNavigator",
+      "NavigationContainer",
+      "Provider",
+      "createStore",
+      "compose",
+      "combineReducers",
+      "applyMiddleware",
+      "ReduxThunk",
+      "mainReducer",
+      "composeEnhancers",
+      "process",
+      "env",
+      "NODE_ENV",
+      "window",
+      "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__",
+      "rootReducer",
+      "store",
+      "Stack",
+      "App",
+      "headerShown"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;AACA,OAAOC,OAAP;AACA,OAAOC,OAAP;AACA,SAASC,oBAAT,QAAqC,yBAArC;AACA,SAASC,mBAAT,QAAoC,0BAApC;AACA,SAASC,QAAT,QAAyB,aAAzB;AACA,SAASC,WAAT,EAAsBC,OAAtB,EAA+BC,eAA/B,EAAgDC,eAAhD,QAAuE,OAAvE;AACA,OAAOC,UAAP,MAAuB,aAAvB;AACA,OAAOC,WAAP;AAEA,IAAMC,gBAAgB,GAEpBC,OAAO,CAACC,GAAR,CAAYC,QAAZ,KAAyB,YAAzB,GACIC,MAAM,CAACC,oCAAP,IAA+CV,OADnD,GAEIA,OAJN;AAMA,IAAMW,WAAW,GAAGV,eAAe,CAAC,EAAD,CAAnC;AAEA,IAAMW,KAAK,GAAGb,WAAW,CACvBY,WADuB,EAEvBN,gBAAgB,CAACH,eAAe,CAACC,UAAD,CAAhB,CAFO,CAAzB;AAKA,IAAMU,KAAK,GAAGjB,oBAAoB,EAAlC;;AAEA,IAAMkB,GAAG,GAAG,SAANA,GAAM,GAAM;AAChB,SACE,oBAAC,QAAD;AAAU,IAAA,KAAK,EAAEF,KAAjB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,mBAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,KAAD,CAAO,SAAP;AAAiB,IAAA,aAAa,EAAE;AAAEG,MAAAA,WAAW,EAAE;AAAf,KAAhC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,SAAnB;AAA6B,IAAA,SAAS,EAAEpB,OAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAEE,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,SAAnB;AAA6B,IAAA,SAAS,EAAED,OAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,CADF,CADF,CADF;AAUD,CAXD;;AAeA,eAAeoB,GAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport Wrapper from './screens/Wrapper';\nimport Welcome from './screens/Welcome';\nimport { createStackNavigator } from '@react-navigation/stack';\nimport { NavigationContainer } from '@react-navigation/native';\nimport { Provider } from 'react-redux';\nimport { createStore, compose, combineReducers, applyMiddleware } from 'redux';\nimport ReduxThunk from 'redux-thunk';\nimport mainReducer from './store/reducers/mainReducer';\n\nconst composeEnhancers =\n  // eslint-disable-next-line no-undef\n  process.env.NODE_ENV !== 'production'\n    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose\n    : compose;\n\nconst rootReducer = combineReducers({});\n\nconst store = createStore(\n  rootReducer,\n  composeEnhancers(applyMiddleware(ReduxThunk)),\n);\n\nconst Stack = createStackNavigator();\n\nconst App = () => {\n  return (\n    <Provider store={store}>\n      <NavigationContainer>\n        <Stack.Navigator screenOptions={{ headerShown: false }}>\n          <Stack.Screen name=\"Welcome\" component={Welcome} />\n          <Stack.Screen name=\"Wrapper\" component={Wrapper} />\n        </Stack.Navigator>\n      </NavigationContainer>\n    </Provider>\n  );\n};\n\n//if no user, create. if logged out, show login. else:\n\nexport default App;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

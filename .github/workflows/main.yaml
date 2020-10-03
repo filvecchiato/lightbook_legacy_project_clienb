@@ -16,14 +16,12 @@ jobs:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - name: Install modules
+        run: npm i
       # Runs the Super-Linter action
       - name: Run Super-Linter
-        uses: github/super-linter@v3
-        env:
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+        run: npm run lint
+
   test:
     needs: super-lint
     name: Test code base
@@ -35,8 +33,8 @@ jobs:
       - name: Install modules
         run: npm i
       - name: Run tests
-        run: npm test
-  
+        run: npm run test
+
   build:
     needs: test
     runs-on: ubuntu-latest
@@ -46,12 +44,12 @@ jobs:
       - name: Install modules
         run: npm i
       - name: Build App
-        run: npm build
-  
-  # deploy: 
+        run: npm run build
+
+  # deploy:
   #   needs: build
   #   runs-on: ubuntu-latest
-  #   steps: 
+  #   steps:
   #     - name: Checkout code
   #       uses: actions/checkout@v2
   #     - name: Install modules
