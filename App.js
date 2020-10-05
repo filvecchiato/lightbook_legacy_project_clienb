@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import mainReducer from './store/reducers/mainReducer';
-import Entry from './index.js';
+import Router from './screens/Router';
 const composeEnhancers =
   // eslint-disable-next-line no-undef
   process.env.NODE_ENV !== 'production'
@@ -25,7 +25,7 @@ const Stack = createStackNavigator();
 const App = (props) => {
   return (
     <Provider store={store}>
-      <Entry />
+      <Router />
     </Provider>
   );
 };
