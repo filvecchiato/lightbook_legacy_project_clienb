@@ -1,0 +1,46 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/Wrapper.js\";\n\nimport React from 'react';\nimport View from \"react-native-web/dist/exports/View\";\nimport Explore from \"../screens/Explore\";\nimport Upload from \"../screens/Upload\";\nimport UserGallery from \"../screens/UserGallery\";\nimport { createDrawerNavigator } from '@react-navigation/drawer';\nimport Login from \"../screens/Login\";\nimport { connect } from 'react-redux';\nvar Drawer = createDrawerNavigator();\n\nvar DrawerNavigator = function DrawerNavigator(props) {\n  var logoutUser = function logoutUser() {\n    props.onLogout();\n    props.navigation.navigate(\"Login\");\n  };\n\n  return React.createElement(Drawer.Navigator, {\n    options: {\n      headerStyle: {\n        backgroundColor: 'black'\n      },\n      headerTitleStyle: {\n        fontColor: 'red'\n      }\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 23,\n      columnNumber: 5\n    }\n  }, props.isAuthenticated ? React.createElement(React.Fragment, null, React.createElement(Drawer.Screen, {\n    name: \"User Photos\",\n    component: UserGallery,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 35,\n      columnNumber: 11\n    }\n  }), React.createElement(Drawer.Screen, {\n    name: \"Explore\",\n    component: Explore,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 36,\n      columnNumber: 11\n    }\n  }), React.createElement(Drawer.Screen, {\n    name: \"Upload\",\n    component: Upload,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 37,\n      columnNumber: 11\n    }\n  }), React.createElement(Drawer.Screen, {\n    name: \"Logout\",\n    component: React.createElement(View, {\n      __self: _this,\n      __source: {\n        fileName: _jsxFileName,\n        lineNumber: 38,\n        columnNumber: 51\n      }\n    }, function () {\n      return logoutUser();\n    }),\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 38,\n      columnNumber: 11\n    }\n  })) : React.createElement(Drawer.Screen, {\n    name: \"Login\",\n    component: Login,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 41,\n      columnNumber: 11\n    }\n  }));\n};\n\nvar mapState = function mapState(state) {\n  return {\n    isAuthenticated: !!state.general.user.token\n  };\n};\n\nvar mapDistpatch = function mapDistpatch(dispatch) {\n  return {\n    onLogout: function onLogout() {\n      return dispatch(actions.userLogout());\n    }\n  };\n};\n\nexport default connect(mapState, mapDistpatch)(DrawerNavigator);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/Wrapper.js"
+    ],
+    "names": [
+      "React",
+      "Explore",
+      "Upload",
+      "UserGallery",
+      "createDrawerNavigator",
+      "Login",
+      "connect",
+      "Drawer",
+      "DrawerNavigator",
+      "props",
+      "logoutUser",
+      "onLogout",
+      "navigation",
+      "navigate",
+      "headerStyle",
+      "backgroundColor",
+      "headerTitleStyle",
+      "fontColor",
+      "isAuthenticated",
+      "mapState",
+      "state",
+      "general",
+      "user",
+      "token",
+      "mapDistpatch",
+      "dispatch",
+      "actions",
+      "userLogout"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;;AAEA,OAAOC,OAAP;AAEA,OAAOC,MAAP;AACA,OAAOC,WAAP;AACA,SAASC,qBAAT,QAAsC,0BAAtC;AACA,OAAOC,KAAP;AAGA,SAASC,OAAT,QAAwB,aAAxB;AAEA,IAAMC,MAAM,GAAGH,qBAAqB,EAApC;;AAEA,IAAMI,eAAe,GAAG,SAAlBA,eAAkB,CAACC,KAAD,EAAW;AAEjC,MAAMC,UAAU,GAAG,SAAbA,UAAa,GAAM;AACvBD,IAAAA,KAAK,CAACE,QAAN;AACAF,IAAAA,KAAK,CAACG,UAAN,CAAiBC,QAAjB,CAA0B,OAA1B;AACD,GAHD;;AAKA,SACE,oBAAC,MAAD,CAAQ,SAAR;AACE,IAAA,OAAO,EAAE;AACPC,MAAAA,WAAW,EAAE;AACXC,QAAAA,eAAe,EAAE;AADN,OADN;AAIPC,MAAAA,gBAAgB,EAAE;AAChBC,QAAAA,SAAS,EAAE;AADK;AAJX,KADX;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAUGR,KAAK,CAACS,eAAN,GACC,0CACE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,aAApB;AAAkC,IAAA,SAAS,EAAEf,WAA7C;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAEE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,SAApB;AAA8B,IAAA,SAAS,EAAEF,OAAzC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,EAGE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,QAApB;AAA6B,IAAA,SAAS,EAAEC,MAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAHF,EAIE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,QAApB;AAA6B,IAAA,SAAS,EAAE,oBAAC,IAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,OAAO;AAAA,aAAIQ,UAAU,EAAd;AAAA,KAAP,CAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAJF,CADD,GAQG,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,OAApB;AAA4B,IAAA,SAAS,EAAEL,KAAvC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAlBN,CADF;AAuBD,CA9BD;;AAgCA,IAAMc,QAAQ,GAAG,SAAXA,QAAW,CAACC,KAAD,EAAW;AAC1B,SAAO;AACLF,IAAAA,eAAe,EAAE,CAAC,CAACE,KAAK,CAACC,OAAN,CAAcC,IAAd,CAAmBC;AADjC,GAAP;AAGD,CAJD;;AAMA,IAAMC,YAAY,GAAG,SAAfA,YAAe,CAACC,QAAD,EAAc;AACjC,SAAO;AACLd,IAAAA,QAAQ,EAAE;AAAA,aAAMc,QAAQ,CAACC,OAAO,CAACC,UAAR,EAAD,CAAd;AAAA;AADL,GAAP;AAGD,CAJD;;AAMA,eAAerB,OAAO,CAACa,QAAD,EAAWK,YAAX,CAAP,CAAgChB,eAAhC,CAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport { View } from 'react-native'\nimport Explore from '../screens/Explore';\n// import Curate from './Curate';\nimport Upload from '../screens/Upload';\nimport UserGallery from '../screens/UserGallery';\nimport { createDrawerNavigator } from '@react-navigation/drawer';\nimport Login from '../screens/Login';\n// import Logout from '../screens/Logout';\n\nimport { connect } from 'react-redux';\n\nconst Drawer = createDrawerNavigator();\n\nconst DrawerNavigator = (props) => {\n\n  const logoutUser = () => {\n    props.onLogout();\n    props.navigation.navigate(\"Login\");\n  };\n  \n  return (\n    <Drawer.Navigator\n      options={{\n        headerStyle: {\n          backgroundColor: 'black',\n        },\n        headerTitleStyle: {\n          fontColor: 'red',\n        },\n      }}\n    >\n      {props.isAuthenticated ? (\n        <>\n          <Drawer.Screen name=\"User Photos\" component={UserGallery} />\n          <Drawer.Screen name=\"Explore\" component={Explore} />\n          <Drawer.Screen name=\"Upload\" component={Upload} />\n          <Drawer.Screen name=\"Logout\" component={<View>{()=>logoutUser()}</View>}/>\n        </>\n      ) : (\n          <Drawer.Screen name=\"Login\" component={Login} />\n      )}\n    </Drawer.Navigator>\n  );\n};\n\nconst mapState = (state) => {\n  return {\n    isAuthenticated: !!state.general.user.token,\n  };\n};\n\nconst mapDistpatch = (dispatch) => {\n  return {\n    onLogout: () => dispatch(actions.userLogout()),\n  };\n};\n\nexport default connect(mapState, mapDistpatch)(DrawerNavigator);\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

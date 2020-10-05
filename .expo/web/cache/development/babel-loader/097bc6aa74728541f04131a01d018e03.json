@@ -1,0 +1,28 @@
+{
+  "ast": null,
+  "code": "import React from 'react';\nimport { connect } from 'react-redux';\n\nvar Logout = function Logout(_ref) {\n  var navigation = _ref.navigation,\n      onLogout = _ref.onLogout;\n  onLogout();\n  navigation.navigate(\"Login\");\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n  return {\n    onLogout: function onLogout() {\n      return dispatch(actions.userLogout());\n    }\n  };\n};\n\nexport default connect(null, mapDispatchToProps)(Logout);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/Logout.js"
+    ],
+    "names": [
+      "React",
+      "connect",
+      "Logout",
+      "navigation",
+      "onLogout",
+      "navigate",
+      "mapDispatchToProps",
+      "dispatch",
+      "actions",
+      "userLogout"
+    ],
+    "mappings": "AAAA,OAAOA,KAAP,MAAkB,OAAlB;AACA,SAASC,OAAT,QAAwB,aAAxB;;AAEA,IAAMC,MAAM,GAAG,SAATA,MAAS,OAA8B;AAAA,MAA3BC,UAA2B,QAA3BA,UAA2B;AAAA,MAAfC,QAAe,QAAfA,QAAe;AACzCA,EAAAA,QAAQ;AACRD,EAAAA,UAAU,CAACE,QAAX,CAAoB,OAApB;AACH,CAHD;;AAKA,IAAMC,kBAAkB,GAAG,SAArBA,kBAAqB,CAACC,QAAD,EAAc;AACvC,SAAO;AACLH,IAAAA,QAAQ,EAAE;AAAA,aAAMG,QAAQ,CAACC,OAAO,CAACC,UAAR,EAAD,CAAd;AAAA;AADL,GAAP;AAGD,CAJD;;AAMA,eAAeR,OAAO,CAAC,IAAD,EAAOK,kBAAP,CAAP,CAAkCJ,MAAlC,CAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport { connect } from 'react-redux';\n\nconst Logout = ({ navigation, onLogout }) => {\n    onLogout();\n    navigation.navigate(\"Login\");\n};\n\nconst mapDispatchToProps = (dispatch) => {\n  return {\n    onLogout: () => dispatch(actions.userLogout()),\n  };\n};\n\nexport default connect(null, mapDispatchToProps)(Logout);\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

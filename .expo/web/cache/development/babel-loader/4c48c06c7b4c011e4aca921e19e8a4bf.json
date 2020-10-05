@@ -1,0 +1,17 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/index.js\";\n\nimport React from 'react';\nimport { NavigationContainer } from '@react-navigation/native';\nimport Drawer from \"./components/Wrapper\";\n\nvar App = function App() {\n  return React.createElement(NavigationContainer, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 7,\n      columnNumber: 5\n    }\n  }, React.createElement(Drawer, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 8,\n      columnNumber: 7\n    }\n  }));\n};\n\nexport default App;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/index.js"
+    ],
+    "names": ["React", "NavigationContainer", "Drawer", "App"],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;AACA,SAASC,mBAAT,QAAoC,0BAApC;AACA,OAAOC,MAAP;;AAEA,IAAMC,GAAG,GAAG,SAANA,GAAM,GAAM;AAChB,SACE,oBAAC,mBAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,MAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,CADF;AAKD,CAND;;AAUA,eAAeA,GAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport { NavigationContainer } from '@react-navigation/native';\nimport Drawer from './components/Wrapper';\n\nconst App = () => {\n  return (\n    <NavigationContainer>\n      <Drawer/>\n    </NavigationContainer>\n  );\n};\n\n//if no user, create. if logged out, show login. else:\n\nexport default App;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

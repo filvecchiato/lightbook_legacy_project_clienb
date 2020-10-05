@@ -1,0 +1,29 @@
+{
+  "ast": null,
+  "code": "import React, { useEffect } from 'react';\nimport { connect } from 'react-redux';\nimport * as actions from \"../store/actions\";\nimport { useFocusEffect } from '@react-navigation/native';\n\nvar Logout = function Logout(_ref) {\n  var navigation = _ref.navigation,\n      onLogout = _ref.onLogout;\n  useFocusEffect(function () {\n    onLogout();\n  }, []);\n  return null;\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n  return {\n    onLogout: function onLogout() {\n      return dispatch(actions.userLogout());\n    }\n  };\n};\n\nexport default connect(null, mapDispatchToProps)(Logout);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/Logout.js"
+    ],
+    "names": [
+      "React",
+      "useEffect",
+      "connect",
+      "actions",
+      "useFocusEffect",
+      "Logout",
+      "navigation",
+      "onLogout",
+      "mapDispatchToProps",
+      "dispatch",
+      "userLogout"
+    ],
+    "mappings": "AAAA,OAAOA,KAAP,IAAgBC,SAAhB,QAAiC,OAAjC;AACA,SAASC,OAAT,QAAwB,aAAxB;AACA,OAAO,KAAKC,OAAZ;AACA,SAASC,cAAT,QAA+B,0BAA/B;;AAEA,IAAMC,MAAM,GAAG,SAATA,MAAS,OAA8B;AAAA,MAA3BC,UAA2B,QAA3BA,UAA2B;AAAA,MAAfC,QAAe,QAAfA,QAAe;AAE3CH,EAAAA,cAAc,CAAC,YAAM;AACnBG,IAAAA,QAAQ;AACT,GAFa,EAEX,EAFW,CAAd;AAIA,SAAO,IAAP;AACD,CAPD;;AASA,IAAMC,kBAAkB,GAAG,SAArBA,kBAAqB,CAACC,QAAD,EAAc;AACvC,SAAO;AACLF,IAAAA,QAAQ,EAAE;AAAA,aAAME,QAAQ,CAACN,OAAO,CAACO,UAAR,EAAD,CAAd;AAAA;AADL,GAAP;AAGD,CAJD;;AAMA,eAAeR,OAAO,CAAC,IAAD,EAAOM,kBAAP,CAAP,CAAkCH,MAAlC,CAAf",
+    "sourcesContent": [
+      "import React, { useEffect } from 'react';\nimport { connect } from 'react-redux';\nimport * as actions from '../store/actions';\nimport { useFocusEffect } from '@react-navigation/native';\n\nconst Logout = ({ navigation, onLogout }) => {\n  \n  useFocusEffect(() => {\n    onLogout();\n  }, []);\n\n  return null;\n};\n\nconst mapDispatchToProps = (dispatch) => {\n  return {\n    onLogout: () => dispatch(actions.userLogout()),\n  };\n};\n\nexport default connect(null, mapDispatchToProps)(Logout);\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

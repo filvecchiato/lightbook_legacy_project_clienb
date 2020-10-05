@@ -12,25 +12,44 @@ import {
 import Input from '../components/Input';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
+import AppButton from '../components/AppButton';
 
 const image = {
   uri:
     'https://images.unsplash.com/photo-1559406041-c7d2b2e98690?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
 };
 
-const Register = ({ navigation }) => {
+const Register = (props) => {
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [passwordConfirm, setPasswordConfrim] = useState('');
+  const [password, setPassword] = useState('');
   const [bio, setBio] = useState('');
+  const [error, setError] = useState(null);
+
+  const registerUser = async () => {
+    if (password === passwordConfirm) {
+      const data = {
+        username: username,
+        name: name,
+        email: email,
+        password: password,
+      };
+      const resposnse = await props.onRegister(data);
+      if (response) {
+        props.navigation.navigate('Explore');
+      }
+    } else {
+      setError('Passwords do not match!!');
+    }
+  };
 
   return (
     <View>
       <StatusBar hidden />
       <ImageBackground source={image} style={styles.backgroundImage}>
         <View style={styles.container}>
-          <Text style={styles.text}>create new account</Text>
           <Input
             label="Name"
             value={name}
@@ -66,12 +85,13 @@ const Register = ({ navigation }) => {
             setAction={setPasswordConfrim}
             placeholder="Enter Password again"
           />
-          <Input
-            label="Bio"
-            value={bio}
-            type="text"
-            setAction={setBio}
-            placeholder="Enter Bio"
+          {error ? <Text style={styles.error}> {error} </Text> : null}
+        </View>
+        <View>
+          <AppButton
+            colorButton="white"
+            onPress={() => registerUser()}
+            title="Register!"
           />
         </View>
       </ImageBackground>
@@ -87,18 +107,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   container: {
-    flex: 1,
+    height: '70%',
     alignItems: 'center',
     margin: 10,
     padding: 10,
   },
+  error: {
+    color: 'red',
+    fontSize: 18,
+  },
 });
-
-const mapStateToProps = (state) => {
-  return {
-    isLoggedIn: state.general.user.token,
-  };
-};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -106,4 +124,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(null, mapDispatchToProps)(Register);

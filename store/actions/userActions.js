@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import authenticationService from '../../services/authenticationService';
+// import authenticationService from '../../services/authenticationService';
 
 export const loginUserFail = (error) => {
   return {

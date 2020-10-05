@@ -10,6 +10,8 @@ import AppButton from '../components/AppButton';
 import Input from '../components/Input';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions';
+import { useFocusEffect } from '@react-navigation/native';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const image = {
   uri:
@@ -22,8 +24,21 @@ const Login = (props) => {
 
   const loginUser = async () => {
     const response = await props.onLogin({ email: email, password: password });
+    console.log(response);
     if (response) props.navigation.navigate('User Photos');
   };
+
+  async function changeScreenOrientation() {
+    await ScreenOrientation.lockAsync(
+      ScreenOrientation.OrientationLock.PORTRAIT_UP,
+    );
+  }
+
+  useFocusEffect(
+    React.useCallback(() => {
+      changeScreenOrientation();
+    }, []),
+  );
 
   return (
     <View>
@@ -46,8 +61,22 @@ const Login = (props) => {
               placeholder="Enter password..."
             />
           </View>
-          <View style={styles.button}>
-            <AppButton onPress={() => loginUser()} title="Sign In" />
+          <View style={styles.actions}>
+            <View>
+              <AppButton
+                colorButton="red"
+                onPress={() => loginUser()}
+                title="Sign In"
+              />
+            </View>
+            <Text style={styles.text}> Or </Text>
+            <View>
+              <AppButton
+                colorButton="white"
+                onPress={() => props.navigation.navigate('Register')}
+                title="Register"
+              />
+            </View>
           </View>
         </View>
       </ImageBackground>
@@ -66,19 +95,30 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    height: 'calc(100%  - 20pt)',
+    height: '100%',
     margin: 10,
     padding: 10,
   },
   form: {
     width: '100%',
-    height: '80%',
-    paddingTop: 300,
+    height: '70%',
+    paddingTop: 200,
     display: 'flex',
     alignItems: 'center',
   },
-  button: {
-    width: '100%',
+  text: {
+    color: '#eaeaea',
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  actions: {
+    width: '90%',
+    height: '20%',
+    marginBottom: 100,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
 });
 

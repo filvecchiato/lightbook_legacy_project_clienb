@@ -3,7 +3,6 @@ import handleResponse from '../helpers/handle-response';
 
 export default {
   login,
-  logout,
   // currentUserValue: getToken(),
 };
 
@@ -25,8 +24,4 @@ function login(username, password) {
       // await AsyncStorage.setItem('currentUser', JSON.stringify(user));
       return user;
     });
-}
-
-function logout() {
-  //add redirect to login
 }
