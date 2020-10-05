@@ -1,0 +1,38 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/Input.js\";\n\nimport React from 'react';\nimport Text from \"react-native-web/dist/exports/Text\";\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport TextInput from \"react-native-web/dist/exports/TextInput\";\n\nvar Input = function Input(props) {\n  return React.createElement(React.Fragment, null, React.createElement(Text, {\n    style: styles.text,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 7,\n      columnNumber: 7\n    }\n  }, props.label, \":\"), React.createElement(TextInput, {\n    style: styles.input,\n    value: props.value,\n    onChangeText: props.setAction,\n    placeholder: props.placeholder,\n    type: props.type,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 8,\n      columnNumber: 7\n    }\n  }));\n};\n\nvar styles = StyleSheet.create({\n  input: {\n    backgroundColor: 'white',\n    width: '80%',\n    padding: 15,\n    marginBottom: 20,\n    borderRadius: 3\n  },\n  text: {\n    fontSize: 30,\n    color: 'white'\n  }\n});\nexport default Input;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/Input.js"
+    ],
+    "names": [
+      "React",
+      "Input",
+      "props",
+      "styles",
+      "text",
+      "label",
+      "input",
+      "value",
+      "setAction",
+      "placeholder",
+      "type",
+      "StyleSheet",
+      "create",
+      "backgroundColor",
+      "width",
+      "padding",
+      "marginBottom",
+      "borderRadius",
+      "fontSize",
+      "color"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;;;;;AAGA,IAAMC,KAAK,GAAG,SAARA,KAAQ,CAACC,KAAD,EAAW;AACvB,SACE,0CACE,oBAAC,IAAD;AAAM,IAAA,KAAK,EAAEC,MAAM,CAACC,IAApB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAA2BF,KAAK,CAACG,KAAjC,MADF,EAEE,oBAAC,SAAD;AACE,IAAA,KAAK,EAAEF,MAAM,CAACG,KADhB;AAEE,IAAA,KAAK,EAAEJ,KAAK,CAACK,KAFf;AAGE,IAAA,YAAY,EAAEL,KAAK,CAACM,SAHtB;AAIE,IAAA,WAAW,EAAEN,KAAK,CAACO,WAJrB;AAKE,IAAA,IAAI,EAAEP,KAAK,CAACQ,IALd;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,CADF;AAYD,CAbD;;AAeA,IAAMP,MAAM,GAAGQ,UAAU,CAACC,MAAX,CAAkB;AAC/BN,EAAAA,KAAK,EAAE;AACLO,IAAAA,eAAe,EAAE,OADZ;AAELC,IAAAA,KAAK,EAAE,KAFF;AAGLC,IAAAA,OAAO,EAAE,EAHJ;AAILC,IAAAA,YAAY,EAAE,EAJT;AAKLC,IAAAA,YAAY,EAAE;AALT,GADwB;AAQ/Bb,EAAAA,IAAI,EAAE;AACJc,IAAAA,QAAQ,EAAE,EADN;AAEJC,IAAAA,KAAK,EAAE;AAFH;AARyB,CAAlB,CAAf;AAcA,eAAelB,KAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport { Text, StyleSheet, TextInput } from 'react-native';\n\nconst Input = (props) => {\n  return (\n    <>\n      <Text style={styles.text}>{props.label}:</Text>\n      <TextInput\n        style={styles.input}\n        value={props.value}\n        onChangeText={props.setAction}\n        placeholder={props.placeholder}\n        type={props.type}\n      />\n    </>\n  );\n};\n\nconst styles = StyleSheet.create({\n  input: {\n    backgroundColor: 'white',\n    width: '80%',\n    padding: 15,\n    marginBottom: 20,\n    borderRadius: 3,\n  },\n  text: {\n    fontSize: 30,\n    color: 'white',\n  },\n});\n\nexport default Input;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

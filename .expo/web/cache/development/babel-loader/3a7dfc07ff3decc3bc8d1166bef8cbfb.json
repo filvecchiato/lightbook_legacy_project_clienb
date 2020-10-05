@@ -1,0 +1,46 @@
+{
+  "ast": null,
+  "code": "import _regeneratorRuntime from \"@babel/runtime/regenerator\";\nimport config from \"./serviceConfig\";\nimport handleResponse from \"../helpers/handle-response\";\nimport { AsyncStorage } from \"react-native-web/dist/index\";\nexport default {\n  login: login,\n  logout: logout,\n  currentUserValue: getToken()\n};\n\nfunction getToken() {\n  var token = SyncStorage.getItem('currentUser');\n  return token != null ? JSON.parse(token) : null;\n  ;\n}\n\nfunction login(username, password) {\n  var requestOptions = {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify({\n      username: username,\n      password: password\n    })\n  };\n  return fetch(config.apiUrl + \"/users/authenticate\", requestOptions).then(handleResponse).then(function _callee(user) {\n    return _regeneratorRuntime.async(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.next = 2;\n            return _regeneratorRuntime.awrap(AsyncStorage.setItem('currentUser', JSON.stringify(user)));\n\n          case 2:\n            return _context.abrupt(\"return\", user);\n\n          case 3:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, null, null, null, Promise);\n  });\n}\n\nfunction logout() {\n  localStorage.removeItem('currentUser');\n  currentUserSubject.next(null);\n}",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/services/authenticationService.js"
+    ],
+    "names": [
+      "config",
+      "handleResponse",
+      "AsyncStorage",
+      "login",
+      "logout",
+      "currentUserValue",
+      "getToken",
+      "token",
+      "SyncStorage",
+      "getItem",
+      "JSON",
+      "parse",
+      "username",
+      "password",
+      "requestOptions",
+      "method",
+      "headers",
+      "body",
+      "stringify",
+      "fetch",
+      "apiUrl",
+      "then",
+      "user",
+      "setItem",
+      "localStorage",
+      "removeItem",
+      "currentUserSubject",
+      "next"
+    ],
+    "mappings": ";AACA,OAAOA,MAAP;AACA,OAAOC,cAAP;SACSC,Y;AAET,eAAe;AACXC,EAAAA,KAAK,EAALA,KADW;AAEXC,EAAAA,MAAM,EAANA,MAFW;AAGXC,EAAAA,gBAAgB,EAAEC,QAAQ;AAHf,CAAf;;AAMA,SAASA,QAAT,GAAoB;AAChB,MAAMC,KAAK,GAAGC,WAAW,CAACC,OAAZ,CAAoB,aAApB,CAAd;AACA,SAAOF,KAAK,IAAI,IAAT,GAAgBG,IAAI,CAACC,KAAL,CAAWJ,KAAX,CAAhB,GAAoC,IAA3C;AAAgD;AACnD;;AAED,SAASJ,KAAT,CAAeS,QAAf,EAAyBC,QAAzB,EAAmC;AACjC,MAAMC,cAAc,GAAG;AACrBC,IAAAA,MAAM,EAAE,MADa;AAErBC,IAAAA,OAAO,EAAE;AAAE,sBAAgB;AAAlB,KAFY;AAGrBC,IAAAA,IAAI,EAAEP,IAAI,CAACQ,SAAL,CAAe;AAAEN,MAAAA,QAAQ,EAARA,QAAF;AAAYC,MAAAA,QAAQ,EAARA;AAAZ,KAAf;AAHe,GAAvB;AAMA,SAAOM,KAAK,CAAInB,MAAM,CAACoB,MAAX,0BAAwCN,cAAxC,CAAL,CACJO,IADI,CACCpB,cADD,EAEJoB,IAFI,CAEC,iBAAOC,IAAP;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,6CACIpB,YAAY,CAACqB,OAAb,CAAqB,aAArB,EAAoCb,IAAI,CAACQ,SAAL,CAAeI,IAAf,CAApC,CADJ;;AAAA;AAAA,6CAEKA,IAFL;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,GAFD,CAAP;AAMD;;AAED,SAASlB,MAAT,GAAkB;AAEhBoB,EAAAA,YAAY,CAACC,UAAb,CAAwB,aAAxB;AACAC,EAAAA,kBAAkB,CAACC,IAAnB,CAAwB,IAAxB;AACD",
+    "sourcesContent": [
+      "\nimport config from './serviceConfig';\nimport handleResponse from '../helpers/handle-response';\nimport { AsyncStorage } from 'react-native'\n\nexport default {\n    login,\n    logout,\n    currentUserValue: getToken(),\n};\n\nfunction getToken() {\n    const token = SyncStorage.getItem('currentUser');\n    return token != null ? JSON.parse(token) : null;;\n}\n\nfunction login(username, password) {\n  const requestOptions = {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({ username, password }),\n  };\n\n  return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)\n    .then(handleResponse)\n    .then(async (user) => {\n        await AsyncStorage.setItem('currentUser', JSON.stringify(user));\n        return user;\n    });\n}\n\nfunction logout() {\n  // remove user from local storage to log user out\n  localStorage.removeItem('currentUser');\n  currentUserSubject.next(null);\n}\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

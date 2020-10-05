@@ -8,7 +8,6 @@ export default function handleResponse(response) {
         // auto logout if 401 Unauthorized or 403 Forbidden response returned from api
 
         authenticationService.logout();
-        location.reload(true);
       }
 
       const error = (data && data.message) || response.statusText;

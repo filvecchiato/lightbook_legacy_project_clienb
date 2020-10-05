@@ -1,0 +1,37 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/AppButton.js\";\n\nimport React from 'react';\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport TouchableOpacity from \"react-native-web/dist/exports/TouchableOpacity\";\nimport Text from \"react-native-web/dist/exports/Text\";\nTouchableOpacity.defaultProps = {\n  activeOpacity: 0.8\n};\n\nvar AppButton = function AppButton(_ref) {\n  var onPress = _ref.onPress,\n      title = _ref.title;\n  return React.createElement(TouchableOpacity, {\n    onPress: onPress,\n    style: styles.appButtonContainer,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 7,\n      columnNumber: 3\n    }\n  }, React.createElement(Text, {\n    style: styles.appButtonText,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 8,\n      columnNumber: 5\n    }\n  }, title));\n};\n\nvar styles = StyleSheet.create({\n  screenContainer: {\n    justifyContent: 'center'\n  },\n  appButtonContainer: {\n    borderRadius: 10,\n    color: 'black'\n  },\n  appButtonText: {\n    fontSize: 18,\n    color: '#fff',\n    fontWeight: 'bold',\n    alignSelf: 'center'\n  }\n});\nexport default AppButton;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/AppButton.js"
+    ],
+    "names": [
+      "React",
+      "TouchableOpacity",
+      "defaultProps",
+      "activeOpacity",
+      "AppButton",
+      "onPress",
+      "title",
+      "styles",
+      "appButtonContainer",
+      "appButtonText",
+      "StyleSheet",
+      "create",
+      "screenContainer",
+      "justifyContent",
+      "borderRadius",
+      "color",
+      "fontSize",
+      "fontWeight",
+      "alignSelf"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;;;;AAGAC,gBAAgB,CAACC,YAAjB,GAAgC;AAAEC,EAAAA,aAAa,EAAE;AAAjB,CAAhC;;AAEA,IAAMC,SAAS,GAAG,SAAZA,SAAY;AAAA,MAAGC,OAAH,QAAGA,OAAH;AAAA,MAAYC,KAAZ,QAAYA,KAAZ;AAAA,SAChB,oBAAC,gBAAD;AAAkB,IAAA,OAAO,EAAED,OAA3B;AAAoC,IAAA,KAAK,EAAEE,MAAM,CAACC,kBAAlD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,IAAD;AAAM,IAAA,KAAK,EAAED,MAAM,CAACE,aAApB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAAoCH,KAApC,CADF,CADgB;AAAA,CAAlB;;AAMA,IAAMC,MAAM,GAAGG,UAAU,CAACC,MAAX,CAAkB;AAC/BC,EAAAA,eAAe,EAAE;AACfC,IAAAA,cAAc,EAAE;AADD,GADc;AAI/BL,EAAAA,kBAAkB,EAAE;AAClBM,IAAAA,YAAY,EAAE,EADI;AAElBC,IAAAA,KAAK,EAAE;AAFW,GAJW;AAQ/BN,EAAAA,aAAa,EAAE;AACbO,IAAAA,QAAQ,EAAE,EADG;AAEbD,IAAAA,KAAK,EAAE,MAFM;AAGbE,IAAAA,UAAU,EAAE,MAHC;AAIbC,IAAAA,SAAS,EAAE;AAJE;AARgB,CAAlB,CAAf;AAgBA,eAAed,SAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport { StyleSheet, TouchableOpacity, Text } from 'react-native';\n\nTouchableOpacity.defaultProps = { activeOpacity: 0.8 };\n\nconst AppButton = ({ onPress, title }) => (\n  <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>\n    <Text style={styles.appButtonText}>{title}</Text>\n  </TouchableOpacity>\n);\n\nconst styles = StyleSheet.create({\n  screenContainer: {\n    justifyContent: 'center',\n  },\n  appButtonContainer: {\n    borderRadius: 10,\n    color: 'black',\n  },\n  appButtonText: {\n    fontSize: 18,\n    color: '#fff',\n    fontWeight: 'bold',\n    alignSelf: 'center',\n  },\n});\n\nexport default AppButton;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

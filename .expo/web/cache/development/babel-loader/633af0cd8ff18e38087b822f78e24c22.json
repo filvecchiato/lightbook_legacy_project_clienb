@@ -1,0 +1,53 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/App.js\";\n\nimport React, { useEffect } from 'react';\nimport Wrapper from \"./components/Wrapper\";\nimport authenticationService from \"./services/authenticationService\";\nimport Welcome from \"./screens/Welcome\";\nimport { createStackNavigator } from '@react-navigation/stack';\nimport { NavigationContainer } from '@react-navigation/native';\nimport { Provider } from 'react-redux';\nimport { createStore, compose, combineReducers, applyMiddleware } from 'redux';\nimport ReduxThunk from 'redux-thunk';\nimport mainReducer from \"./store/reducers/mainReducer\";\nimport Upload from \"./screens/Upload\";\nimport LoginPage from \"./screens/Login\";\nimport Logout from \"./screens/Logout\";\nimport { connect } from 'react-redux';\nvar composeEnhancers = process.env.NODE_ENV !== 'production' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;\nvar rootReducer = combineReducers({\n  general: mainReducer\n});\nvar store = createStore(rootReducer, composeEnhancers(applyMiddleware(ReduxThunk)));\nvar Stack = createStackNavigator();\n\nvar App = function App() {\n  return React.createElement(Provider, {\n    store: store,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 41,\n      columnNumber: 5\n    }\n  }, React.createElement(NavigationContainer, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 42,\n      columnNumber: 7\n    }\n  }, React.createElement(Stack.Navigator, {\n    screenOptions: {\n      headerShown: false\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 43,\n      columnNumber: 9\n    }\n  }, isAuthenticated ? React.createElement(React.Fragment, null, React.createElement(Stack.Screen, {\n    name: \"Welcome\",\n    component: Welcome,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 46,\n      columnNumber: 15\n    }\n  }), React.createElement(Stack.Screen, {\n    name: \"Wrapper\",\n    component: Wrapper,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 47,\n      columnNumber: 15\n    }\n  }), React.createElement(Stack.Screen, {\n    name: \"Upload\",\n    component: Upload,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 48,\n      columnNumber: 15\n    }\n  }), React.createElement(Stack.Screen, {\n    name: \"Logout\",\n    component: Logout,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 49,\n      columnNumber: 15\n    }\n  })) : React.createElement(Stack.Screen, {\n    name: \"Login\",\n    component: LoginPage,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 52,\n      columnNumber: 13\n    }\n  }))));\n};\n\nvar mapState = function mapState(state) {\n  return {\n    isAuthenticated: !!state.general.user.token\n  };\n};\n\nexport default connect(mapState)(App);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/App.js"
+    ],
+    "names": [
+      "React",
+      "useEffect",
+      "Wrapper",
+      "authenticationService",
+      "Welcome",
+      "createStackNavigator",
+      "NavigationContainer",
+      "Provider",
+      "createStore",
+      "compose",
+      "combineReducers",
+      "applyMiddleware",
+      "ReduxThunk",
+      "mainReducer",
+      "Upload",
+      "LoginPage",
+      "Logout",
+      "connect",
+      "composeEnhancers",
+      "process",
+      "env",
+      "NODE_ENV",
+      "window",
+      "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__",
+      "rootReducer",
+      "general",
+      "store",
+      "Stack",
+      "App",
+      "headerShown",
+      "isAuthenticated",
+      "mapState",
+      "state",
+      "user",
+      "token"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,IAAgBC,SAAhB,QAAiC,OAAjC;AACA,OAAOC,OAAP;AACA,OAAOC,qBAAP;AACA,OAAOC,OAAP;AACA,SAASC,oBAAT,QAAqC,yBAArC;AACA,SAASC,mBAAT,QAAoC,0BAApC;AACA,SAASC,QAAT,QAAyB,aAAzB;AACA,SAASC,WAAT,EAAsBC,OAAtB,EAA+BC,eAA/B,EAAgDC,eAAhD,QAAuE,OAAvE;AACA,OAAOC,UAAP,MAAuB,aAAvB;AACA,OAAOC,WAAP;AACA,OAAOC,MAAP;AACA,OAAOC,SAAP;AACA,OAAOC,MAAP;AACA,SAASC,OAAT,QAAwB,aAAxB;AAEA,IAAMC,gBAAgB,GAEpBC,OAAO,CAACC,GAAR,CAAYC,QAAZ,KAAyB,YAAzB,GACIC,MAAM,CAACC,oCAAP,IAA+Cd,OADnD,GAEIA,OAJN;AAMA,IAAMe,WAAW,GAAGd,eAAe,CAAC;AAClCe,EAAAA,OAAO,EAAEZ;AADyB,CAAD,CAAnC;AAIA,IAAMa,KAAK,GAAGlB,WAAW,CACvBgB,WADuB,EAEvBN,gBAAgB,CAACP,eAAe,CAACC,UAAD,CAAhB,CAFO,CAAzB;AAKA,IAAMe,KAAK,GAAGtB,oBAAoB,EAAlC;;AAOA,IAAMuB,GAAG,GAAG,SAANA,GAAM,GAAM;AAEhB,SACE,oBAAC,QAAD;AAAU,IAAA,KAAK,EAAEF,KAAjB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,mBAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,KAAD,CAAO,SAAP;AAAiB,IAAA,aAAa,EAAE;AAAEG,MAAAA,WAAW,EAAE;AAAf,KAAhC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACGC,eAAe,GACd,0CACE,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,SAAnB;AAA6B,IAAA,SAAS,EAAE1B,OAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAEE,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,SAAnB;AAA6B,IAAA,SAAS,EAAEF,OAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,EAGE,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,QAAnB;AAA4B,IAAA,SAAS,EAAEY,MAAvC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAHF,EAIE,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,QAAnB;AAA4B,IAAA,SAAS,EAAEE,MAAvC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAJF,CADc,GAQd,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,OAAnB;AAA2B,IAAA,SAAS,EAAED,SAAtC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IATJ,CADF,CADF,CADF;AAkBD,CApBD;;AAuBA,IAAMgB,QAAQ,GAAG,SAAXA,QAAW,CAACC,KAAD,EAAW;AAC1B,SAAO;AACLF,IAAAA,eAAe,EAAE,CAAC,CAACE,KAAK,CAACP,OAAN,CAAcQ,IAAd,CAAmBC;AADjC,GAAP;AAGD,CAJD;;AAMA,eAAejB,OAAO,CAACc,QAAD,CAAP,CAAkBH,GAAlB,CAAf",
+    "sourcesContent": [
+      "import React, { useEffect } from 'react';\nimport Wrapper from './components/Wrapper';\nimport authenticationService from './services/authenticationService';\nimport Welcome from './screens/Welcome';\nimport { createStackNavigator } from '@react-navigation/stack';\nimport { NavigationContainer } from '@react-navigation/native';\nimport { Provider } from 'react-redux';\nimport { createStore, compose, combineReducers, applyMiddleware } from 'redux';\nimport ReduxThunk from 'redux-thunk';\nimport mainReducer from './store/reducers/mainReducer';\nimport Upload from './screens/Upload';\nimport LoginPage from './screens/Login';\nimport Logout from './screens/Logout';\nimport { connect } from 'react-redux';\n\nconst composeEnhancers =\n  // eslint-disable-next-line no-undef\n  process.env.NODE_ENV !== 'production'\n    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose\n    : compose;\n\nconst rootReducer = combineReducers({\n  general: mainReducer,\n});\n\nconst store = createStore(\n  rootReducer,\n  composeEnhancers(applyMiddleware(ReduxThunk)),\n);\n\nconst Stack = createStackNavigator();\n\n// const logout = () => {\n//   authenticationService.logout();\n//   history.push('/login');\n// };\n\nconst App = () => {\n\n  return (\n    <Provider store={store}>\n      <NavigationContainer>\n        <Stack.Navigator screenOptions={{ headerShown: false }}>\n          {isAuthenticated ? (\n            <>\n              <Stack.Screen name=\"Welcome\" component={Welcome} />\n              <Stack.Screen name=\"Wrapper\" component={Wrapper} />\n              <Stack.Screen name=\"Upload\" component={Upload} />\n              <Stack.Screen name=\"Logout\" component={Logout} />\n            </>\n          ) : (\n            <Stack.Screen name=\"Login\" component={LoginPage} />\n          )}\n        </Stack.Navigator>\n      </NavigationContainer>\n    </Provider>\n  );\n};\n\n//if no user, create. if logged out, show login. else:\nconst mapState = (state) => {\n  return {\n    isAuthenticated: !!state.general.user.token,\n  };\n};\n\nexport default connect(mapState)(App);\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}
