@@ -61,8 +61,22 @@ const Login = (props) => {
               placeholder="Enter password..."
             />
           </View>
-          <View style={styles.button}>
-            <AppButton onPress={() => loginUser()} title="Sign In" />
+          <View style={styles.actions}>
+            <View>
+              <AppButton
+                colorButton="red"
+                onPress={() => loginUser()}
+                title="Sign In"
+              />
+            </View>
+            <Text style={styles.text}> Or </Text>
+            <View>
+              <AppButton
+                colorButton="white"
+                onPress={() => props.navigation.navigate('Register')}
+                title="Register"
+              />
+            </View>
           </View>
         </View>
       </ImageBackground>
@@ -87,13 +101,24 @@ const styles = StyleSheet.create({
   },
   form: {
     width: '100%',
-    height: '80%',
-    paddingTop: 300,
+    height: '70%',
+    paddingTop: 200,
     display: 'flex',
     alignItems: 'center',
   },
-  button: {
-    width: '100%',
+  text: {
+    color: '#eaeaea',
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  actions: {
+    width: '90%',
+    height: '20%',
+    marginBottom: 100,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
 });
 

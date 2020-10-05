@@ -7,7 +7,7 @@ import UserGallery from './UserGallery';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Login from './Login';
 import Logout from './Logout';
-
+import RegisterUser from './Register';
 import { connect } from 'react-redux';
 
 const Drawer = createDrawerNavigator();
@@ -34,7 +34,10 @@ const DrawerNavigator = (props) => {
             <Drawer.Screen name="Logout" component={Logout} />
           </>
         ) : (
-          <Drawer.Screen name="Login" component={Login} />
+          <>
+            <Drawer.Screen name="Login" component={Login} />
+            <Drawer.Screen name="Register" component={RegisterUser} />
+          </>
         )}
       </Drawer.Navigator>
     </NavigationContainer>
