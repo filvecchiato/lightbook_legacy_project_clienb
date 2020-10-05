@@ -31,7 +31,7 @@ const getUserImagesSuccess = (state, action) => {
   return updateObject(state, {
     loading: false,
     user: {
-      profile: null,
+      token: state.user.token,
       images: data,
     },
   });

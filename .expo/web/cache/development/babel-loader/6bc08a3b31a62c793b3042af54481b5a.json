@@ -1,0 +1,39 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/index.js\";\n\nimport React, { useEffect } from 'react';\nimport authenticationService from \"./services/authenticationService\";\nimport Explore from \"./screens/Explore\";\nimport UserGallery from \"./screens/UserGallery\";\nimport { createStackNavigator } from '@react-navigation/stack';\nimport { NavigationContainer } from '@react-navigation/native';\nimport Upload from \"./screens/Upload\";\nimport LoginPage from \"./screens/Login\";\nimport Drawer from \"./components/Wrapper\";\nimport { connect } from 'react-redux';\nvar Stack = createStackNavigator();\n\nvar App = function App(props) {\n  return React.createElement(NavigationContainer, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 16,\n      columnNumber: 5\n    }\n  }, React.createElement(Stack.Navigator, {\n    screenOptions: {\n      headerShown: false\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 17,\n      columnNumber: 7\n    }\n  }, props.isAuthenticated ? React.createElement(Drawer, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 19,\n      columnNumber: 13\n    }\n  }, React.createElement(Stack.Screen, {\n    name: \"User Photos\",\n    component: UserGallery,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 20,\n      columnNumber: 15\n    }\n  }), React.createElement(Stack.Screen, {\n    name: \"Explore\",\n    component: Explore,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 21,\n      columnNumber: 15\n    }\n  }), React.createElement(Stack.Screen, {\n    name: \"Upload\",\n    component: Upload,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 22,\n      columnNumber: 15\n    }\n  })) : React.createElement(Stack.Screen, {\n    name: \"Login\",\n    component: LoginPage,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 25,\n      columnNumber: 11\n    }\n  })));\n};\n\nvar mapState = function mapState(state) {\n  return {\n    isAuthenticated: state.general.user.token\n  };\n};\n\nexport default connect(mapState)(App);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/index.js"
+    ],
+    "names": [
+      "React",
+      "useEffect",
+      "authenticationService",
+      "Explore",
+      "UserGallery",
+      "createStackNavigator",
+      "NavigationContainer",
+      "Upload",
+      "LoginPage",
+      "Drawer",
+      "connect",
+      "Stack",
+      "App",
+      "props",
+      "headerShown",
+      "isAuthenticated",
+      "mapState",
+      "state",
+      "general",
+      "user",
+      "token"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,IAAgBC,SAAhB,QAAiC,OAAjC;AACA,OAAOC,qBAAP;AACA,OAAOC,OAAP;AACA,OAAOC,WAAP;AACA,SAASC,oBAAT,QAAqC,yBAArC;AACA,SAASC,mBAAT,QAAoC,0BAApC;AACA,OAAOC,MAAP;AACA,OAAOC,SAAP;AACA,OAAOC,MAAP;AACA,SAASC,OAAT,QAAwB,aAAxB;AAEA,IAAMC,KAAK,GAAGN,oBAAoB,EAAlC;;AAEA,IAAMO,GAAG,GAAG,SAANA,GAAM,CAACC,KAAD,EAAW;AACrB,SACE,oBAAC,mBAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,KAAD,CAAO,SAAP;AAAiB,IAAA,aAAa,EAAE;AAAEC,MAAAA,WAAW,EAAE;AAAf,KAAhC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACGD,KAAK,CAACE,eAAN,GACG,oBAAC,MAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,aAAnB;AAAiC,IAAA,SAAS,EAAEX,WAA5C;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAEE,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,SAAnB;AAA6B,IAAA,SAAS,EAAED,OAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,EAGE,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,QAAnB;AAA4B,IAAA,SAAS,EAAEI,MAAvC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAHF,CADH,GAOC,oBAAC,KAAD,CAAO,MAAP;AAAc,IAAA,IAAI,EAAC,OAAnB;AAA2B,IAAA,SAAS,EAAEC,SAAtC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IARJ,CADF,CADF;AAeD,CAhBD;;AAmBA,IAAMQ,QAAQ,GAAG,SAAXA,QAAW,CAACC,KAAD,EAAW;AAC1B,SAAO;AACLF,IAAAA,eAAe,EAAEE,KAAK,CAACC,OAAN,CAAcC,IAAd,CAAmBC;AAD/B,GAAP;AAGD,CAJD;;AAMA,eAAeV,OAAO,CAACM,QAAD,CAAP,CAAkBJ,GAAlB,CAAf",
+    "sourcesContent": [
+      "import React, { useEffect } from 'react';\nimport authenticationService from './services/authenticationService';\nimport Explore from './screens/Explore';\nimport UserGallery from './screens/UserGallery';\nimport { createStackNavigator } from '@react-navigation/stack';\nimport { NavigationContainer } from '@react-navigation/native';\nimport Upload from './screens/Upload';\nimport LoginPage from './screens/Login';\nimport Drawer from './components/Wrapper';\nimport { connect } from 'react-redux';\n\nconst Stack = createStackNavigator();\n\nconst App = (props) => {\n  return (\n    <NavigationContainer>\n      <Stack.Navigator screenOptions={{ headerShown: false }}>\n        {props.isAuthenticated ? (\n            <Drawer>\n              <Stack.Screen name=\"User Photos\" component={UserGallery} />\n              <Stack.Screen name=\"Explore\" component={Explore} />\n              <Stack.Screen name=\"Upload\" component={Upload} />\n            </Drawer>\n        ) : (\n          <Stack.Screen name=\"Login\" component={LoginPage} />\n        )}\n      </Stack.Navigator>\n    </NavigationContainer>\n  );\n};\n\n//if no user, create. if logged out, show login. else:\nconst mapState = (state) => {\n  return {\n    isAuthenticated: state.general.user.token,\n  };\n};\n\nexport default connect(mapState)(App);\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

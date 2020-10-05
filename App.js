@@ -5,7 +5,6 @@ import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import mainReducer from './store/reducers/mainReducer';
 import Entry from './index.js';
-
 const composeEnhancers =
   // eslint-disable-next-line no-undef
   process.env.NODE_ENV !== 'production'

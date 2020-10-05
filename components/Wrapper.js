@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = (props) => {
+  console.log(props.isAuthenticated);
   return (
     <Drawer.Navigator
       options={{
@@ -27,14 +28,12 @@ const DrawerNavigator = (props) => {
         <>
           <Drawer.Screen name="User Photos" component={UserGallery} />
           <Drawer.Screen name="Explore" component={Explore} />
-          {/* <Drawer.Screen name="Curate" component={Curate} /> */}
           <Drawer.Screen name="Upload" component={Upload} />
           <Drawer.Screen name="Logout" component={Logout} />
         </>
       ) : (
         <Drawer.Screen name="Login" component={Login} />
       )}
-      ;
     </Drawer.Navigator>
   );
 };
@@ -45,4 +44,10 @@ const mapState = (state) => {
   };
 };
 
-export default connect(mapState)(DrawerNavigator);
+const mapDistpatch = (dispatch) => {
+  return {
+    onLogout: () => dispatch(actions.userLogout()),
+  };
+};
+
+export default connect(mapState, mapDistpatch)(DrawerNavigator);

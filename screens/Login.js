@@ -10,6 +10,8 @@ import AppButton from '../components/AppButton';
 import Input from '../components/Input';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions';
+import { useFocusEffect } from '@react-navigation/native';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const image = {
   uri:
@@ -22,8 +24,21 @@ const Login = (props) => {
 
   const loginUser = async () => {
     const response = await props.onLogin({ email: email, password: password });
+    console.log(response);
     if (response) props.navigation.navigate('User Photos');
   };
+
+  async function changeScreenOrientation() {
+    await ScreenOrientation.lockAsync(
+      ScreenOrientation.OrientationLock.PORTRAIT_UP,
+    );
+  }
+
+  useFocusEffect(
+    React.useCallback(() => {
+      changeScreenOrientation();
+    }, []),
+  );
 
   return (
     <View>
@@ -66,7 +81,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    height: 'calc(100%  - 20pt)',
+    height: '100%',
     margin: 10,
     padding: 10,
   },
