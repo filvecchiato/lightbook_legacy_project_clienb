@@ -1,27 +1,42 @@
-import config from './serviceConfig';
-import handleResponse from '../helpers/handle-response';
+const api = 'http://localhost:3001';
 
 export default {
   login,
-  // currentUserValue: getToken(),
+  createUser,
 };
 
-// function getToken() {
-//     const token = SyncStorage.getItem('currentUser');
-//     return token != null ? JSON.parse(token) : null;;
-// }
-
-function login(username, password) {
+function login(data) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password }),
+    body: JSON.stringify({ email: data.email, password: data.password }),
   };
 
-  return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
-    .then(handleResponse)
-    .then((user) => {
-      // await AsyncStorage.setItem('currentUser', JSON.stringify(user));
-      return user;
+  return fetch(`${api}/login`, requestOptions)
+    .then((response) => response.json())
+    .then((response) => {
+      if ([401, 403].indexOf(response.status) !== -1) {
+        return { response: 'error', status: 401 };
+      } else {
+        return response;
+      }
+    });
+}
+
+function createUser(data) {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ data }),
+  };
+
+  return fetch(`${api}/signUp`, requestOptions)
+    .then((response) => response.json())
+    .then((response) => {
+      if ([401, 403].indexOf(response.status) !== -1) {
+        return { response: 'error', status: 401 };
+      } else {
+        return { response: response, status: 200 };
+      }
     });
 }

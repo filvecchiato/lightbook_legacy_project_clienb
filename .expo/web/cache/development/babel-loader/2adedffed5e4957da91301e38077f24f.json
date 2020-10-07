@@ -1,0 +1,41 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/App.js\";\n\nimport React, { useEffect } from 'react';\nimport { createStackNavigator } from '@react-navigation/stack';\nimport { Provider } from 'react-redux';\nimport { createStore, compose, combineReducers, applyMiddleware } from 'redux';\nimport ReduxThunk from 'redux-thunk';\nimport mainReducer from \"./store/reducers/mainReducer\";\nimport Router from \"./screens/Router\";\nvar composeEnhancers = process.env.NODE_ENV !== 'production' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;\nvar rootReducer = combineReducers({\n  general: mainReducer\n});\nvar store = createStore(rootReducer, composeEnhancers(applyMiddleware(ReduxThunk)));\nvar Stack = createStackNavigator();\n\nvar App = function App(props) {\n  return React.createElement(Provider, {\n    store: store,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 27,\n      columnNumber: 5\n    }\n  }, React.createElement(Router, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 28,\n      columnNumber: 7\n    }\n  }));\n};\n\nexport default App;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/App.js"
+    ],
+    "names": [
+      "React",
+      "useEffect",
+      "createStackNavigator",
+      "Provider",
+      "createStore",
+      "compose",
+      "combineReducers",
+      "applyMiddleware",
+      "ReduxThunk",
+      "mainReducer",
+      "Router",
+      "composeEnhancers",
+      "process",
+      "env",
+      "NODE_ENV",
+      "window",
+      "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__",
+      "rootReducer",
+      "general",
+      "store",
+      "Stack",
+      "App",
+      "props"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,IAAgBC,SAAhB,QAAiC,OAAjC;AACA,SAASC,oBAAT,QAAqC,yBAArC;AACA,SAASC,QAAT,QAAyB,aAAzB;AACA,SAASC,WAAT,EAAsBC,OAAtB,EAA+BC,eAA/B,EAAgDC,eAAhD,QAAuE,OAAvE;AACA,OAAOC,UAAP,MAAuB,aAAvB;AACA,OAAOC,WAAP;AACA,OAAOC,MAAP;AACA,IAAMC,gBAAgB,GAEpBC,OAAO,CAACC,GAAR,CAAYC,QAAZ,KAAyB,YAAzB,GACIC,MAAM,CAACC,oCAAP,IAA+CX,OADnD,GAEIA,OAJN;AAMA,IAAMY,WAAW,GAAGX,eAAe,CAAC;AAClCY,EAAAA,OAAO,EAAET;AADyB,CAAD,CAAnC;AAIA,IAAMU,KAAK,GAAGf,WAAW,CACvBa,WADuB,EAEvBN,gBAAgB,CAACJ,eAAe,CAACC,UAAD,CAAhB,CAFO,CAAzB;AAKA,IAAMY,KAAK,GAAGlB,oBAAoB,EAAlC;;AAEA,IAAMmB,GAAG,GAAG,SAANA,GAAM,CAACC,KAAD,EAAW;AACrB,SACE,oBAAC,QAAD;AAAU,IAAA,KAAK,EAAEH,KAAjB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,MAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,CADF;AAKD,CAND;;AAQA,eAAeE,GAAf",
+    "sourcesContent": [
+      "import React, { useEffect } from 'react';\nimport { createStackNavigator } from '@react-navigation/stack';\nimport { Provider } from 'react-redux';\nimport { createStore, compose, combineReducers, applyMiddleware } from 'redux';\nimport ReduxThunk from 'redux-thunk';\nimport mainReducer from './store/reducers/mainReducer';\nimport Router from './screens/Router';\nconst composeEnhancers =\n  // eslint-disable-next-line no-undef\n  process.env.NODE_ENV !== 'production'\n    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose\n    : compose;\n\nconst rootReducer = combineReducers({\n  general: mainReducer,\n});\n\nconst store = createStore(\n  rootReducer,\n  composeEnhancers(applyMiddleware(ReduxThunk)),\n);\n\nconst Stack = createStackNavigator();\n\nconst App = (props) => {\n  return (\n    <Provider store={store}>\n      <Router />\n    </Provider>\n  );\n};\n\nexport default App;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

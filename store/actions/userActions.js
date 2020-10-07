@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-// import authenticationService from '../../services/authenticationService';
+import authenticationService from '../../services/authenticationService';
 
 export const loginUserFail = (error) => {
   return {
@@ -24,14 +24,18 @@ export const loginUserSuccess = (data) => {
 export const loginUser = (data) => {
   return (dispatch) => {
     dispatch(loginUserStart());
-    //insert api service post request here passing required user data
-    dispatch(loginUserSuccess({ token: 'hello' }));
-    return 'success';
-    // authenticationService.login(data.email, data.password)
-    // .then((response) => {
-    //   dispatch(loginUserSuccess(response));
-    // })
-    // .catch((error) => dispatch(loginUserFail(error)));
+    authenticationService
+      .login({ email: data.email, password: data.password })
+      .then((response) => {
+        dispatch(
+          loginUserSuccess({ token: response.token, user_id: response.id }),
+        );
+        return 'success';
+      })
+      .catch((error) => {
+        dispatch(loginUserFail(error));
+        return 'error';
+      });
   };
 };
 
@@ -61,15 +65,18 @@ export const createUserFail = (error) => {
   };
 };
 
-export const createUser = () => {
+export const createUser = (data) => {
   return (dispatch) => {
     dispatch(createUserStart());
-    //insert api service post request here passing required user data
-    () =>
-      ({}
-        .then((response) => {
-          dispatch(createUserSuccess(response.data));
-        })
-        .catch((error) => dispatch(createUserFail(error))));
+    authenticationService
+      .createUser(data)
+      .then((response) => {
+        dispatch(createUserSuccess(response.response));
+        return response;
+      })
+      .catch((error) => {
+        dispatch(createUserFail(error));
+        return error;
+      });
   };
 };

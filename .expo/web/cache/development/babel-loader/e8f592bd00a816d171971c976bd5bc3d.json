@@ -1,0 +1,34 @@
+{
+  "ast": null,
+  "code": "import config from \"./serviceConfig\";\nimport handleResponse from \"../helpers/handle-response\";\nvar api = 'http://localhost:3001';\nexport default {\n  login: login\n};\n\nfunction login(data) {\n  var requestOptions = {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify({\n      email: data.email,\n      password: data.password\n    })\n  };\n  return fetch(api + \"/login\", requestOptions).then(handleResponse).then(function (user) {\n    return user;\n  });\n}",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/services/authenticationService.js"
+    ],
+    "names": [
+      "config",
+      "handleResponse",
+      "api",
+      "login",
+      "data",
+      "requestOptions",
+      "method",
+      "headers",
+      "body",
+      "JSON",
+      "stringify",
+      "email",
+      "password",
+      "fetch",
+      "then",
+      "user"
+    ],
+    "mappings": "AAAA,OAAOA,MAAP;AACA,OAAOC,cAAP;AACA,IAAMC,GAAG,GAAG,uBAAZ;AAEA,eAAe;AACbC,EAAAA,KAAK,EAALA;AADa,CAAf;;AAIA,SAASA,KAAT,CAAeC,IAAf,EAAqB;AACnB,MAAMC,cAAc,GAAG;AACrBC,IAAAA,MAAM,EAAE,MADa;AAErBC,IAAAA,OAAO,EAAE;AAAE,sBAAgB;AAAlB,KAFY;AAGrBC,IAAAA,IAAI,EAAEC,IAAI,CAACC,SAAL,CAAe;AAACC,MAAAA,KAAK,EAAEP,IAAI,CAACO,KAAb;AAAoBC,MAAAA,QAAQ,EAAER,IAAI,CAACQ;AAAnC,KAAf;AAHe,GAAvB;AAMA,SAAOC,KAAK,CAAIX,GAAJ,aAAiBG,cAAjB,CAAL,CACJS,IADI,CACCb,cADD,EAEJa,IAFI,CAEC,UAACC,IAAD,EAAU;AACd,WAAOA,IAAP;AACD,GAJI,CAAP;AAKD",
+    "sourcesContent": [
+      "import config from './serviceConfig';\nimport handleResponse from '../helpers/handle-response';\nconst api = 'http://localhost:3001';\n\nexport default {\n  login\n};\n\nfunction login(data) {\n  const requestOptions = {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({email: data.email, password: data.password}),\n  };\n\n  return fetch(`${api}/login`, requestOptions)\n    .then(handleResponse)\n    .then((user) => {\n      return user;\n    });\n}\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

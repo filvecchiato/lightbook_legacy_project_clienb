@@ -1,0 +1,36 @@
+{
+  "ast": null,
+  "code": "import serviceConfig from \"./serviceConfig\";\nvar mainUrl = serviceConfig.mainUrl;\nvar apiUrl = serviceConfig.unsplash;\nvar cloudinaryUrl = serviceConfig.cloudinaryDown;\nvar api = 'http://localhost:3001';\nexport default {\n  getExploreImages: function getExploreImages() {\n    try {\n      return fetch(\"\" + apiUrl).then(function (response) {\n        return response.json();\n      }).catch(function (err) {\n        return console.log(err);\n      });\n    } catch (err) {\n      console.log('error handler inside try', err);\n    }\n  },\n  getUserImages: function getUserImages(id) {\n    try {\n      return fetch(api + \"/images/upload/\" + id).then(function (response) {\n        return response.json();\n      }).catch(function (err) {\n        return console.log(err);\n      });\n    } catch (err) {\n      console.log('error handler inside try', err);\n    }\n  }\n};",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/services/ImageService.js"
+    ],
+    "names": [
+      "serviceConfig",
+      "mainUrl",
+      "apiUrl",
+      "unsplash",
+      "cloudinaryUrl",
+      "cloudinaryDown",
+      "api",
+      "getExploreImages",
+      "fetch",
+      "then",
+      "response",
+      "json",
+      "catch",
+      "err",
+      "console",
+      "log",
+      "getUserImages",
+      "id"
+    ],
+    "mappings": "AAAA,OAAOA,aAAP;AAEA,IAAMC,OAAO,GAAGD,aAAa,CAACC,OAA9B;AACA,IAAMC,MAAM,GAAGF,aAAa,CAACG,QAA7B;AACA,IAAMC,aAAa,GAAGJ,aAAa,CAACK,cAApC;AACA,IAAMC,GAAG,GAAG,uBAAZ;AAEA,eAAe;AACbC,EAAAA,gBAAgB,EAAE,4BAAM;AACtB,QAAI;AACF,aAAOC,KAAK,MAAIN,MAAJ,CAAL,CACJO,IADI,CACC,UAACC,QAAD,EAAc;AAClB,eAAOA,QAAQ,CAACC,IAAT,EAAP;AACD,OAHI,EAIJC,KAJI,CAIE,UAACC,GAAD;AAAA,eAASC,OAAO,CAACC,GAAR,CAAYF,GAAZ,CAAT;AAAA,OAJF,CAAP;AAKD,KAND,CAME,OAAOA,GAAP,EAAY;AACZC,MAAAA,OAAO,CAACC,GAAR,CAAY,0BAAZ,EAAwCF,GAAxC;AACD;AACF,GAXY;AAabG,EAAAA,aAAa,EAAE,uBAACC,EAAD,EAAQ;AACrB,QAAI;AACF,aAAOT,KAAK,CAAIF,GAAJ,uBAAyBW,EAAzB,CAAL,CACJR,IADI,CACC,UAACC,QAAD,EAAc;AAClB,eAAOA,QAAQ,CAACC,IAAT,EAAP;AACD,OAHI,EAIJC,KAJI,CAIE,UAACC,GAAD;AAAA,eAASC,OAAO,CAACC,GAAR,CAAYF,GAAZ,CAAT;AAAA,OAJF,CAAP;AAKD,KAND,CAME,OAAOA,GAAP,EAAY;AACZC,MAAAA,OAAO,CAACC,GAAR,CAAY,0BAAZ,EAAwCF,GAAxC;AACD;AACF;AAvBY,CAAf",
+    "sourcesContent": [
+      "import serviceConfig from './serviceConfig';\n\nconst mainUrl = serviceConfig.mainUrl;\nconst apiUrl = serviceConfig.unsplash;\nconst cloudinaryUrl = serviceConfig.cloudinaryDown;\nconst api = 'http://localhost:3001';\n\nexport default {\n  getExploreImages: () => {\n    try {\n      return fetch(`${apiUrl}`)\n        .then((response) => {\n          return response.json();\n        })\n        .catch((err) => console.log(err));\n    } catch (err) {\n      console.log('error handler inside try', err);\n    }\n  },\n\n  getUserImages: (id) => {\n    try {\n      return fetch(`${api}/images/upload/${id}`)\n        .then((response) => {\n          return response.json();\n        })\n        .catch((err) => console.log(err));\n    } catch (err) {\n      console.log('error handler inside try', err);\n    }\n  },\n};\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

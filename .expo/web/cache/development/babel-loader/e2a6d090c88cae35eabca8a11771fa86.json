@@ -1,0 +1,44 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/AppButton.js\";\n\nimport React from 'react';\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport TouchableOpacity from \"react-native-web/dist/exports/TouchableOpacity\";\nimport Text from \"react-native-web/dist/exports/Text\";\nTouchableOpacity.defaultProps = {\n  activeOpacity: 0.8\n};\n\nvar AppButton = function AppButton(_ref) {\n  var onPress = _ref.onPress,\n      title = _ref.title,\n      colorButton = _ref.colorButton;\n  return React.createElement(TouchableOpacity, {\n    onPress: onPress,\n    style: styles(colorButton).appButtonContainer,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 7,\n      columnNumber: 3\n    }\n  }, React.createElement(Text, {\n    style: styles(colorButton).appButtonText,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 11,\n      columnNumber: 5\n    }\n  }, title));\n};\n\nvar styles = function styles(color) {\n  return StyleSheet.create({\n    screenContainer: {\n      justifyContent: 'center'\n    },\n    appButtonContainer: {\n      borderRadius: 10,\n      borderStyle: 'solid',\n      borderWidth: 2,\n      borderColor: color,\n      margin: 20,\n      padding: 10,\n      backgroundColor: 'transparent'\n    },\n    appButtonText: {\n      fontSize: 24,\n      color: color,\n      fontWeight: 'bold',\n      alignSelf: 'center'\n    }\n  });\n};\n\nexport default AppButton;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/components/AppButton.js"
+    ],
+    "names": [
+      "React",
+      "TouchableOpacity",
+      "defaultProps",
+      "activeOpacity",
+      "AppButton",
+      "onPress",
+      "title",
+      "colorButton",
+      "styles",
+      "appButtonContainer",
+      "appButtonText",
+      "color",
+      "StyleSheet",
+      "create",
+      "screenContainer",
+      "justifyContent",
+      "borderRadius",
+      "borderStyle",
+      "borderWidth",
+      "borderColor",
+      "margin",
+      "padding",
+      "backgroundColor",
+      "fontSize",
+      "fontWeight",
+      "alignSelf"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;;;;AAGAC,gBAAgB,CAACC,YAAjB,GAAgC;AAAEC,EAAAA,aAAa,EAAE;AAAjB,CAAhC;;AAEA,IAAMC,SAAS,GAAG,SAAZA,SAAY;AAAA,MAAGC,OAAH,QAAGA,OAAH;AAAA,MAAYC,KAAZ,QAAYA,KAAZ;AAAA,MAAmBC,WAAnB,QAAmBA,WAAnB;AAAA,SAChB,oBAAC,gBAAD;AACE,IAAA,OAAO,EAAEF,OADX;AAEE,IAAA,KAAK,EAAEG,MAAM,CAACD,WAAD,CAAN,CAAoBE,kBAF7B;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAIE,oBAAC,IAAD;AAAM,IAAA,KAAK,EAAED,MAAM,CAACD,WAAD,CAAN,CAAoBG,aAAjC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAAiDJ,KAAjD,CAJF,CADgB;AAAA,CAAlB;;AASA,IAAME,MAAM,GAAG,SAATA,MAAS,CAACG,KAAD;AAAA,SACbC,UAAU,CAACC,MAAX,CAAkB;AAChBC,IAAAA,eAAe,EAAE;AACfC,MAAAA,cAAc,EAAE;AADD,KADD;AAIhBN,IAAAA,kBAAkB,EAAE;AAClBO,MAAAA,YAAY,EAAE,EADI;AAElBC,MAAAA,WAAW,EAAE,OAFK;AAGlBC,MAAAA,WAAW,EAAE,CAHK;AAIlBC,MAAAA,WAAW,EAAER,KAJK;AAKlBS,MAAAA,MAAM,EAAE,EALU;AAMlBC,MAAAA,OAAO,EAAE,EANS;AAOlBC,MAAAA,eAAe,EAAE;AAPC,KAJJ;AAahBZ,IAAAA,aAAa,EAAE;AACba,MAAAA,QAAQ,EAAE,EADG;AAEbZ,MAAAA,KAAK,EAAEA,KAFM;AAGba,MAAAA,UAAU,EAAE,MAHC;AAIbC,MAAAA,SAAS,EAAE;AAJE;AAbC,GAAlB,CADa;AAAA,CAAf;;AAsBA,eAAerB,SAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport { StyleSheet, TouchableOpacity, Text } from 'react-native';\n\nTouchableOpacity.defaultProps = { activeOpacity: 0.8 };\n\nconst AppButton = ({ onPress, title, colorButton }) => (\n  <TouchableOpacity\n    onPress={onPress}\n    style={styles(colorButton).appButtonContainer}\n  >\n    <Text style={styles(colorButton).appButtonText}>{title}</Text>\n  </TouchableOpacity>\n);\n\nconst styles = (color) =>\n  StyleSheet.create({\n    screenContainer: {\n      justifyContent: 'center',\n    },\n    appButtonContainer: {\n      borderRadius: 10,\n      borderStyle: 'solid',\n      borderWidth: 2,\n      borderColor: color,\n      margin: 20,\n      padding: 10,\n      backgroundColor: 'transparent',\n    },\n    appButtonText: {\n      fontSize: 24,\n      color: color,\n      fontWeight: 'bold',\n      alignSelf: 'center',\n    },\n  });\n\nexport default AppButton;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

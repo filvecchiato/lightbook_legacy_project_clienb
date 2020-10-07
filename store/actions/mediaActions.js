@@ -63,11 +63,45 @@ export const getUserImages = (userId) => {
     imageService
       .getUserImages(userId)
       .then((response) => {
-        dispatch(getUserImagesSuccess(response));
+        dispatch(getUserImagesSuccess(response.data));
       })
       .catch((error) => {
         console.log('get user image redux error', error);
         dispatch(getUserImagesFail(error));
+      });
+  };
+};
+
+const uploadStart = () => {
+  return {
+    type: actionTypes.UPLOAD_START,
+  };
+};
+
+const uploadSuccess = () => {
+  return {
+    type: actionTypes.UPLOAD_SUCCESS,
+  };
+};
+
+const uploadFail = (error) => {
+  return {
+    type: actionTypes.UPLOAD_FAIL,
+    payload: error,
+  };
+};
+
+export const uploadImage = (file, user_id) => {
+  const image = JSON.stringify(file);
+  return (dispatch) => {
+    dispatch(uploadStart());
+    imageService
+      .uploadImage(image, user_id)
+      .then((response) => {
+        dispatch(uploadSuccess());
+      })
+      .catch((error) => {
+        dispatch(uploadFail(error));
       });
   };
 };

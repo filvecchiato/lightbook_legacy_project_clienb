@@ -1,0 +1,46 @@
+{
+  "ast": null,
+  "code": "var _this = this,\n    _jsxFileName = \"/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/Router.js\";\n\nimport React from 'react';\nimport { NavigationContainer } from '@react-navigation/native';\nimport Explore from \"./Explore\";\nimport Upload from \"./Upload\";\nimport UserGallery from \"./UserGallery\";\nimport { createDrawerNavigator } from '@react-navigation/drawer';\nimport Login from \"./Login\";\nimport Logout from \"./Logout\";\nimport RegisterUser from \"./Register\";\nimport { connect } from 'react-redux';\nvar Drawer = createDrawerNavigator();\n\nvar DrawerNavigator = function DrawerNavigator(props) {\n  return React.createElement(NavigationContainer, {\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 17,\n      columnNumber: 5\n    }\n  }, React.createElement(Drawer.Navigator, {\n    options: {\n      headerStyle: {\n        backgroundColor: 'black'\n      },\n      headerTitleStyle: {\n        fontColor: 'red'\n      }\n    },\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 18,\n      columnNumber: 7\n    }\n  }, props.isAuthenticated ? React.createElement(React.Fragment, null, React.createElement(Drawer.Screen, {\n    name: \"Upload\",\n    component: Upload,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 30,\n      columnNumber: 13\n    }\n  }), React.createElement(Drawer.Screen, {\n    name: \"Explore\",\n    component: Explore,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 31,\n      columnNumber: 13\n    }\n  }), React.createElement(Drawer.Screen, {\n    name: \"User Photos\",\n    component: UserGallery,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 32,\n      columnNumber: 13\n    }\n  }), React.createElement(Drawer.Screen, {\n    name: \"Logout\",\n    component: Logout,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 33,\n      columnNumber: 13\n    }\n  })) : React.createElement(React.Fragment, null, React.createElement(Drawer.Screen, {\n    name: \"Login\",\n    component: Login,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 37,\n      columnNumber: 13\n    }\n  }), React.createElement(Drawer.Screen, {\n    name: \"Register\",\n    component: RegisterUser,\n    __self: _this,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 38,\n      columnNumber: 13\n    }\n  }))));\n};\n\nvar mapState = function mapState(state) {\n  return {\n    isAuthenticated: !!state.general.user.token\n  };\n};\n\nvar mapDistpatch = function mapDistpatch(dispatch) {\n  return {\n    onLogout: function onLogout() {\n      return dispatch(actions.userLogout());\n    }\n  };\n};\n\nexport default connect(mapState, mapDistpatch)(DrawerNavigator);",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/screens/Router.js"
+    ],
+    "names": [
+      "React",
+      "NavigationContainer",
+      "Explore",
+      "Upload",
+      "UserGallery",
+      "createDrawerNavigator",
+      "Login",
+      "Logout",
+      "RegisterUser",
+      "connect",
+      "Drawer",
+      "DrawerNavigator",
+      "props",
+      "headerStyle",
+      "backgroundColor",
+      "headerTitleStyle",
+      "fontColor",
+      "isAuthenticated",
+      "mapState",
+      "state",
+      "general",
+      "user",
+      "token",
+      "mapDistpatch",
+      "dispatch",
+      "onLogout",
+      "actions",
+      "userLogout"
+    ],
+    "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;AACA,SAASC,mBAAT,QAAoC,0BAApC;AACA,OAAOC,OAAP;AAEA,OAAOC,MAAP;AACA,OAAOC,WAAP;AACA,SAASC,qBAAT,QAAsC,0BAAtC;AACA,OAAOC,KAAP;AACA,OAAOC,MAAP;AACA,OAAOC,YAAP;AACA,SAASC,OAAT,QAAwB,aAAxB;AAEA,IAAMC,MAAM,GAAGL,qBAAqB,EAApC;;AAEA,IAAMM,eAAe,GAAG,SAAlBA,eAAkB,CAACC,KAAD,EAAW;AACjC,SACE,oBAAC,mBAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACE,oBAAC,MAAD,CAAQ,SAAR;AACE,IAAA,OAAO,EAAE;AACPC,MAAAA,WAAW,EAAE;AACXC,QAAAA,eAAe,EAAE;AADN,OADN;AAIPC,MAAAA,gBAAgB,EAAE;AAChBC,QAAAA,SAAS,EAAE;AADK;AAJX,KADX;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAUGJ,KAAK,CAACK,eAAN,GACC,0CACE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,QAApB;AAA6B,IAAA,SAAS,EAAEd,MAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAEE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,SAApB;AAA8B,IAAA,SAAS,EAAED,OAAzC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,EAGE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,aAApB;AAAkC,IAAA,SAAS,EAAEE,WAA7C;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAHF,EAIE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,QAApB;AAA6B,IAAA,SAAS,EAAEG,MAAxC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAJF,CADD,GAQC,0CACE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,OAApB;AAA4B,IAAA,SAAS,EAAED,KAAvC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADF,EAEE,oBAAC,MAAD,CAAQ,MAAR;AAAe,IAAA,IAAI,EAAC,UAApB;AAA+B,IAAA,SAAS,EAAEE,YAA1C;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAFF,CAlBJ,CADF,CADF;AA4BD,CA7BD;;AA+BA,IAAMU,QAAQ,GAAG,SAAXA,QAAW,CAACC,KAAD,EAAW;AAC1B,SAAO;AACLF,IAAAA,eAAe,EAAE,CAAC,CAACE,KAAK,CAACC,OAAN,CAAcC,IAAd,CAAmBC;AADjC,GAAP;AAGD,CAJD;;AAMA,IAAMC,YAAY,GAAG,SAAfA,YAAe,CAACC,QAAD,EAAc;AACjC,SAAO;AACLC,IAAAA,QAAQ,EAAE;AAAA,aAAMD,QAAQ,CAACE,OAAO,CAACC,UAAR,EAAD,CAAd;AAAA;AADL,GAAP;AAGD,CAJD;;AAMA,eAAelB,OAAO,CAACS,QAAD,EAAWK,YAAX,CAAP,CAAgCZ,eAAhC,CAAf",
+    "sourcesContent": [
+      "import React from 'react';\nimport { NavigationContainer } from '@react-navigation/native';\nimport Explore from './Explore';\n// import Curate from './Curate';\nimport Upload from './Upload';\nimport UserGallery from './UserGallery';\nimport { createDrawerNavigator } from '@react-navigation/drawer';\nimport Login from './Login';\nimport Logout from './Logout';\nimport RegisterUser from './Register';\nimport { connect } from 'react-redux';\n\nconst Drawer = createDrawerNavigator();\n\nconst DrawerNavigator = (props) => {\n  return (\n    <NavigationContainer>\n      <Drawer.Navigator\n        options={{\n          headerStyle: {\n            backgroundColor: 'black',\n          },\n          headerTitleStyle: {\n            fontColor: 'red',\n          },\n        }}\n      >\n        {props.isAuthenticated ? (\n          <>\n            <Drawer.Screen name=\"Upload\" component={Upload} />\n            <Drawer.Screen name=\"Explore\" component={Explore} />\n            <Drawer.Screen name=\"User Photos\" component={UserGallery} />\n            <Drawer.Screen name=\"Logout\" component={Logout} />\n          </>\n        ) : (\n          <>\n            <Drawer.Screen name=\"Login\" component={Login} />\n            <Drawer.Screen name=\"Register\" component={RegisterUser} />\n          </>\n        )}\n      </Drawer.Navigator>\n    </NavigationContainer>\n  );\n};\n\nconst mapState = (state) => {\n  return {\n    isAuthenticated: !!state.general.user.token,\n  };\n};\n\nconst mapDistpatch = (dispatch) => {\n  return {\n    onLogout: () => dispatch(actions.userLogout()),\n  };\n};\n\nexport default connect(mapState, mapDistpatch)(DrawerNavigator);\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

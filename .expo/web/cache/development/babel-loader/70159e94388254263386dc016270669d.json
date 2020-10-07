@@ -1,0 +1,49 @@
+{
+  "ast": null,
+  "code": "import * as actionTypes from \"./actionTypes\";\nimport authenticationService from \"../../services/authenticationService\";\nimport userService from \"../../services/userService\";\nexport var loginUserFail = function loginUserFail(error) {\n  return {\n    type: actionTypes.LOGIN_FAIL,\n    payload: error\n  };\n};\nexport var loginUserStart = function loginUserStart() {\n  return {\n    type: actionTypes.LOGIN_START\n  };\n};\nexport var loginUserSuccess = function loginUserSuccess(data) {\n  return {\n    type: actionTypes.LOGIN_SUCCESS,\n    payload: data\n  };\n};\nexport var loginUser = function loginUser(data) {\n  return function (dispatch) {\n    dispatch(loginUserStart());\n    authenticationService.login({\n      email: data.email,\n      password: data.password\n    }).then(function (response) {\n      dispatch(loginUserSuccess({\n        token: response.token\n      }));\n      return 'success';\n    }).catch(function (error) {\n      dispatch(loginUserFail(error));\n      return 'error';\n    });\n  };\n};\nexport var userLogout = function userLogout() {\n  return {\n    type: actionTypes.USER_LOGOUT\n  };\n};\nexport var createUserStart = function createUserStart() {\n  return {\n    type: actionTypes.CREATE_USER_START\n  };\n};\nexport var createUserSuccess = function createUserSuccess(data) {\n  return {\n    type: actionTypes.CREATE_USER_SUCCESS,\n    payload: data\n  };\n};\nexport var createUserFail = function createUserFail(error) {\n  return {\n    type: actionTypes.CREATE_USER_FAIL,\n    payload: error\n  };\n};\nexport var createUser = function createUser(data) {\n  return function (dispatch) {\n    dispatch(createUserStart());\n    userService.createUser(data).then(function (response) {\n      dispatch(createUserSuccess(response));\n      return 'success';\n    }).catch(function (error) {\n      dispatch(createUserFail(error));\n      return error;\n    });\n  };\n};",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/store/actions/userActions.js"
+    ],
+    "names": [
+      "actionTypes",
+      "authenticationService",
+      "userService",
+      "loginUserFail",
+      "error",
+      "type",
+      "LOGIN_FAIL",
+      "payload",
+      "loginUserStart",
+      "LOGIN_START",
+      "loginUserSuccess",
+      "data",
+      "LOGIN_SUCCESS",
+      "loginUser",
+      "dispatch",
+      "login",
+      "email",
+      "password",
+      "then",
+      "response",
+      "token",
+      "catch",
+      "userLogout",
+      "USER_LOGOUT",
+      "createUserStart",
+      "CREATE_USER_START",
+      "createUserSuccess",
+      "CREATE_USER_SUCCESS",
+      "createUserFail",
+      "CREATE_USER_FAIL",
+      "createUser"
+    ],
+    "mappings": "AAAA,OAAO,KAAKA,WAAZ;AACA,OAAOC,qBAAP;AACA,OAAOC,WAAP;AAEA,OAAO,IAAMC,aAAa,GAAG,SAAhBA,aAAgB,CAACC,KAAD,EAAW;AACtC,SAAO;AACLC,IAAAA,IAAI,EAAEL,WAAW,CAACM,UADb;AAELC,IAAAA,OAAO,EAAEH;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAMI,cAAc,GAAG,SAAjBA,cAAiB,GAAM;AAClC,SAAO;AACLH,IAAAA,IAAI,EAAEL,WAAW,CAACS;AADb,GAAP;AAGD,CAJM;AAMP,OAAO,IAAMC,gBAAgB,GAAG,SAAnBA,gBAAmB,CAACC,IAAD,EAAU;AACxC,SAAO;AACLN,IAAAA,IAAI,EAAEL,WAAW,CAACY,aADb;AAELL,IAAAA,OAAO,EAAEI;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAME,SAAS,GAAG,SAAZA,SAAY,CAACF,IAAD,EAAU;AACjC,SAAO,UAACG,QAAD,EAAc;AACnBA,IAAAA,QAAQ,CAACN,cAAc,EAAf,CAAR;AACAP,IAAAA,qBAAqB,CAACc,KAAtB,CAA4B;AAAEC,MAAAA,KAAK,EAAEL,IAAI,CAACK,KAAd;AAAqBC,MAAAA,QAAQ,EAAEN,IAAI,CAACM;AAApC,KAA5B,EAA4EC,IAA5E,CACE,UAACC,QAAD,EAAc;AACZL,MAAAA,QAAQ,CAACJ,gBAAgB,CAAC;AAAEU,QAAAA,KAAK,EAAED,QAAQ,CAACC;AAAlB,OAAD,CAAjB,CAAR;AACA,aAAO,SAAP;AACD,KAJH,EAKEC,KALF,CAKQ,UAACjB,KAAD,EAAW;AACjBU,MAAAA,QAAQ,CAACX,aAAa,CAACC,KAAD,CAAd,CAAR;AACA,aAAO,OAAP;AACD,KARD;AASD,GAXD;AAYD,CAbM;AAeP,OAAO,IAAMkB,UAAU,GAAG,SAAbA,UAAa,GAAM;AAC9B,SAAO;AACLjB,IAAAA,IAAI,EAAEL,WAAW,CAACuB;AADb,GAAP;AAGD,CAJM;AAMP,OAAO,IAAMC,eAAe,GAAG,SAAlBA,eAAkB,GAAM;AACnC,SAAO;AACLnB,IAAAA,IAAI,EAAEL,WAAW,CAACyB;AADb,GAAP;AAGD,CAJM;AAMP,OAAO,IAAMC,iBAAiB,GAAG,SAApBA,iBAAoB,CAACf,IAAD,EAAU;AACzC,SAAO;AACLN,IAAAA,IAAI,EAAEL,WAAW,CAAC2B,mBADb;AAELpB,IAAAA,OAAO,EAAEI;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAMiB,cAAc,GAAG,SAAjBA,cAAiB,CAACxB,KAAD,EAAW;AACvC,SAAO;AACLC,IAAAA,IAAI,EAAEL,WAAW,CAAC6B,gBADb;AAELtB,IAAAA,OAAO,EAAEH;AAFJ,GAAP;AAID,CALM;AAOP,OAAO,IAAM0B,UAAU,GAAG,SAAbA,UAAa,CAACnB,IAAD,EAAU;AAClC,SAAO,UAACG,QAAD,EAAc;AACnBA,IAAAA,QAAQ,CAACU,eAAe,EAAhB,CAAR;AACAtB,IAAAA,WAAW,CAAC4B,UAAZ,CAAuBnB,IAAvB,EAA6BO,IAA7B,CACE,UAACC,QAAD,EAAc;AACZL,MAAAA,QAAQ,CAACY,iBAAiB,CAACP,QAAD,CAAlB,CAAR;AACA,aAAO,SAAP;AACD,KAJH,EAKEE,KALF,CAKQ,UAACjB,KAAD,EAAW;AACjBU,MAAAA,QAAQ,CAACc,cAAc,CAACxB,KAAD,CAAf,CAAR;AACA,aAAOA,KAAP;AACD,KARD;AASD,GAXD;AAYD,CAbM",
+    "sourcesContent": [
+      "import * as actionTypes from './actionTypes';\nimport authenticationService from '../../services/authenticationService';\nimport userService from '../../services/userService';\n\nexport const loginUserFail = (error) => {\n  return {\n    type: actionTypes.LOGIN_FAIL,\n    payload: error,\n  };\n};\n\nexport const loginUserStart = () => {\n  return {\n    type: actionTypes.LOGIN_START,\n  };\n};\n\nexport const loginUserSuccess = (data) => {\n  return {\n    type: actionTypes.LOGIN_SUCCESS,\n    payload: data,\n  };\n};\n\nexport const loginUser = (data) => {\n  return (dispatch) => {\n    dispatch(loginUserStart());\n    authenticationService.login({ email: data.email, password: data.password }).then(\n      (response) => {\n        dispatch(loginUserSuccess({ token: response.token }));\n        return 'success';\n      }\n    ).catch((error) => {\n      dispatch(loginUserFail(error));\n      return 'error';\n    });\n  };\n};\n\nexport const userLogout = () => {\n  return {\n    type: actionTypes.USER_LOGOUT,\n  };\n};\n\nexport const createUserStart = () => {\n  return {\n    type: actionTypes.CREATE_USER_START,\n  };\n};\n\nexport const createUserSuccess = (data) => {\n  return {\n    type: actionTypes.CREATE_USER_SUCCESS,\n    payload: data,\n  };\n};\n\nexport const createUserFail = (error) => {\n  return {\n    type: actionTypes.CREATE_USER_FAIL,\n    payload: error,\n  };\n};\n\nexport const createUser = (data) => {\n  return (dispatch) => {\n    dispatch(createUserStart());\n    userService.createUser(data).then(\n      (response) => {\n        dispatch(createUserSuccess(response));\n        return 'success';\n      }\n    ).catch((error) => {\n      dispatch(createUserFail(error));\n      return error;\n    });\n  };\n};\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

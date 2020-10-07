@@ -4,6 +4,7 @@ import { updateObject } from '../utils';
 
 const initialState = {
   user: {
+    user_id: null,
     token: null,
     images: [],
   },
@@ -31,6 +32,7 @@ const getUserImagesSuccess = (state, action) => {
   return updateObject(state, {
     loading: false,
     user: {
+      user_id: state.user.user_id,
       token: state.user.token,
       images: data,
     },
@@ -52,15 +54,18 @@ const getExploreImagesSuccess = (state, action) => {
 const setLoggedIn = (state, action) => {
   return updateObject(state, {
     user: {
+      user_id: action.payload.user_id,
       token: action.payload.token,
       images: state.user.images,
     },
+    loading: false,
   });
 };
 
 const setLogOut = (state, action) => {
   return updateObject(state, {
     user: {
+      user_id: null,
       token: null,
       images: [],
     },

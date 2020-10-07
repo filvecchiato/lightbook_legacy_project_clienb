@@ -5,8 +5,9 @@ Array [
   <Text
     style={
       Object {
-        "color": "lightgray",
-        "fontSize": 30,
+        "color": "white",
+        "fontSize": 25,
+        "paddingBottom": 5,
       }
     }
   >
@@ -20,8 +21,9 @@ Array [
       Object {
         "backgroundColor": "white",
         "borderRadius": 3,
-        "height": "70%",
-        "width": "50%",
+        "marginBottom": 20,
+        "padding": 15,
+        "width": "80%",
       }
     }
     underlineColorAndroid="transparent"

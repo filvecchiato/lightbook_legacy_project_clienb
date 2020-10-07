@@ -1,0 +1,24 @@
+{
+  "ast": null,
+  "code": "import authenticationService from \"../services/authenticationService\";\nexport function authHeader() {\n  var currentUser = authenticationService.currentUserValue;\n\n  if (currentUser && currentUser.token) {\n    return {\n      Authorization: \"Bearer \" + currentUser.token\n    };\n  } else {\n    return {};\n  }\n}",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/helpers/auth-header.js"
+    ],
+    "names": [
+      "authenticationService",
+      "authHeader",
+      "currentUser",
+      "currentUserValue",
+      "token",
+      "Authorization"
+    ],
+    "mappings": "AAAA,OAAOA,qBAAP;AAEA,OAAO,SAASC,UAAT,GAAsB;AAIzB,MAAMC,WAAW,GAAGF,qBAAqB,CAACG,gBAA1C;;AACA,MAAID,WAAW,IAAIA,WAAW,CAACE,KAA/B,EAAsC;AAClC,WAAO;AAAEC,MAAAA,aAAa,cAAYH,WAAW,CAACE;AAAvC,KAAP;AACH,GAFD,MAEO;AACH,WAAO,EAAP;AACH;AACJ",
+    "sourcesContent": [
+      "import authenticationService from '../services/authenticationService';\n\nexport function authHeader() {\n\n    // return authorization header with jwt token\n\n    const currentUser = authenticationService.currentUserValue;\n    if (currentUser && currentUser.token) {\n        return { Authorization: `Bearer ${currentUser.token}` };\n    } else {\n        return {};\n    }\n}"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

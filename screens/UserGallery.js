@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions';
 
 const UserGallery = (props) => {
-  const { loading, error, userImages, getImages } = props;
+  const { loading, error, userImages, getImages, userId } = props;
 
   const [, forceUpdate] = useState();
 
@@ -30,7 +30,7 @@ const UserGallery = (props) => {
       let isActive = true;
       forceUpdate((s) => !s);
       changeScreenOrientation();
-      getImages();
+      getImages(userId);
       return () => {
         isActive = false;
       };
@@ -45,10 +45,8 @@ const UserGallery = (props) => {
       {loading && !error ? (
         <Text style={styles.message}> Loading ... </Text>
       ) : null}
-      {!loading && error ? (
-        <Text style={styles.message}> Error! {error}</Text>
-      ) : null}
-      {!loading && !error && !!userImages.length ? (
+      {!loading && error ? <Text style={styles.message}> Error! </Text> : null}
+      {!loading && !error && userImages.length ? (
         <FlatList
           data={userImages}
           keyExtractor={(item) => `${item.id}`}
@@ -78,6 +76,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   return {
     userImages: state.general.user.images,
+    userId: state.general.user.user_id,
     loading: state.general.loading,
     error: state.general.error,
   };
