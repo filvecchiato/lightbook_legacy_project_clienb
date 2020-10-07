@@ -28,7 +28,7 @@ const Register = (props) => {
   const [bio, setBio] = useState('');
   const [error, setError] = useState(null);
 
-  const registerUser = async () => {
+  const registerUser = () => {
     if (password === passwordConfirm) {
       const data = {
         username: username,
@@ -36,10 +36,7 @@ const Register = (props) => {
         email: email,
         password: password,
       };
-      const resposnse = await props.onRegister(data);
-      if (response) {
-        props.navigation.navigate('Explore');
-      }
+      props.onRegister(data);
     } else {
       setError('Passwords do not match!!');
     }

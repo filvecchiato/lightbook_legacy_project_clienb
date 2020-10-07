@@ -1,0 +1,31 @@
+{
+  "ast": null,
+  "code": "var apiUrl = 'https://api.unsplash.com/photos/?client_id=rqvlp8dmdA61y6UyNy0YhAfNLMfLuKrAdBiKMcLqweI';\nvar api = 'http://localhost:3001';\nexport default {\n  getExploreImages: function getExploreImages() {\n    try {\n      return fetch(\"\" + apiUrl).then(function (response) {\n        return response.json();\n      }).catch(function (err) {\n        return console.log(err);\n      });\n    } catch (err) {\n      console.log('error handler inside try', err);\n    }\n  },\n  getUserImages: function getUserImages(id) {\n    try {\n      return fetch(api + \"/images/upload/\" + id).then(function (response) {\n        return response.json();\n      }).catch(function (err) {\n        return console.log(err);\n      });\n    } catch (err) {\n      console.log('error handler inside try', err);\n    }\n  }\n};",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/services/ImageService.js"
+    ],
+    "names": [
+      "apiUrl",
+      "api",
+      "getExploreImages",
+      "fetch",
+      "then",
+      "response",
+      "json",
+      "catch",
+      "err",
+      "console",
+      "log",
+      "getUserImages",
+      "id"
+    ],
+    "mappings": "AAAA,IAAMA,MAAM,GAAG,wFAAf;AACA,IAAMC,GAAG,GAAG,uBAAZ;AAEA,eAAe;AACbC,EAAAA,gBAAgB,EAAE,4BAAM;AACtB,QAAI;AACF,aAAOC,KAAK,MAAIH,MAAJ,CAAL,CACJI,IADI,CACC,UAACC,QAAD;AAAA,eAAcA,QAAQ,CAACC,IAAT,EAAd;AAAA,OADD,EAEJC,KAFI,CAEE,UAACC,GAAD;AAAA,eAASC,OAAO,CAACC,GAAR,CAAYF,GAAZ,CAAT;AAAA,OAFF,CAAP;AAGD,KAJD,CAIE,OAAOA,GAAP,EAAY;AACZC,MAAAA,OAAO,CAACC,GAAR,CAAY,0BAAZ,EAAwCF,GAAxC;AACD;AACF,GATY;AAWbG,EAAAA,aAAa,EAAE,uBAACC,EAAD,EAAQ;AACrB,QAAI;AACF,aAAOT,KAAK,CAAIF,GAAJ,uBAAyBW,EAAzB,CAAL,CACJR,IADI,CACC,UAACC,QAAD;AAAA,eAAcA,QAAQ,CAACC,IAAT,EAAd;AAAA,OADD,EAEJC,KAFI,CAEE,UAACC,GAAD;AAAA,eAASC,OAAO,CAACC,GAAR,CAAYF,GAAZ,CAAT;AAAA,OAFF,CAAP;AAGD,KAJD,CAIE,OAAOA,GAAP,EAAY;AACZC,MAAAA,OAAO,CAACC,GAAR,CAAY,0BAAZ,EAAwCF,GAAxC;AACD;AACF;AAnBY,CAAf",
+    "sourcesContent": [
+      "const apiUrl = 'https://api.unsplash.com/photos/?client_id=rqvlp8dmdA61y6UyNy0YhAfNLMfLuKrAdBiKMcLqweI';\nconst api = 'http://localhost:3001';\n\nexport default {\n  getExploreImages: () => {\n    try {\n      return fetch(`${apiUrl}`)\n        .then((response) => response.json())\n        .catch((err) => console.log(err));\n    } catch (err) {\n      console.log('error handler inside try', err);\n    }\n  },\n\n  getUserImages: (id) => {\n    try {\n      return fetch(`${api}/images/upload/${id}`)\n        .then((response) => response.json())\n        .catch((err) => console.log(err));\n    } catch (err) {\n      console.log('error handler inside try', err);\n    }\n  },\n};\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

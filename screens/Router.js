@@ -13,7 +13,6 @@ import { connect } from 'react-redux';
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = (props) => {
-  console.log(props.isAuthenticated);
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -28,8 +27,8 @@ const DrawerNavigator = (props) => {
       >
         {props.isAuthenticated ? (
           <>
-            <Drawer.Screen name="User Photos" component={UserGallery} />
             <Drawer.Screen name="Explore" component={Explore} />
+            <Drawer.Screen name="User Photos" component={UserGallery} />
             <Drawer.Screen name="Upload" component={Upload} />
             <Drawer.Screen name="Logout" component={Logout} />
           </>

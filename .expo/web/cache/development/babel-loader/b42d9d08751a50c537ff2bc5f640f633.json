@@ -1,0 +1,60 @@
+{
+  "ast": null,
+  "code": "import { act } from 'react-test-renderer';\nimport * as actionTypes from \"../actions/actionTypes\";\nimport { updateObject } from \"../utils\";\nvar initialState = {\n  user: {\n    user_id: null,\n    token: null,\n    images: []\n  },\n  exploreImages: [],\n  loading: false,\n  error: null\n};\n\nvar setIsLoading = function setIsLoading(state) {\n  return updateObject(state, {\n    loading: true\n  });\n};\n\nvar setError = function setError(state, action) {\n  return updateObject(state, {\n    loading: false,\n    error: action.payload\n  });\n};\n\nvar getUserImagesSuccess = function getUserImagesSuccess(state, action) {\n  var data = action.payload.map(function (image) {\n    return {\n      id: image.id,\n      url: image.urls.regular\n    };\n  });\n  return updateObject(state, {\n    loading: false,\n    user: {\n      user_id: state.user.user_id,\n      token: state.user.token,\n      images: data\n    }\n  });\n};\n\nvar getExploreImagesSuccess = function getExploreImagesSuccess(state, action) {\n  var data = action.payload.map(function (image) {\n    return {\n      id: image.id,\n      url: image.urls.regular\n    };\n  });\n  return updateObject(state, {\n    loading: false,\n    exploreImages: data\n  });\n};\n\nvar setLoggedIn = function setLoggedIn(state, action) {\n  return updateObject(state, {\n    user: {\n      user_id: action.payload.id,\n      token: action.payload.token,\n      images: state.user.images\n    },\n    loading: false\n  });\n};\n\nvar setLogOut = function setLogOut(state, action) {\n  return updateObject(state, {\n    user: {\n      user_id: null,\n      token: null,\n      images: []\n    }\n  });\n};\n\nvar reducer = function reducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case actionTypes.GET_USER_IMAGES_START:\n      return setIsLoading(state, action);\n\n    case actionTypes.GET_USER_IMAGES_FAIL:\n      return setError(state, action);\n\n    case actionTypes.GET_USER_IMAGES_SUCCESS:\n      return getUserImagesSuccess(state, action);\n\n    case actionTypes.GET_EXPLORE_IMAGES_FAIL:\n      return setError(state, action);\n\n    case actionTypes.GET_EXPLORE_IMAGES_START:\n      return setIsLoading(state, action);\n\n    case actionTypes.GET_EXPLORE_IMAGES_SUCCESS:\n      return getExploreImagesSuccess(state, action);\n\n    case actionTypes.LOGIN_START:\n      return setIsLoading(state, action);\n\n    case actionTypes.LOGIN_FAIL:\n      return setError(state, action);\n\n    case actionTypes.LOGIN_SUCCESS:\n      return setLoggedIn(state, action);\n\n    case actionTypes.CREATE_USER_START:\n      return setIsLoading(state, action);\n\n    case actionTypes.CREATE_USER_FAIL:\n      return setError(state, action);\n\n    case actionTypes.CREATE_USER_SUCCESS:\n      return setLoggedIn(state, action);\n\n    case actionTypes.USER_LOGOUT:\n      return setLogOut(state, action);\n\n    default:\n      return state;\n  }\n};\n\nexport default reducer;",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/store/reducers/mainReducer.js"
+    ],
+    "names": [
+      "act",
+      "actionTypes",
+      "updateObject",
+      "initialState",
+      "user",
+      "user_id",
+      "token",
+      "images",
+      "exploreImages",
+      "loading",
+      "error",
+      "setIsLoading",
+      "state",
+      "setError",
+      "action",
+      "payload",
+      "getUserImagesSuccess",
+      "data",
+      "map",
+      "image",
+      "id",
+      "url",
+      "urls",
+      "regular",
+      "getExploreImagesSuccess",
+      "setLoggedIn",
+      "setLogOut",
+      "reducer",
+      "type",
+      "GET_USER_IMAGES_START",
+      "GET_USER_IMAGES_FAIL",
+      "GET_USER_IMAGES_SUCCESS",
+      "GET_EXPLORE_IMAGES_FAIL",
+      "GET_EXPLORE_IMAGES_START",
+      "GET_EXPLORE_IMAGES_SUCCESS",
+      "LOGIN_START",
+      "LOGIN_FAIL",
+      "LOGIN_SUCCESS",
+      "CREATE_USER_START",
+      "CREATE_USER_FAIL",
+      "CREATE_USER_SUCCESS",
+      "USER_LOGOUT"
+    ],
+    "mappings": "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",
+    "sourcesContent": [
+      "import { act } from 'react-test-renderer';\nimport * as actionTypes from '../actions/actionTypes';\nimport { updateObject } from '../utils';\n\nconst initialState = {\n  user: {\n    user_id: null,\n    token: null,\n    images: [],\n  },\n  exploreImages: [],\n  loading: false,\n  error: null,\n};\n\nconst setIsLoading = (state) => {\n  return updateObject(state, { loading: true });\n};\n\nconst setError = (state, action) => {\n  return updateObject(state, {\n    loading: false,\n    error: action.payload,\n  });\n};\n\nconst getUserImagesSuccess = (state, action) => {\n  const data = action.payload.map((image) => ({\n    id: image.id,\n    url: image.urls.regular,\n  }));\n  return updateObject(state, {\n    loading: false,\n    user: {\n      user_id: state.user.user_id,\n      token: state.user.token,\n      images: data,\n    },\n  });\n};\n\nconst getExploreImagesSuccess = (state, action) => {\n  const data = action.payload.map((image) => ({\n    id: image.id,\n    url: image.urls.regular,\n  }));\n\n  return updateObject(state, {\n    loading: false,\n    exploreImages: data,\n  });\n};\n\nconst setLoggedIn = (state, action) => {\n  return updateObject(state, {\n    user: {\n      user_id: action.payload.id,\n      token: action.payload.token,\n      images: state.user.images,\n    },\n    loading: false\n  });\n};\n\nconst setLogOut = (state, action) => {\n  return updateObject(state, {\n    user: {\n      user_id: null,\n      token: null,\n      images: [],\n    },\n  });\n};\n\nconst reducer = (state = initialState, action) => {\n  switch (action.type) {\n    case actionTypes.GET_USER_IMAGES_START:\n      return setIsLoading(state, action);\n    case actionTypes.GET_USER_IMAGES_FAIL:\n      return setError(state, action);\n    case actionTypes.GET_USER_IMAGES_SUCCESS:\n      return getUserImagesSuccess(state, action);\n    case actionTypes.GET_EXPLORE_IMAGES_FAIL:\n      return setError(state, action);\n    case actionTypes.GET_EXPLORE_IMAGES_START:\n      return setIsLoading(state, action);\n    case actionTypes.GET_EXPLORE_IMAGES_SUCCESS:\n      return getExploreImagesSuccess(state, action);\n    case actionTypes.LOGIN_START:\n      return setIsLoading(state, action);\n    case actionTypes.LOGIN_FAIL:\n      return setError(state, action);\n    case actionTypes.LOGIN_SUCCESS:\n      return setLoggedIn(state, action);\n    case actionTypes.CREATE_USER_START:\n      return setIsLoading(state, action);\n    case actionTypes.CREATE_USER_FAIL:\n      return setError(state, action);\n    case actionTypes.CREATE_USER_SUCCESS:\n      return setLoggedIn(state, action);\n    case actionTypes.USER_LOGOUT:\n      return setLogOut(state, action);\n    default:\n      return state;\n  }\n};\n\nexport default reducer;\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

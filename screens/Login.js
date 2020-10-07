@@ -22,10 +22,11 @@ const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const loginUser = async () => {
-    const response = await props.onLogin({ email: email, password: password });
-    console.log(response);
-    if (response) props.navigation.navigate('User Photos');
+  const loginUser = () => {
+    props.onLogin({
+      email: email.toLowerCase(),
+      password: password.toLowerCase(),
+    });
   };
 
   async function changeScreenOrientation() {

@@ -17,3 +17,7 @@ export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';
 export const CREATE_USER_FAIL = 'CREATE_USER_FAIL';
 
 export const USER_LOGOUT = 'USER_LOGOUT';
+
+export const UPLOAD_START = 'UPLOAD_START';
+export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS';
+export const UPLOAD_FAIL = 'UPLOAD_FAIL';

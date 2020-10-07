@@ -1,0 +1,35 @@
+{
+  "ast": null,
+  "code": "import handleResponse from \"../helpers/handle-response\";\nvar api = 'http://localhost:3001';\nexport default {\n  getAll: getAll,\n  createUser: createUser\n};\n\nfunction getAll() {\n  var requestOptions = {\n    method: 'GET',\n    headers: authHeader()\n  };\n  return fetch(config.apiUrl + \"/users\", requestOptions).then(handleResponse);\n}\n\nfunction createUser(data) {\n  var requestOptions = {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify({\n      data: data\n    })\n  };\n  return fetch(api + \"/signUp\", requestOptions).then(handleResponse).then(function (response) {\n    return response;\n  });\n}",
+  "map": {
+    "version": 3,
+    "sources": [
+      "/Users/filippovecchiato/Desktop/Desktop-prov/Codeworks/projects/lightbox_legacy/lightbox_legacy_project_client/services/userService.js"
+    ],
+    "names": [
+      "handleResponse",
+      "api",
+      "getAll",
+      "createUser",
+      "requestOptions",
+      "method",
+      "headers",
+      "authHeader",
+      "fetch",
+      "config",
+      "apiUrl",
+      "then",
+      "data",
+      "body",
+      "JSON",
+      "stringify",
+      "response"
+    ],
+    "mappings": "AAAA,OAAOA,cAAP;AACA,IAAMC,GAAG,GAAG,uBAAZ;AAEA,eAAe;AACbC,EAAAA,MAAM,EAANA,MADa;AAEbC,EAAAA,UAAU,EAAVA;AAFa,CAAf;;AAMA,SAASD,MAAT,GAAkB;AAChB,MAAME,cAAc,GAAG;AAAEC,IAAAA,MAAM,EAAE,KAAV;AAAiBC,IAAAA,OAAO,EAAEC,UAAU;AAApC,GAAvB;AACA,SAAOC,KAAK,CAAIC,MAAM,CAACC,MAAX,aAA2BN,cAA3B,CAAL,CAAgDO,IAAhD,CAAqDX,cAArD,CAAP;AACD;;AAED,SAASG,UAAT,CAAoBS,IAApB,EAA0B;AACxB,MAAMR,cAAc,GAAG;AACrBC,IAAAA,MAAM,EAAE,MADa;AAErBC,IAAAA,OAAO,EAAE;AAAE,sBAAgB;AAAlB,KAFY;AAGrBO,IAAAA,IAAI,EAAEC,IAAI,CAACC,SAAL,CAAe;AAACH,MAAAA,IAAI,EAAJA;AAAD,KAAf;AAHe,GAAvB;AAMA,SAAOJ,KAAK,CAAIP,GAAJ,cAAkBG,cAAlB,CAAL,CACJO,IADI,CACCX,cADD,EAEJW,IAFI,CAEC,UAACK,QAAD,EAAc;AAClB,WAAOA,QAAP;AACD,GAJI,CAAP;AAKD",
+    "sourcesContent": [
+      "import handleResponse from '../helpers/handle-response';\nconst api = 'http://localhost:3001';\n\nexport default {\n  getAll,\n  createUser\n};\n  \n  \nfunction getAll() {\n  const requestOptions = { method: 'GET', headers: authHeader() };\n  return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);\n}\n\nfunction createUser(data) {\n  const requestOptions = {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({data}),\n  };\n\n  return fetch(`${api}/signUp`, requestOptions)\n    .then(handleResponse)\n    .then((response) => {\n      return response;\n    });\n}"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}
