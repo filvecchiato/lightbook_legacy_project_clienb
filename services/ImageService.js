@@ -13,9 +13,14 @@ export default {
     }
   },
 
-  getUserImages: (id) => {
+  getUserImages: (id, token) => {
+    const requestOptions = {
+      method: 'GET',
+      headers: { authorization: `${token ? `Bearer ${token}` : ''}` },
+    };
+
     try {
-      return fetch(`${api}/images/${id}`)
+      return fetch(`${api}/images/${id}`, requestOptions)
         .then((response) => response.json())
         .catch((err) => console.log(err));
     } catch (err) {
@@ -23,17 +28,20 @@ export default {
     }
   },
 
-  uploadImage: (file, user_id) => {
+  uploadImage: (file, user_id, token) => {
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `${token ? `Bearer ${token}` : ''}`,
+      },
       body: file,
     };
 
     try {
       return fetch(`${api}/images/upload/${user_id}`, requestOptions)
         .then((response) => response.json())
-        .catch((err) => console.log(err));
+        .catch((err) => console.log('api error', err));
     } catch (err) {
       console.log(err);
     }

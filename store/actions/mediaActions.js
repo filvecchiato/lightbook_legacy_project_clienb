@@ -57,11 +57,11 @@ export const getUserImagesFail = (error) => {
   };
 };
 
-export const getUserImages = (userId) => {
+export const getUserImages = (userId, token) => {
   return (dispatch) => {
     dispatch(getUserImagesStart());
     imageService
-      .getUserImages(userId)
+      .getUserImages(userId, token)
       .then((response) => {
         dispatch(getUserImagesSuccess(response.data));
       })
@@ -91,14 +91,16 @@ const uploadFail = (error) => {
   };
 };
 
-export const uploadImage = (file, user_id) => {
+export const uploadImage = (file, user_id, token) => {
   const image = JSON.stringify(file);
   return (dispatch) => {
     dispatch(uploadStart());
     imageService
-      .uploadImage(image, user_id)
+      .uploadImage(image, user_id, token)
       .then((response) => {
-        dispatch(uploadSuccess());
+        if (!response.error) {
+          dispatch(uploadSuccess());
+        }
       })
       .catch((error) => {
         dispatch(uploadFail(error));

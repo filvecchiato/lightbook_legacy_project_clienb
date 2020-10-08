@@ -25,10 +25,13 @@ const setError = (state, action) => {
 };
 
 const getUserImagesSuccess = (state, action) => {
-  const data = action.payload.map((image) => ({
-    id: image.id,
-    url: image.urls.regular,
-  }));
+  const data =
+    (action.payload &&
+      action.payload.map((image) => ({
+        id: image.url.split('/').pop(),
+        url: image.url,
+      }))) ||
+    [];
   return updateObject(state, {
     loading: false,
     user: {

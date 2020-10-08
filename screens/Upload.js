@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Platform, Button, Image } from 'react-native';
+import { View, StyleSheet, Platform, Button, Image, Text } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions';
@@ -7,7 +7,7 @@ import * as ImagePicker from 'expo-image-picker';
 
 const Upload = (props) => {
   const [image, setImage] = useState(null);
-
+  const [uplaoding, setUploading] = useState(false);
   useFocusEffect(
     React.useCallback(() => {
       (async () => {
@@ -39,8 +39,13 @@ const Upload = (props) => {
       file: 'data:image/jpeg;base64,' + image.base64,
       upload_preset: 'ycbrw0p9',
     };
-
-    props.onUpload(data, props.user_id);
+    setUploading(true);
+    props.onUpload(data, props.user_id, props.token);
+    setTimeout(() => {
+      setUploading(false);
+      setImage(null);
+      props.navigation.navigate('User Photos');
+    }, 2000);
   };
 
   return (
@@ -48,7 +53,7 @@ const Upload = (props) => {
       {image ? null : (
         <Button title="Pick an image from camera roll" onPress={pickImage} />
       )}
-      {image ? (
+      {image && !uplaoding ? (
         <>
           <Image
             source={{ uri: image.uri }}
@@ -60,6 +65,7 @@ const Upload = (props) => {
           </View>
         </>
       ) : null}
+      {uplaoding ? <Text> Uploading </Text> : null}
     </View>
   );
 };
@@ -73,12 +79,14 @@ const styles = StyleSheet.create({
 const mapState = (state) => {
   return {
     user_id: state.general.user.user_id,
+    token: state.general.user.token,
   };
 };
 
 const mapDispatch = (dispatch) => {
   return {
-    onUpload: (file, user_id) => dispatch(actions.uploadImage(file, user_id)),
+    onUpload: (file, user_id, token) =>
+      dispatch(actions.uploadImage(file, user_id, token)),
   };
 };
 

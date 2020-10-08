@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions';
 
 const UserGallery = (props) => {
-  const { loading, error, userImages, getImages, userId } = props;
+  const { loading, error, userImages, getImages, userId, token } = props;
 
   const [, forceUpdate] = useState();
 
@@ -30,7 +30,7 @@ const UserGallery = (props) => {
       let isActive = true;
       forceUpdate((s) => !s);
       changeScreenOrientation();
-      getImages(userId);
+      getImages(userId, token);
       return () => {
         isActive = false;
       };
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    alignContent: 'center',
   },
   message: {
     color: 'red',
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   return {
     userImages: state.general.user.images,
+    token: state.general.user.token,
     userId: state.general.user.user_id,
     loading: state.general.loading,
     error: state.general.error,
@@ -84,7 +86,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getImages: (userId) => dispatch(actions.getUserImages(userId)),
+    getImages: (userId, token) =>
+      dispatch(actions.getUserImages(userId, token)),
   };
 };
 
